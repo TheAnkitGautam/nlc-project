@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400&display=swap');
+
+.hero-wrap {
+    padding: 3rem 0;
+    background-color: #fcfafa;
+}
+
+.about-title {
+    text-align: center;
+    font-weight: 600;
+    font-size: 2.5rem;
+    padding: 2rem 0;
+    color: rgb(32, 31, 31);
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.about-text {
+    text-align: center;
+    font-size: 1.5rem;
+    line-height: 1.9rem;
+    width: 70%;
+    margin: 0 auto;
+    padding-bottom: 3rem;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+}
+
+.about-icons {
+    padding: 1.5rem 0;
+    font-size: 3rem;
+    font-family: 'Roboto', sans-serif;
+    display: grid;
+    place-items: center;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.icon {
+    display: grid;
+    place-items: center;
+    background-color: #e74c3c;
+    padding: 1rem;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    color: #fce28b;
+    border-radius: 1.3rem;
+    margin-top: 1.25rem;
+    margin-bottom: 0.5rem;
+    position: relative;
+    font-family: 'Dancing Script', cursive;
+    font-weight: bolder;
+}
+
+.icon-item {
+    display: grid;
+    place-items: center;
+}
+
+.icon-txt {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    color: #333;
+    padding: 0 1.5rem;
+}
+
+@media (max-width:700px) {
+    .about-icons{
+        grid-template-columns: 1fr 1fr;
+    }
+    .about-text {
+        width: 90%;
+    }
+
+    .icon {
+        padding: 0.25rem;
+        height: 85px;
+        width: 85px;
+    }
+
+    .icon-txt {
+        font-size: 1rem;
+        font-weight: bold;
+        color: #333;
+        padding: 0 1.25rem;
+    }
+}

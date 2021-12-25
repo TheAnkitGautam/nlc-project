@@ -1,0 +1,170 @@
+.foot {
+    display: grid;
+    grid-template-rows: 1fr 0.2fr;
+    background-color: #F8F9FA;
+    box-shadow: -2px -5px 15px -11px rgb(0 0 0 / 62%);
+}
+
+.footer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: auto;
+    place-items: center;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.sm-icon {
+    color: #333;
+}
+
+.footer-title {
+    padding: 1rem;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    color: #333;
+}
+
+.foot-icon {
+    padding: 1rem;
+    padding-bottom: 0.25rem;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.icon-text {
+    text-align: center;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    padding: 5px 0;
+    font-size: 8px;
+    text-transform: uppercase;
+    color: gray;
+}
+
+
+.icon-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.footer-subs {
+    display: flex;
+    justify-content: center;
+}
+
+.subs-input {
+    outline: none;
+    border: none;
+    border: 1px solid #B3BDC7;
+    height: 40px;
+    border-radius: 5px 0 0 5px;
+    width: 90%;
+}
+
+.subs-input[type='text'] {
+    font-size: 1.15rem;
+    padding: 5px 10px;
+    color: rgb(85, 84, 84);
+    font-family: 'Roboto', sans-serif;
+}
+
+.subs-input::placeholder {
+    padding: 0 5px;
+}
+
+.subs-input:focus {
+    border: 1px solid tomato;
+}
+
+.subs-btn {
+    background-color: tomato;
+    border: none;
+    outline: none;
+    border-radius: 0 5px 5px 0;
+    color: white;
+    width: 100px;
+    font-family: 'Roboto', sans-serif;
+    cursor: pointer;
+}
+
+.subs-btn:hover {
+    background-color: #fff;
+    color: tomato;
+    border: 2px solid tomato;
+    font-weight: bold;
+}
+
+.fa-instagram:hover {
+    color: #f057ae;
+    text-shadow: 0 0 40px #f057ae;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+
+.fa-facebook:hover {
+    color: #3b5998;
+    transition: all 0.5s;
+    text-shadow: 0 0 40px #00f;
+}
+
+.fa-linkedin:hover {
+    color: #0e76a8;
+    transition: all 0.5s;
+    text-shadow: 0 0 40px #0e76a8;
+    cursor: pointer;
+}
+
+.fa-youtube:hover {
+    color: #ff0000;
+    transition: all 0.5s;
+    text-shadow: 0 0 40px #f00;
+    cursor: pointer;
+}
+
+.fa-envelope:hover {
+    color: #5A20CB;
+    text-shadow: 0 0 40px #5A20CB;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+
+.copy-text {
+    text-align: center;
+    padding: 1.5rem 0;
+    font-family: 'Roboto', sans-serif;
+    color: #92989FD9;
+    font-size: 0.75rem;
+}
+
+@media (max-width:700px) {
+    .footer {
+        grid-template-columns: 1fr;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+
+    .copy-text {
+        padding: 1.5rem 0;
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .footer-right {
+        padding-top: 1rem;
+    }
+
+    .footer-title {
+        padding: 0.6rem 0;
+    }
+
+    .subs-input {
+        width: 70%;
+        margin: 0;
+    }
+
+    .subs-btn {
+        width: 80px;
+    }
+}
