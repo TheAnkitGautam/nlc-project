@@ -117,7 +117,9 @@
     .slide-text {
         font-size: 0.75rem;
     }
-
+    .slide-title::after{
+        width: 95%;
+    }
     .left-arrow:hover, .right-arrow:hover {
         background: none;
         color: black;
