@@ -16,7 +16,7 @@
     justify-content: center;
     align-items: center;
     box-sizing: border-box;
-    transform: translateY(55px) scale(0.95);
+    transform: translateY(75px) scale(0.95);
     border-radius: 10px;
 }
 
@@ -86,7 +86,6 @@
     text-shadow: 3px 1px 16px rgba(207, 207, 209, 1);
     padding-top: 5px;
     font-size: 1.1rem;
-    /* width: 50%; */
 }
 
 
@@ -98,7 +97,7 @@
 
     .slide {
         height: 300px;
-        transform: translateY(57px) scale(1);
+        transform: translateY(75px) scale(1);
         border-radius: 0;
     }
 
@@ -121,9 +120,7 @@
         width: 95%;
     }
     .left-arrow:hover, .right-arrow:hover {
-        background: none;
-        color: black;
-        opacity: 1;
+        background: rgba(0, 0, 0, 0);
     }
 
     .slide-content {

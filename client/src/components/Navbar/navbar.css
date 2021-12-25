@@ -1,79 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 .navbar {
-    background-color: snow;
-    display: grid;
-    position: relative;
-    grid-template-columns: repeat(8, 1.5fr);
+    display: flex;
     align-items: center;
-    box-shadow: 0 0 10px rgba(121, 142, 160, 0.164);
-    padding: 0.75rem 0;
-    position: fixed;
-    z-index: 999;
-    width: 100%;
-    font-family: 'Roboto';
-}
-
-.navbar svg {
-    width: 30px;
-    color: #333
-}
-
-.navbar .logo {
-    grid-column: 2/3;
-}
-
-.navbar .menu {
-    position: absolute;
-    width: 100%;
-    height: 70vh;
-    top: 1rem;
-    display: grid;
-    place-items: center;
-    text-align: center;
+    height: 70px;
     background-color: snow;
-    transform: translateX(200%);
-    transition: transform .5s;
+    position: fixed;
+    width: 100%;
+    box-shadow: 0 0 10px rgba(121, 142, 160, 0.5);
+    z-index: 999;
 }
 
-.navbar .menu li {
+.nav-logo {
+    display: flex;
+    align-items: center;
+    margin-right: auto;
+    margin-left: 3rem;
+}
+
+.logo-img {
+    height: 60px;
+    filter: invert(1);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
     list-style: none;
-    color: #333;
+    margin: 0 auto;
 }
 
-.navbar .menu-bar {
-    display: block;
-    grid-column: 8/9;
+.nav-links li {
+    margin-left: 1.5rem;
+    font-family: 'Roboto', serif;
+    font-weight: 400;
+    padding: 0.6rem 0.4rem;
     cursor: pointer;
 }
 
-.navbar .shooping {
+.nav-links li:hover, .nav-links li:focus {
+    color: green;
+    text-shadow: 0px 0px 20px rgba(0, 255, 0, 0.58);
+    transition: color 0.5s all;
+}
+
+.nav-icon-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: 3rem;
+}
+
+.nav-sm {
+    font-size: 1.5rem;
+    padding: 0.5rem;
+}
+
+.nav-ig {
+    color: #f057ae;
+}
+
+.nav-fb {
+    color: #3b5998;
+}
+
+.nav-lik {
+    color: #0e76a8;
+}
+
+.nav-yt {
+    color: #ff0000;
+}
+
+.menu-btn {
     display: none;
 }
 
-.navbar .menu-toggle {
-    transform: translateX(0%)
-}
-
-@media (min-width: 700px) {
-    .navbar .shooping {
-        display: block;
-        grid-column: 8/9;
+@media (max-width:900px) {
+    .nav-icon-wrapper {
+        margin-right: 1.5rem;
     }
 
-    .navbar .menu-bar {
+    .nav-links li {
+        margin-left: 1rem;
+    }
+
+    .logo {
+        margin-left: 1.5rem;
+    }
+}
+
+.mobile-nav {
+    display: none;
+}
+
+@media (max-width:780px) {
+    .nav-icon-wrapper {
         display: none;
     }
 
-    .navbar .menu {
-        position: relative;
-        grid-column: 3/6;
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        transform: none;
-        width: auto;
-        height: auto;
-        top: 50%;
-        transform: translate(0, -50%);
-        margin-top: 0;
+    .nav-links {
+        display: none;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        margin: 0 auto;
+    }
+
+    .menu-btn {
+        display: block;
+        margin-right: 2rem;
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
+
+    .mobile-nav {
+        display: block;
+        position: fixed;
+        top: 70px;
+        right: -100%;
+        z-index: 998;
+        background-color: #353b48;
+        min-width: min(100%, 300px);
+        list-style: none;
+        padding: 1rem 0;
+        transition: 0.4s all;
+        height: 100vh;
+    }
+
+    .mobile-nav.is-active {
+        right: 0%;
+    }
+
+    .mobile-nav li {
+        text-align: center;
+        font-family: 'Roboto', serif;
+        font-weight: 400;
+        color: white;
+        padding-top: 2rem;
+        font-size: 1.5rem;
+    }
+
+    .mobile-nav li:hover {
+        color: #48dbfb;
+        transition: color 0.5s all;
+    }
+
+    .fa-times-circle {
+        font-size: 1.5rem;
     }
 }

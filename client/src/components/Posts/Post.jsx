@@ -3,7 +3,6 @@ import './posts.css'
 import SinglePost from './SinglePost';
 import postData from './PostData';
 
-
 const Post = () => {
     return (
         <section className='post-page'>

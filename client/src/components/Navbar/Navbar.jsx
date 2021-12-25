@@ -1,25 +1,43 @@
+import { useState } from 'react';
 import './navbar.css'
-
+import logo from './logo-white.png';
 const Navbar = () => {
+    const [menuState, setMenuState] = useState(false);
+    const handleMenu = (e) => {
+        setMenuState((menuState) => {
+            return (!menuState)
+        })
+    }
 
     return (
         <>
-            <nav className="navbar">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 logo" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                <ul className="menu" id="menu">
+            <nav className="navbar menu">
+                <div className="nav-logo"><img className='logo-img' src={logo} alt="" /></div>
+                <div className="center">
+                    <ul className="nav-links">
+                        <li>Home</li>
+                        <li>Our Team</li>
+                        <li>Achievments</li>
+                        <li>Public Corner</li>
+                        <li>About Us</li>
+                    </ul>
+                </div>
+
+                <ul className={menuState ? "mobile-nav is-active" : "mobile-nav"}>
                     <li>Home</li>
-                    <li>Gallery</li>
-                    <li>Blog</li>
-                    <li>Contact</li>
+                    <li>Our Team</li>
+                    <li>Achievments</li>
+                    <li>Public Corner</li>
+                    <li>About Us</li>
                 </ul>
 
-                <div className="menu-bar" id="menu-bar">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                    </svg>
+                <div className="nav-icon-wrapper">
+                    <a href="https://www.instagram.com/nita_lit_club/" rel="noreferrer" target="_blank"><i className="foot-icon nav-sm nav-ig fab fa-instagram" /></a>
+                    <a href="https://www.instagram.com/nita_lit_club/" rel="noreferrer" target="_blank"><i className="foot-icon nav-sm nav-fb fab fa-facebook" /></a>
+                    <a href="https://www.instagram.com/nita_lit_club/" rel="noreferrer" target="_blank"><i className="foot-icon nav-sm nav-lik fab fa-linkedin" /></a>
+                    <a href="https://www.youtube.com/channel/UCN4F89ff2F2qECLEa0YNUHA" rel="noreferrer" target="_blank"><i className="foot-icon nav-sm nav-yt fab fa-youtube" /></a>
                 </div>
+                <div className="menu-btn" onClick={handleMenu}><i className={menuState ? "far fa-times-circle" : "fas fa-bars"} /></div>
             </nav>
         </>
     );

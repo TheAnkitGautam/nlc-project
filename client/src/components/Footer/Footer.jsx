@@ -8,22 +8,22 @@ const Footer = () => {
                     <h3 className='footer-title'>Follow our Social Media Handles</h3>
                     <div className="icon-wrapper">
                         <div className="sm-icon">
-                            <i className="foot-icon fab fa-instagram" />
+                            <a href="https://www.instagram.com/nita_lit_club/" rel="noreferrer" target="_blank"> <i className="foot-icon fab fa-instagram" /></a>
                             <h6 className='icon-text'>instagram</h6>
                         </div>
                         <div className="sm-icon">
-                            <i className="foot-icon fab fa-facebook" />
+                            <a href="https://www.instagram.com/nita_lit_club/" rel="noreferrer" target="_blank"><i className="foot-icon fab fa-facebook" /></a>
                             <h6 className='icon-text'>facebook</h6>
                         </div>
                         <div className="sm-icon">
-                            <i className="foot-icon fab fa-linkedin" />
+                            <a href="https://www.instagram.com/nita_lit_club/" rel="noreferrer" target="_blank"><i className="foot-icon fab fa-linkedin" /></a>
                             <h6 className='icon-text'>linkedin</h6>
                         </div>
                         <div className="sm-icon">
-                            <i className="foot-icon fab fa-youtube" />
+                            <a href="https://www.youtube.com/channel/UCN4F89ff2F2qECLEa0YNUHA" rel="noreferrer" target="_blank"><i className="foot-icon fab fa-youtube" /></a>
                             <h6 className='icon-text'>youtube</h6></div>
                         <div className="sm-icon">
-                            <i className="foot-icon fas fa-envelope" />
+                            <a href="https://www.instagram.com/nita_lit_club/" rel="noreferrer" target="_blank"><i className="foot-icon fas fa-envelope" /></a>
                             <h6 className='icon-text'>Email</h6></div>
                     </div>
                 </div >
