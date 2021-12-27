@@ -73,14 +73,14 @@
     font-size: 3rem;
 }
 
-.slide-title::after {
+/* .slide-title::after {
     content: '';
     border-bottom: 4px solid white;
     width: 80%;
     padding: 2px 0;
     display: block;
     position: relative;
-}
+} */
 
 .slide-text {
     text-shadow: 3px 1px 16px rgba(207, 207, 209, 1);

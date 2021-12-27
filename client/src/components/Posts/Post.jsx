@@ -6,7 +6,7 @@ import postData from './PostData';
 const Post = () => {
     return (
         <section className='post-page'>
-            <h1 className="posts-title">Featured Posts</h1>
+            <h1 className="posts-title">Featured Content</h1>
             <div className='posts'>
                 {
                     postData.map((post) => {

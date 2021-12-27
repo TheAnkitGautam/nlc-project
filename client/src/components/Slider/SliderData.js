@@ -1,4 +1,5 @@
 import img1 from './img-1.jpg'
+import img2 from './img-2.png'
 const SliderData = [
     {
         image: img1,
@@ -6,10 +7,9 @@ const SliderData = [
         text: `We stand for W.I.S.H Wisdom Inspiration Serenity Hardwork`
     },
     {
-        image:
-            'https://images.unsplash.com/photo-1640102953836-5651f5d6b240?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1924&q=80',
-        title: "NITA LITERARY CLUB",
-        text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptate nostrum, optio voluptatum"
+        image: img2,
+        // title: "NITA LITERARY CLUB",
+        // text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptate nostrum, optio voluptatum"
     },
     {
         image:
