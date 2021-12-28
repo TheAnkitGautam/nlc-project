@@ -1,10 +1,12 @@
-import HomePage from "./Pages/HomePage";
+// import HomePage from "./Pages/HomePage";
+import TeamPage from "./Pages/TeamPage";
 
 
 function App() {
   return (
     <>
-      <HomePage />
+      {/* <HomePage /> */}
+      <TeamPage />
     </>
   );
 }

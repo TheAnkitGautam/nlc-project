@@ -15,7 +15,7 @@ const Content = () => {
                                     <div className="post-content" >
                                         <h4 className='post-heading'>{post.title}</h4>
                                         <div className="post-writer"><span className='author'>Author: </span><span>{post.author}</span></div>
-                                        <a href={post.postUrl} className='view-post'>View Post</a>
+                                        <a href={post.postUrl} rel="noreferrer" target="_blank" className='view-post'>View Post</a>
                                     </div>
                                 </div>
                             )

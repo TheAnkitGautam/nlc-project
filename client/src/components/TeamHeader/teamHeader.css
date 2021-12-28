@@ -1,0 +1,84 @@
+.team-heading {
+    padding-top: 1rem;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 900;
+}
+
+.meet-word {
+    color: #DB5D4D;
+}
+
+.team-intro-para {
+    padding-top: 1rem;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 22px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.coordinator {
+    padding: 4rem 0 0 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    place-items: center;
+}
+
+.coord-wrap {
+    display: grid;
+    place-items: center;
+}
+
+.coordinator-desc {
+    display: grid;
+    place-items: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+.coord-desc {
+    width: 60%;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.coord-name {
+    font-size: 1.5rem;
+}
+
+.coord-name::after {
+    margin: 7px auto;
+    display: block;
+    content: '';
+    border-bottom: 3px solid #000;
+    width: 50%;
+}
+
+.coord-post {
+    color: gray;
+    font-size: 1.05rem;
+}
+
+.team-sm-icon {
+    font-size: 1rem;
+    color: #f2f2f2;
+}
+
+.team-icon {
+    background: #DB5D4D;
+    margin-top: 0.5rem;
+    margin-left: 0.5rem;
+    padding: 8px;
+    border-radius: 50%;
+    border: 2px solid #DB5D4D;
+    transition: all 0.5s;
+}
+.team-icon:hover{
+    background: none;
+    color: #DB5D4D;
+}
+
+.coord-wrap:first-child {
+    border-right: 2px dotted #DB5D4D;
+}
