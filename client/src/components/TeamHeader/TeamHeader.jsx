@@ -14,8 +14,8 @@ const TeamHeader = () => {
                             <h3 className="coord-name">Dr. Anuradha Nongmaithem</h3>
                             <h5 className="coord-post">Faculty Coordinator</h5>
                             <div className="team-sm-icon">
-                                <a href=""><i className="team-icon fab fa-instagram" /></a>
-                                <a href=""><i className="team-icon fab fa-linkedin-in" /></a>
+                                <a href="https://fb.com"><i className="team-icon fab fa-instagram" /></a>
+                                <a href="https://fb.com"><i className="team-icon fab fa-linkedin-in" /></a>
                             </div>
                             <p className="coord-desc">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
                             <Dots />
@@ -26,7 +26,10 @@ const TeamHeader = () => {
                         <div className="coordinator-desc">
                             <h3 className="coord-name">Anawil Tiwari</h3>
                             <h5 className="coord-post">President</h5>
-                            <div className="team-sm-icon"><i className="team-icon fab fa-instagram" /><i className="team-icon fab fa-linkedin-in" /></div>
+                            <div className="team-sm-icon">
+                                <a href="https://fb.com"><i className="team-icon fab fa-instagram" /></a>
+                                <a href="https://fb.com"><i className="team-icon fab fa-linkedin-in" /></a>
+                            </div>
                             <p className="coord-desc">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
                             <Dots />
                         </div>
