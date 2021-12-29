@@ -1,13 +1,14 @@
 import teamCardCSS from './teamCard.module.css';
 import SingleCard from './SingleCard';
-import { Executive_Team, Second_Team, Third_Team } from './TeamData';
+import { Executive_Team, LinkedIn_Team, Social_Team } from './TeamData';
 import Dots from './Dots';
+import SecondaryCard from './SecondaryCard';
 
 const TeamCard = () => {
     return (
         <>
             <section className={teamCardCSS.card_box}>
-                <h2 className={teamCardCSS.title}>Executive Team</h2>
+                <h2 className={teamCardCSS.title}><span>Executive Team</span></h2>
                 <div className={teamCardCSS.card_wrap}>
                     {
                         Executive_Team.map((Exe_member) => {
@@ -18,8 +19,35 @@ const TeamCard = () => {
                 < Dots />
             </section>
 
+            <section className={teamCardCSS.secondary_card_box}>
+                <h3 className={teamCardCSS.secondary_title}><span>Linkedin Team</span></h3>
+                <div className={teamCardCSS.secondary_card_wrap}>
+                    {
+                        LinkedIn_Team.map((LinkedIn_member) => {
+                            return <SecondaryCard key={LinkedIn_member.index} props={LinkedIn_member} />
+                        })
+                    }
+                </div>
+            </section>
 
-            <section className={teamCardCSS.card_box}>
+            <section className={teamCardCSS.secondary_card_box}>
+                <h3 className={teamCardCSS.secondary_title}><span>Social Team</span></h3>
+                <div className={teamCardCSS.social_card_wrap}>
+                    {
+                        Social_Team.map((Social_member) => {
+                            return <SecondaryCard key={Social_member.index} props={Social_member} />
+                        })
+                    }
+                </div>
+            </section>
+        </>
+    );
+}
+
+export default TeamCard;
+
+
+{/* <section className={teamCardCSS.card_box}>
                 <h2 className={teamCardCSS.title}>Second Team</h2>
                 <div className={teamCardCSS.card_wrap}>
                     {
@@ -31,7 +59,7 @@ const TeamCard = () => {
                 < Dots />
             </section>
 
-            
+
             <section className={teamCardCSS.card_box}>
                 <h2 className={teamCardCSS.title}>Third Team</h2>
                 <div className={teamCardCSS.card_wrap}>
@@ -42,9 +70,4 @@ const TeamCard = () => {
                     }
                 </div>
                 < Dots />
-            </section>
-        </>
-    );
-}
-
-export default TeamCard;
+            </section> */}

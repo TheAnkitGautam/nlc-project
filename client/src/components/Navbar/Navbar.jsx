@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import './navbar.css'
 import logo from './logo-white.png';
+import { Link } from 'react-router-dom';
+
 const Navbar = () => {
     const [menuState, setMenuState] = useState(false);
     const handleMenu = (e) => {
@@ -15,8 +17,8 @@ const Navbar = () => {
                 <div className="nav-logo"><img className='logo-img' src={logo} alt="" /></div>
                 <div className="center">
                     <ul className="nav-links">
-                        <li>Home</li>
-                        <li>Our Team</li>
+                        <Link to='/'><li>Home</li></Link>
+                        <Link to='/team'><li>Our Team</li></Link>
                         <li>Achievments</li>
                         <li>Public Corner</li>
                         <li>About Us</li>
@@ -24,8 +26,8 @@ const Navbar = () => {
                 </div>
 
                 <ul className={menuState ? "mobile-nav is-active" : "mobile-nav"}>
-                    <li>Home</li>
-                    <li>Our Team</li>
+                    <Link to='/'><li>Home</li></Link>
+                    <Link to='/team'><li>Our Team</li></Link>
                     <li>Achievments</li>
                     <li>Public Corner</li>
                     <li>About Us</li>

@@ -2,6 +2,12 @@
     padding: 1rem 0 2rem 0;
 }
 
+.secondary_card_box {
+    padding: 1rem 0 2rem 0;
+    width: 85%;
+    margin: 0 auto;
+}
+
 .card_wrap {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -12,7 +18,41 @@
 
 .title {
     text-align: center;
-    margin: 1rem 0 2rem 0;
-    font-size: 2.5rem;
+    margin: 1rem 0 3rem 0;
+    font-size: 2rem;
     font-family: 'Roboto', serif;
+}
+
+.title span {
+    background-color: #db5d4d;
+    color: white;
+    padding: 7px 10px;
+    border-radius: 14px;
+}
+
+.secondary_title {
+    text-align: center;
+    font-family: 'Roboto', serif;
+    font-size: 2rem;
+}
+
+.secondary_title span {
+    background-color: #db5d4d;
+    color: white;
+    padding: 7px 10px;
+    border-radius: 14px;
+}
+
+.secondary_card_wrap {
+    margin-top: 2rem;
+    display: grid;
+    place-items: center;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.social_card_wrap {
+    margin-top: 2rem;
+    display: grid;
+    place-items: center;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
 }

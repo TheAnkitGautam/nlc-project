@@ -8,7 +8,8 @@ const SingleCard = ({ props }) => {
                 <h3 className={CSS.name}>{props.name}</h3>
                 <h4 className={CSS.post}>{props.post}</h4>
                 <div className={CSS.cardSm}>
-                    <a href={props.instaUrl}><i className="fab fa-instagram" /></a><a href={props.linkdUrl}><i className="fab fa-linkedin-in" /></a>
+                    <a href={props.instaUrl}><i className="fab fa-instagram" /></a>
+                    <a href={props.linkdUrl}><i className="fab fa-linkedin-in" /></a>
                 </div>
                 <p className={CSS.desc}>
                     {props.description}
