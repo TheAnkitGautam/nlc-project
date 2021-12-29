@@ -1,3 +1,7 @@
+.team-header {
+    transform: translateY(70px);
+}
+
 .team-heading {
     padding-top: 1rem;
     font-family: 'Roboto', sans-serif;
@@ -74,7 +78,8 @@
     border: 2px solid #DB5D4D;
     transition: all 0.5s;
 }
-.team-icon:hover{
+
+.team-icon:hover {
     background: none;
     color: #DB5D4D;
 }

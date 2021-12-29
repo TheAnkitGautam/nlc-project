@@ -28,6 +28,7 @@ const TeamCard = () => {
                         })
                     }
                 </div>
+                < Dots />
             </section>
 
             <section className={teamCardCSS.secondary_card_box}>
@@ -39,6 +40,7 @@ const TeamCard = () => {
                         })
                     }
                 </div>
+                < Dots />
             </section>
         </>
     );
