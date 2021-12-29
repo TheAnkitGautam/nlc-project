@@ -1,0 +1,86 @@
+.wrap {
+    padding: 0 0 2rem 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    place-items: center;
+    margin: 0 auto;
+    max-width: 1000px;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+.details {
+    height: 100%;
+    border-left: 2px dotted #DB5D4D;
+}
+
+.name {
+    font-size: 1.75rem;
+    line-height: 2rem;
+}
+
+.name::after {
+    margin: 7px auto;
+    display: block;
+    content: '';
+    border-bottom: 3px solid #000;
+    width: 40%;
+}
+
+.post {
+    color: gray;
+    font-size: 1.05rem;
+}
+
+.cardSm {
+    font-size: 1rem;
+    color: #f2f2f2;
+}
+
+.cardSm i {
+    background: #DB5D4D;
+    margin-top: 0.5rem;
+    margin-left: 0.5rem;
+    padding: 8px;
+    border-radius: 50%;
+    border: 2px solid #DB5D4D;
+    transition: all 0.5s;
+}
+
+.cardSm i:hover {
+    background: none;
+    color: #DB5D4D;
+}
+
+.about {
+    padding-top: 1rem;
+    width: 80%;
+    text-align: center;
+    margin: 0 auto;
+}
+
+@media (min-width:780px) and (max-width:1050px) {
+    .details {
+        border: none;
+    }
+}
+
+@media (min-width:700px) and (max-width:780px) {
+    .details {
+        border: none;
+    }
+
+    .wrap {
+        transform: scale(0.8);
+    }
+}
+
+@media (max-width:700px) {
+    .details {
+        border: none;
+    }
+
+    .wrap {
+        grid-template-columns: 1fr;
+    }
+}
