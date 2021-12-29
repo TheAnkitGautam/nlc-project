@@ -8,7 +8,7 @@ const TeamCard = () => {
     return (
         <>
             <section className={teamCardCSS.card_box}>
-                <h2 className={teamCardCSS.title}><span>Executive Team</span></h2>
+                <h2 className={teamCardCSS.title}><span>Executive Posts</span></h2>
                 <div className={teamCardCSS.card_wrap}>
                     {
                         Executive_Team.map((Exe_member) => {
@@ -49,7 +49,7 @@ const TeamCard = () => {
 export default TeamCard;
 
 
-{/* <section className={teamCardCSS.card_box}>
+/* <section className={teamCardCSS.card_box}>
                 <h2 className={teamCardCSS.title}>Second Team</h2>
                 <div className={teamCardCSS.card_wrap}>
                     {
@@ -72,4 +72,4 @@ export default TeamCard;
                     }
                 </div>
                 < Dots />
-            </section> */}
+            </section> */

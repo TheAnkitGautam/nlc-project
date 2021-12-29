@@ -35,7 +35,7 @@ const Footer = () => {
                     </div>
                 </div>
             </footer >
-            <p className="copy-text">&copy; Designed and Developed by Graphic & Technical Team NLC, NIT Agartala </p>
+            <p className="copy-text">&copy; Designed and Developed by Web Development Team, NLC, NIT Agartala </p>
         </div>
     );
 }
