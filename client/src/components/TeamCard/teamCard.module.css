@@ -4,15 +4,16 @@
 
 .secondary_card_box {
     padding: 1rem 0 2rem 0;
-    width: 85%;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
 .card_wrap {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    place-items: center;
     text-align: center;
-    width: 90%;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
@@ -47,7 +48,7 @@
     margin-top: 2rem;
     display: grid;
     place-items: center;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
 }
 
 .social_card_wrap {
@@ -55,4 +56,16 @@
     display: grid;
     place-items: center;
     grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+@media (max-width:1050px) {
+    .social_card_wrap {
+        grid-template-columns: 1fr 1fr;
+    }
+    .secondary_card_wrap {
+        margin-top: 2rem;
+        display: grid;
+        place-items: center;
+        grid-template-columns: 1fr 1fr;
+    }
 }

@@ -32,7 +32,7 @@ const TeamCard = () => {
             </section>
 
             <section className={teamCardCSS.secondary_card_box}>
-                <h3 className={teamCardCSS.secondary_title}><span>Social Team</span></h3>
+                <h3 className={teamCardCSS.secondary_title}><span>Social Media Team</span></h3>
                 <div className={teamCardCSS.social_card_wrap}>
                     {
                         Social_Team.map((Social_member) => {
@@ -47,29 +47,3 @@ const TeamCard = () => {
 }
 
 export default TeamCard;
-
-
-/* <section className={teamCardCSS.card_box}>
-                <h2 className={teamCardCSS.title}>Second Team</h2>
-                <div className={teamCardCSS.card_wrap}>
-                    {
-                        Second_Team.map((Sec_member) => {
-                            return <SingleCard key={Sec_member.index} props={Sec_member} />
-                        })
-                    }
-                </div>
-                < Dots />
-            </section>
-
-
-            <section className={teamCardCSS.card_box}>
-                <h2 className={teamCardCSS.title}>Third Team</h2>
-                <div className={teamCardCSS.card_wrap}>
-                    {
-                        Third_Team.map((Third_member) => {
-                            return <SingleCard key={Third_member.index} props={Third_member} />
-                        })
-                    }
-                </div>
-                < Dots />
-            </section> */

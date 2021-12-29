@@ -20,7 +20,7 @@
     font-family: 'Roboto', sans-serif;
     font-size: 22px;
     width: 80%;
-    margin: 0 auto;
+    margin: 0 auto 2rem auto;
 }
 
 .coordinator {
@@ -86,4 +86,13 @@
 
 .coord-wrap:first-child {
     border-right: 2px dotted #DB5D4D;
+}
+
+@media (max-width:630px) {
+    .coordinator {
+        grid-template-columns: 1fr;
+    }
+    .coord-wrap {
+        margin-top: 2rem;
+    }
 }

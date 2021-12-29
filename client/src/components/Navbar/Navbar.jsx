@@ -10,7 +10,6 @@ const Navbar = () => {
             return (!menuState)
         })
     }
-
     return (
         <>
             <nav className="navbar menu">
@@ -26,11 +25,11 @@ const Navbar = () => {
                 </div>
 
                 <ul className={menuState ? "mobile-nav is-active" : "mobile-nav"}>
-                    <Link to='/'><li>Home</li></Link>
-                    <Link to='/team'><li>Our Team</li></Link>
-                    <li>Achievments</li>
-                    <li>Public Corner</li>
-                    <li>About Us</li>
+                    <Link to='/'><li onClick={() => setMenuState(false)}>Home</li></Link>
+                    <Link to='/team'><li onClick={() => setMenuState(false)}>Our Team</li></Link>
+                    <li onClick={() => setMenuState(false)}>Achievments</li>
+                    <li onClick={() => setMenuState(false)}>Public Corner</li>
+                    <li onClick={() => setMenuState(false)}>About Us</li>
                 </ul>
 
                 <div className="nav-icon-wrapper">

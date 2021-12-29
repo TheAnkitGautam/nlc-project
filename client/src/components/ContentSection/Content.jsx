@@ -13,7 +13,6 @@ const Content = () => {
                             return (
                                 <div key={post.index} className={`post${post.index} single-content bg-img`} style={{ backgroundImage: `url(${post.postImg})` }}>
                                     <div className="post-content" >
-                                        <h4 className='post-heading'>{post.title}</h4>
                                         <div className="post-writer"><span className='author'>Author: </span><span>{post.author}</span></div>
                                         <a href={post.postUrl} rel="noreferrer" target="_blank" className='view-post'>View Post</a>
                                     </div>

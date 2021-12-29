@@ -61,7 +61,7 @@
 }
 
 .author {
-    font-size: 1.5rem;
+    font-size: 1rem;
 }
 
 .view-post {
@@ -225,7 +225,11 @@
     .grid-container {
         margin: 0 10px;
     }
-
+    .post-content {
+        width: 100%;
+        height: 78%;
+    }
+    
     .view-post {
         margin-top: 1rem;
     }

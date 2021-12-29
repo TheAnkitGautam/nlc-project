@@ -91,6 +91,9 @@
 }
 
 @media (max-width:780px) {
+    .nav-logo{
+        margin-left: 1rem;
+    }
     .nav-icon-wrapper {
         display: none;
     }
@@ -144,7 +147,7 @@
         transition: color 0.5s all;
     }
 
-    .fa-times-circle {
+    .fa-times-circle, .fa-bars {
         font-size: 2rem;
     }
 }
