@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     const [menuState, setMenuState] = useState(false);
-    const handleMenu = (e) => {
+    const handleMenu = () => {
         setMenuState((menuState) => {
             return (!menuState)
         })
@@ -20,7 +20,7 @@ const Navbar = () => {
                         <Link to='/team'><li>Our Team</li></Link>
                         <li>Achievments</li>
                         <li>Public Corner</li>
-                        <li>About Us</li>
+                        <Link to='/about'><li>About Us</li></Link>
                     </ul>
                 </div>
 
@@ -29,7 +29,7 @@ const Navbar = () => {
                     <Link to='/team'><li onClick={() => setMenuState(false)}>Our Team</li></Link>
                     <li onClick={() => setMenuState(false)}>Achievments</li>
                     <li onClick={() => setMenuState(false)}>Public Corner</li>
-                    <li onClick={() => setMenuState(false)}>About Us</li>
+                    <Link to='/about'><li onClick={() => setMenuState(false)}>About Us</li></Link>
                 </ul>
 
                 <div className="nav-icon-wrapper">

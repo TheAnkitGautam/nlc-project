@@ -16,11 +16,11 @@
 
 .name {
     font-size: 1.75rem;
-    line-height: 2rem;
+    line-height: 2.75rem;
 }
 
 .name::after {
-    margin: 7px auto;
+    margin: 3px auto;
     display: block;
     content: '';
     border-bottom: 3px solid #000;
@@ -30,6 +30,7 @@
 .post {
     color: gray;
     font-size: 1.05rem;
+    line-height: 1.25;
 }
 
 .cardSm {
