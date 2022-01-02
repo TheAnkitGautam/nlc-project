@@ -30,67 +30,6 @@ export const Executive_Team = [
     },
 ]
 
-
-export const Second_Team = [
-    {
-        index: 0,
-        image: img,
-        name: "Raheena",
-        post: "General Secratory",
-        instaUrl: "#",
-        linkdUrl: "#",
-        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. dummy text of the printing and typesetting industry."
-    },
-    {
-        index: 1,
-        image: img,
-        name: "Raheena",
-        post: "General Secratory",
-        instaUrl: "#",
-        linkdUrl: "#",
-        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. dummy text of the printing and typesetting industry."
-    },
-    {
-        index: 2,
-        image: img,
-        name: "Raheena",
-        post: "General Secratory",
-        instaUrl: "#",
-        linkdUrl: "#",
-        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. dummy text of the printing and typesetting industry."
-    },
-]
-
-export const Third_Team = [
-    {
-        index: 0,
-        image: img,
-        name: "Raheena",
-        post: "General Secratory",
-        instaUrl: "#",
-        linkdUrl: "#",
-        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. dummy text of the printing and typesetting industry."
-    },
-    {
-        index: 1,
-        image: img,
-        name: "Raheena",
-        post: "General Secratory",
-        instaUrl: "#",
-        linkdUrl: "#",
-        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. dummy text of the printing and typesetting industry."
-    },
-    {
-        index: 2,
-        image: img,
-        name: "Raheena",
-        post: "General Secratory",
-        instaUrl: "#",
-        linkdUrl: "#",
-        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. dummy text of the printing and typesetting industry."
-    },
-]
-
 export const LinkedIn_Team = [
     {
         index: 0,
@@ -151,4 +90,64 @@ export const Social_Team = [
         instaUrl: "#",
         linkdUrl: "#",
     },
+]
+export const Graphics_Team = [
+    {
+        index: 0,
+        image: img,
+        name: "Aman Priyadarshi",
+        post: "Lead",
+        instaUrl: "#",
+        linkdUrl: "#",
+    },
+    {
+        index: 1,
+        image: img,
+        name: "Triasha Roy",
+        post: "Member",
+        instaUrl: "#",
+        linkdUrl: "#",
+    },
+    {
+        index: 2,
+        image: img,
+        name: "Hrittika Hajari",
+        post: "Member",
+        instaUrl: "#",
+        linkdUrl: "#",
+    },
+    {
+        index: 3,
+        image: img,
+        name: "Eshita Bhattacharjee",
+        post: "Member",
+        instaUrl: "#",
+        linkdUrl: "#",
+    },
+]
+export const PR_Team = [
+    {
+        index: 0,
+        image: img,
+        name: "Supratim Deb",
+        post: "Lead",
+        instaUrl: "#",
+        linkdUrl: "#",
+    },
+    {
+        index: 1,
+        image: img,
+        name: "Eshita Bhattacharjee",
+        post: "Member",
+        instaUrl: "#",
+        linkdUrl: "#",
+    },
+    {
+        index: 2,
+        image: img,
+        name: "Joydeep Choudhury",
+        post: "Member",
+        instaUrl: "#",
+        linkdUrl: "#",
+    }
 ]

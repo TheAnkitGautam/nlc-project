@@ -1,0 +1,39 @@
+.mainTitle {
+    padding-top: 1rem;
+    text-align: center;
+    font-size: 3rem;
+    font-family: 'Roboto', sans-serif;
+}
+
+.aboutWord {
+    color: #DB5D4D;
+}
+
+.heroText {
+    text-align: justify;
+    font-size: 1.25rem;
+    font-family: 'Roboto', sans-serif;
+    max-width: 1300px;
+    padding: 2rem 1rem;
+    margin: 0 auto;
+}
+
+.img_box {
+    margin-top: 1rem;
+}
+
+.heroImg {
+    display: block;
+    margin: 0 auto;
+    width: 55%;
+}
+
+@media (max-width:1000px) {
+    .heroImg {
+        width: 80%;
+    }
+
+    .heroText {
+        padding: 2rem;
+    }
+}

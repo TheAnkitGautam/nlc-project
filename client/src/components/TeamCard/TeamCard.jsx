@@ -1,7 +1,7 @@
 import teamCardCSS from './teamCard.module.css';
 import SingleCard from './SingleCard';
-import { Executive_Team, LinkedIn_Team, Social_Team } from './TeamData';
-import Dots from './Dots';
+import { Executive_Team, LinkedIn_Team, Social_Team, PR_Team } from './TeamData';
+import Dots from './../Dots';
 import SecondaryCard from './SecondaryCard';
 
 const TeamCard = () => {
@@ -25,6 +25,18 @@ const TeamCard = () => {
                     {
                         LinkedIn_Team.map((LinkedIn_member) => {
                             return <SecondaryCard key={LinkedIn_member.index} props={LinkedIn_member} />
+                        })
+                    }
+                </div>
+                < Dots />
+            </section>
+
+            <section className={teamCardCSS.secondary_card_box}>
+                <h3 className={teamCardCSS.secondary_title}><span>PR Team</span></h3>
+                <div className={teamCardCSS.secondary_card_wrap}>
+                    {
+                        PR_Team.map((PR_member) => {
+                            return <SecondaryCard key={PR_member.index} props={PR_member} />
                         })
                     }
                 </div>

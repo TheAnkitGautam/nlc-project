@@ -21,10 +21,11 @@
     font-size: 22px;
     width: 80%;
     margin: 0 auto 2rem auto;
+    color: #333;
 }
 
 .coordinator {
-    padding: 4rem 0 0 0;
+    padding: 3rem 0 0 0;
     display: grid;
     grid-template-columns: 1fr 1fr;
     place-items: center;
@@ -92,7 +93,17 @@
     .coordinator {
         grid-template-columns: 1fr;
     }
+
     .coord-wrap {
         margin-top: 2rem;
+    }
+
+    .team-intro-para {
+        width: 90%;
+        font-size: 1.2rem;
+    }
+
+    .team-heading {
+        font-size: 2.75rem;
     }
 }
