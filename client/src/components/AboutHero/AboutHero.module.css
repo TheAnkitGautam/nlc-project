@@ -26,6 +26,7 @@
     display: block;
     margin: 0 auto;
     width: 55%;
+    aspect-ratio: 1000 / 550;
 }
 
 @media (max-width:1000px) {
