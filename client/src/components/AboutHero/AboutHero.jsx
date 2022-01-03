@@ -1,5 +1,6 @@
 import CSS from './AboutHero.module.css';
-import heroImg from './about-hero.png';
+// import heroImg from './about-hero.png';
+import heroImg from './test.png';
 import Dots from '../Dots';
 
 const AboutHero = () => {
