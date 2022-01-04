@@ -46,12 +46,15 @@
     opacity: 0.6;
     transition: background-color 0.4s ease;
 }
-.left-arrow:hover{
+
+.left-arrow:hover {
     border-radius: 10px 0 0 10px;
 }
-.right-arrow:hover{
+
+.right-arrow:hover {
     border-radius: 0 10px 10px 0;
 }
+
 .fa-chevron-circle-right, .fa-chevron-circle-left {
     font-size: 2rem;
 }
@@ -116,9 +119,11 @@
     .slide-text {
         font-size: 0.75rem;
     }
-    .slide-title::after{
+
+    .slide-title::after {
         width: 95%;
     }
+
     .left-arrow:hover, .right-arrow:hover {
         background: rgba(0, 0, 0, 0);
     }

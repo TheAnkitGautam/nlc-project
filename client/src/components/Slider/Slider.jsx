@@ -34,6 +34,7 @@ function Slider() {
                 <div className="right-arrow" onClick={handleRight}><i className="fas fa-chevron-circle-right" /></div>
             </div>
         </section>
+
     );
 }
 

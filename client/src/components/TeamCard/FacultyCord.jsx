@@ -14,9 +14,9 @@ const FacultyCord = () => {
                         <a href='fb.com'><i className="fab fa-linkedin-in" /></a>
                     </div>
                     <p className={CSS.about}>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. </p>
-                    <Dots />
                 </div>
             </div>
+            <Dots />
         </>
     );
 }

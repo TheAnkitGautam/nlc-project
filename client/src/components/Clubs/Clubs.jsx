@@ -34,7 +34,7 @@ const Clubs = () => {
                     </div>
                 </div>
                 <div className='single-club'>
-                    <img src={DSN} alt="" className='club-logo' style={{ filter: "invert(1)" }} />
+                    <img src={DSN} alt="" className='club-logo' />
                     <div className="club-desc">
                         <div className='club-title'>Debate Society</div>
                         <p className='club-about'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since </p>
