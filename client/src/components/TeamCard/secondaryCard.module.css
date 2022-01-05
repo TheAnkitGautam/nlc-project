@@ -16,17 +16,23 @@
 
 .name {
     text-align: center;
-    font-size: 1.25rem;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    color: #333;
 }
 
 .post {
     color: rgba(0, 0, 0, 0.6);
-    font-size: 16px;
-    line-height: 1.5rem;
+    font-size: 14px;
+    line-height: 1rem;
 }
 
 .cardSm {
     cursor: pointer;
+}
+
+.secondary_card:hover {
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
 }
 
 .cardSm i {

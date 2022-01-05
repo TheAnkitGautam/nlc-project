@@ -9,7 +9,7 @@
 }
 
 .card:hover {
-    transform: scale(1.05);   
+    transform: scale(1.05);
 }
 
 .card_img {
@@ -17,6 +17,7 @@
     max-width: 170px;
     border-radius: 50%;
     z-index: 11;
+    margin-top: 1rem;
 }
 
 .cardDetails {
@@ -62,9 +63,8 @@
     text-align: center;
 }
 
-@media (max-width:950px)
-{
-    .card{
+@media (max-width:950px) {
+    .card {
         width: 70%;
     }
 }
