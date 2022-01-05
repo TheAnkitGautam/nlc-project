@@ -48,20 +48,34 @@
     margin-top: 2rem;
     display: grid;
     place-items: center;
-    grid-template-columns: repeat(3, 1fr);
 }
 
 .social_card_wrap {
     margin-top: 2rem;
-    display: grid;
-    place-items: center;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 30px 100px;
+
 }
 
-@media (max-width:1050px) {
-    .social_card_wrap {
-        grid-template-columns: 1fr 1fr;
+.graphics_card_wrap {
+    margin-top: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 30px 60px;
+}
+
+
+@media (max-width:900px) {
+
+    .social_card_wrap, .graphics_card_wrap {
+        gap: 25px 25px;
     }
+
     .secondary_card_wrap {
         margin-top: 2rem;
         display: grid;
