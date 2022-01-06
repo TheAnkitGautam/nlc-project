@@ -45,7 +45,11 @@ const TeamCard = () => {
                 <div className={teamCardCSS.graphics_card_wrap}>
                     {
                         Graphics_Team.map((Graphics_member) => {
-                            return <SecondaryCard key={Graphics_member.index} props={Graphics_member} />
+                            return (
+                                <Fade delay={500} duration={1000}>
+                                    <SecondaryCard key={Graphics_member.index} props={Graphics_member} />
+                                </Fade>
+                            )
                         })
                     }
                 </div>
@@ -59,7 +63,11 @@ const TeamCard = () => {
                 <div className={teamCardCSS.social_card_wrap}>
                     {
                         Social_Team.map((Social_member) => {
-                            return <SecondaryCard key={Social_member.index} props={Social_member} />
+                            return (
+                                <Fade delay={500} duration={1000}>
+                                    <SecondaryCard key={Social_member.index} props={Social_member} />
+                                </Fade>
+                            )
                         })
                     }
                 </div>
@@ -72,7 +80,11 @@ const TeamCard = () => {
                 <div className={teamCardCSS.social_card_wrap}>
                     {
                         Debating_Team.map((Debating_member) => {
-                            return <SecondaryCard key={Debating_member.index} props={Debating_member} />
+                            return (
+                                <Fade delay={500} duration={1000}>
+                                    <SecondaryCard key={Debating_member.index} props={Debating_member} />
+                                </Fade>
+                            )
                         })
                     }
                 </div>

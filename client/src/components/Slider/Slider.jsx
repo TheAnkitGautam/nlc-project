@@ -23,7 +23,7 @@ function Slider() {
 
     return (
         <section className="slider">
-            <div className="slide" style={{ backgroundImage: `url(${SliderData[currImg].image})` }}>
+            <div key={ Math.random() } className="slide" style={{ backgroundImage: `url(${SliderData[currImg].image})` }}>
                 <div className="left-arrow" onClick={handleLeft}><i className="fas fa-chevron-circle-left" /></div>
                 <div className="slide-content-wrap">
                     <div className="slide-content">
