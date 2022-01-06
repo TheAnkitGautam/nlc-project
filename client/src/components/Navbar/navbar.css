@@ -35,18 +35,19 @@
     font-family: 'Roboto', serif;
     font-weight: 400;
     padding: 0.6rem 0.4rem;
+    border-bottom: 3px solid transparent;
     cursor: pointer;
 }
 
 .nav-links li:hover, .nav-links li:focus {
-    color: #2980b9;
-    text-shadow: 0px 0px 20px #2980b9;
+    color: #db5d4d;
+    text-shadow: 0px 0px 20px #db5d4d;
     transition: color 0.5s;
 }
 
-nav a.active {
-    color: #2980b9;
-    background: black;
+nav a.active li {
+    color: #db5d4d;
+    border-bottom: 3px solid #db5d4d;
 }
 
 .nav-icon-wrapper {
@@ -136,8 +137,13 @@ nav a.active {
         cursor: pointer;
     }
 
+    .mobile-nav a.active li {
+        color: #db5d4d;
+        border: none;
+    }
+
     .mobile-nav li:hover {
-        color: #48dbfb;
+        color: #db5d4d;
         transition: color 0.5s all;
     }
 
