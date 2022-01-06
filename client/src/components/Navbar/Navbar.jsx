@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './navbar.css'
 import logo from './logo-white.png';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const Navbar = () => {
     const [menuState, setMenuState] = useState(false);
@@ -16,20 +16,20 @@ const Navbar = () => {
                 <div className="nav-logo"><img className='logo-img' src={logo} alt="" /></div>
                 <div className="center">
                     <ul className="nav-links">
-                        <Link to='/'><li>Home</li></Link>
-                        <Link to='/team'><li>Our Team</li></Link>
+                        <NavLink to='/'><li>Home</li></NavLink>
+                        <NavLink to='/team'><li>Our Team</li></NavLink>
                         <li>Achievments</li>
                         <li>Public Corner</li>
-                        <Link to='/about'><li>About Us</li></Link>
+                        <NavLink to='/about'><li>About Us</li></NavLink>
                     </ul>
                 </div>
 
                 <ul className={menuState ? "mobile-nav is-active" : "mobile-nav"}>
-                    <Link to='/'><li onClick={() => setMenuState(false)}>Home</li></Link>
-                    <Link to='/team'><li onClick={() => setMenuState(false)}>Our Team</li></Link>
+                    <NavLink to='/'><li onClick={() => setMenuState(false)}>Home</li></NavLink>
+                    <NavLink to='/team'><li onClick={() => setMenuState(false)}>Our Team</li></NavLink>
                     <li onClick={() => setMenuState(false)}>Achievments</li>
                     <li onClick={() => setMenuState(false)}>Public Corner</li>
-                    <Link to='/about'><li onClick={() => setMenuState(false)}>About Us</li></Link>
+                    <NavLink to='/about'><li onClick={() => setMenuState(false)}>About Us</li></NavLink>
                 </ul>
 
                 <div className="nav-icon-wrapper">
