@@ -18,6 +18,17 @@
     box-sizing: border-box;
     transform: translateY(75px) scale(0.95);
     border-radius: 10px;
+    animation: slideImg 1s;
+}
+
+@keyframes slideImg {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 
