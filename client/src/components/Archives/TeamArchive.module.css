@@ -1,0 +1,38 @@
+.wrapper {
+    display: flex;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+.intro_page {
+    height: calc(100vh - 4rem);
+    width: 97%;
+    background-color: hotpink;
+}
+
+.intro_page h1 {
+    text-align: center;
+}
+
+.sideBar {
+    height: calc(100vh - 4rem);
+    width: 3%;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    display: grid;
+    place-items: center;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-left: 1px solid gray;
+}
+
+
+.page {
+    width: 94%;
+    height: calc(100vh - 4rem);
+}
+
+.pageTitle{
+    text-align: center;
+    font-size: 3rem;
+}

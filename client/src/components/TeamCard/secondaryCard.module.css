@@ -6,6 +6,7 @@
     text-align: center;
     transition: all 0.5s;
     border-radius: 15px;
+    transition: all 0.75s;
 }
 
 .card_img {
@@ -32,7 +33,13 @@
 }
 
 .secondary_card:hover {
-    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.secondary_card:hover .card_img {
+    border-radius: 10px;
+    transition: all 0.75s;
 }
 
 .cardSm i {
