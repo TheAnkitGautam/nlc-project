@@ -56,6 +56,7 @@
     transition: all 0.4s;
     cursor: pointer;
 }
+
 .content:hover {
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
@@ -106,7 +107,7 @@
     transition: all 0.2s ease;
 }
 
-.dot:hover {
+.timelineItem:hover > .dot{
     background-color: #DAA520;
     cursor: pointer;
 }

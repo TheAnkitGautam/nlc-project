@@ -24,6 +24,39 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0;
     padding: 0;
 }
+.fa-instagram:hover {
+    color: #f057ae;
+    text-shadow: 0 0 40px #f057ae;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+
+.fa-facebook:hover {
+    color: #3b5998;
+    transition: all 0.5s;
+    text-shadow: 0 0 40px #00f;
+}
+
+.fa-linkedin:hover {
+    color: #0e76a8;
+    transition: all 0.5s;
+    text-shadow: 0 0 40px #0e76a8;
+    cursor: pointer;
+}
+
+.fa-youtube:hover {
+    color: #ff0000;
+    transition: all 0.5s;
+    text-shadow: 0 0 40px #f00;
+    cursor: pointer;
+}
+
+.fa-envelope:hover {
+    color: #5A20CB;
+    text-shadow: 0 0 40px #5A20CB;
+    transition: all 0.5s;
+    cursor: pointer;
+}
 
 .dots_wrapper {
     display: flex;

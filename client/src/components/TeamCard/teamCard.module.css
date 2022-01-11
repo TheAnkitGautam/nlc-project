@@ -69,6 +69,22 @@
     gap: 30px 60px;
 }
 
+.exterLink {
+    font-size: 1.5rem;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    margin: 3rem 0 1rem 0;
+}
+
+.Link {
+    background-color: #db5d4d;
+    padding: 10px 20px;
+    border-radius: 20px;
+    color: snow;
+}
+.Link i{
+    margin-left: 0.5rem;
+}
 
 @media (max-width:900px) {
 
