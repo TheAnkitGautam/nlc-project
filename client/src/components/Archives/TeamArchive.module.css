@@ -1,38 +1,162 @@
 .wrapper {
     display: flex;
-    align-items: center;
     font-family: 'Roboto', sans-serif;
+    height: calc(100vh - 70px);
+    justify-content: center;
+    color: #333;
+    overflow-x: hidden;
 }
 
-.intro_page {
-    height: calc(100vh - 4rem);
-    width: 97%;
-    background-color: hotpink;
+.main {
+    padding-top: 1rem;
+    flex-basis: 3%;
+    overflow-y: scroll;
+    /* background-color: rgb(94, 163, 236); */
+    color: #333;
+    background-color: #FFE5B4;
 }
 
-.intro_page h1 {
-    text-align: center;
+.main::-webkit-scrollbar {
+    display: none;
 }
 
-.sideBar {
-    height: calc(100vh - 4rem);
-    width: 3%;
+.mainBox, .sideBox {
+    display: none;
+    padding: 2rem;
+    font-size: 1.25rem;
+}
+
+.activeTab .mainBox, .activeTab .sideBox {
+    display: block;
+}
+
+.title {
+    width: 100%;
     writing-mode: vertical-rl;
-    text-orientation: mixed;
+    text-orientation: unset;
     display: grid;
     place-items: center;
+    letter-spacing: 3px;
     text-transform: uppercase;
-    cursor: pointer;
-    border-left: 1px solid gray;
+    font-weight: bold;
+    height: 100%;
 }
 
-
-.page {
-    width: 94%;
-    height: calc(100vh - 4rem);
-}
-
-.pageTitle{
+.activeTab .title {
     text-align: center;
-    font-size: 3rem;
+    writing-mode: horizontal-tb;
+    text-orientation: mixed;
+    font-size: 2.25rem;
+    height: auto;
+}
+
+.sidebar {
+    position: sticky;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+    flex-basis: 3%;
+    padding-top: 1rem;
+    overflow-y: unset;
+    background-color: rgb(246, 68, 68);
+}
+
+.sidebar:last-of-type {
+    background-color: rgb(255, 180, 0);
+}
+
+.activeTab {
+    flex-basis: 94%;
+    overflow: scroll;
+}
+
+.activeTab::-webkit-scrollbar {
+    display: none;
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cardImg {
+    width: 200px;
+    height: 200px;
+}
+
+.imgBox {
+    display: flex;
+    gap: 0 2rem;
+}
+
+.secondBox {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.mentionTitle {
+    text-align: center;
+}
+
+.mentionList {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    list-style: none;
+    align-items: center;
+}
+
+.mentionItem {
+    margin-top: 1rem;
+}
+
+.tabAnim {
+    animation: fadeIn 500ms ease-out;
+}
+
+.name, .post {
+    text-align: center;
+    font-weight: normal;
+}
+
+.FadeAnim {
+    animation: fade 1s ease;
+}
+
+.FadeTop {
+    animation: fadeTop 600ms ease-in;
+}
+
+@keyframes fade {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeTop {
+    from {
+        transform: translateY(-500px);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(1000px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
