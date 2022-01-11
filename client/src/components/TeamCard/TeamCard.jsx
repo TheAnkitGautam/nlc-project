@@ -4,6 +4,7 @@ import { Executive_Team, Social_Team, Editorial_Team, Graphics_Team, Debating_Te
 import Dots from './../Dots';
 import SecondaryCard from './SecondaryCard';
 import { Fade } from 'react-reveal';
+import { Link } from 'react-router-dom';
 
 const TeamCard = () => {
     return (
@@ -89,6 +90,7 @@ const TeamCard = () => {
                     }
                 </div>
                 < Dots />
+                <h5 className={teamCardCSS.exterLink}><Link className={teamCardCSS.Link} to='/team/archives' >Meet Our Old Team <i className="fas fa-external-link-alt" /></Link></h5>
             </section>
         </>
     );

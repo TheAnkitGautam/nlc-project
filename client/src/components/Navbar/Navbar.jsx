@@ -19,7 +19,7 @@ const Navbar = () => {
                         <NavLink to='/'><li>Home</li></NavLink>
                         <NavLink to='/team'><li>Our Team</li></NavLink>
                         <li>Achievments</li>
-                        <li>Public Corner</li>
+                        <NavLink to='/public'><li>Public Corner</li></NavLink>
                         <NavLink to='/about'><li>About Us</li></NavLink>
                     </ul>
                 </div>

@@ -12,7 +12,7 @@ const TeamArchive = () => {
 
     return (
         <section style={{ paddingTop: "70px" }}>
-            <div className={CSS.wrapper} style={tab === 1 ? { backgroundColor: "rgb(94, 163, 236)" } : { backgroundColor: "rgb(246, 68, 68)" }}>
+            <div className={CSS.wrapper} style={tab === 1 ? { backgroundColor: "#ff6f69" } : { backgroundColor: "#ffcc5c" }}>
                 <div
                     onClick={() => handleTabChange(0)}
                     className={tab === 0 ? `${CSS.main} ${CSS.activeTab}` : `${CSS.main} ${CSS.FadeTop} ${CSS.FadeAnim}`}>
@@ -31,27 +31,27 @@ const TeamArchive = () => {
                             <div className={CSS.imgBox}>
                                 <div className={CSS.card}>
                                     <img className={CSS.cardImg} src={image} alt="" srcset="" />
-                                    <h6 className={CSS.name}>Ankit</h6>
+                                    <h6 className={CSS.name}>Ankit Gautam</h6>
                                     <h6 className={CSS.post}>President</h6>
                                 </div>
                                 <div className={CSS.card}>
                                     <img className={CSS.cardImg} src={image} alt="" srcset="" />
-                                    <h6 className={CSS.name}>Ankit</h6>
+                                    <h6 className={CSS.name}>Ankit Gautam</h6>
                                     <h6 className={CSS.post}>President</h6>
                                 </div>
                                 <div className={CSS.card}>
                                     <img className={CSS.cardImg} src={image} alt="" srcset="" />
-                                    <h6 className={CSS.name}>Ankit</h6>
+                                    <h6 className={CSS.name}>Ankit Gautam</h6>
                                     <h6 className={CSS.post}>President</h6>
                                 </div>
                             </div>
                             <div className={CSS.secondBox}>
                                 <h2 className={CSS.mentionTitle}>Other Members</h2>
                                 <ul className={CSS.mentionList}>
-                                    <li className={CSS.mentionItem}>Ankit</li>
-                                    <li className={CSS.mentionItem}>Ankit</li>
-                                    <li className={CSS.mentionItem}>Ankit</li>
-                                    <li className={CSS.mentionItem}>Ankit</li>
+                                    <li className={CSS.mentionItem}>Ankit Gautam</li>
+                                    <li className={CSS.mentionItem}>Ankit Gautam</li>
+                                    <li className={CSS.mentionItem}>Ankit Gautam</li>
+                                    <li className={CSS.mentionItem}>Ankit Gautam</li>
                                 </ul>
                             </div>
                         </div>
@@ -67,27 +67,27 @@ const TeamArchive = () => {
                             <div className={CSS.imgBox}>
                                 <div className={CSS.card}>
                                     <img className={CSS.cardImg} src={image} alt="" srcset="" />
-                                    <h6 className={CSS.name}>Ankit</h6>
+                                    <h6 className={CSS.name}>Ankit Gautam</h6>
                                     <h6 className={CSS.post}>President</h6>
                                 </div>
                                 <div className={CSS.card}>
                                     <img className={CSS.cardImg} src={image} alt="" srcset="" />
-                                    <h6 className={CSS.name}>Ankit</h6>
+                                    <h6 className={CSS.name}>Ankit Gautam</h6>
                                     <h6 className={CSS.post}>President</h6>
                                 </div>
                                 <div className={CSS.card}>
                                     <img className={CSS.cardImg} src={image} alt="" srcset="" />
-                                    <h6 className={CSS.name}>Ankit</h6>
+                                    <h6 className={CSS.name}>Ankit Gautam</h6>
                                     <h6 className={CSS.post}>President</h6>
                                 </div>
                             </div>
                             <div className={CSS.secondBox}>
                                 <h2 className={CSS.mentionTitle}>Other Members</h2>
                                 <ul className={CSS.mentionList}>
-                                    <li className={CSS.mentionItem}>Ankit</li>
-                                    <li className={CSS.mentionItem}>Ankit</li>
-                                    <li className={CSS.mentionItem}>Ankit</li>
-                                    <li className={CSS.mentionItem}>Ankit</li>
+                                    <li className={CSS.mentionItem}>Ankit Gautam</li>
+                                    <li className={CSS.mentionItem}>Ankit Gautam</li>
+                                    <li className={CSS.mentionItem}>Ankit Gautam</li>
+                                    <li className={CSS.mentionItem}>Ankit Gautam</li>
                                 </ul>
                             </div>
                         </div>

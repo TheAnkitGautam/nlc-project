@@ -11,7 +11,7 @@ const Timeline = () => {
                         TimelineData.map((data) => {
                             return (
                                 <div key={data.id} className={CSS.timelineItem}>
-                                    <Fade delay={1000} top> <div className={CSS.dot}></div></Fade>
+                                    <Fade delay={1000} top><div className={CSS.dot}></div></Fade>
                                     <Fade delay={800} left><div className={CSS.date}>{data.date}</div></Fade>
                                     <Fade duration={1500} right>
                                         <div className={CSS.content}>

@@ -6,6 +6,7 @@ import TeamPage from "./Pages/TeamPage";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import AboutPage from './Pages/AboutPage';
 import TeamArchive from './components/Archives/TeamArchive';
+import PublicCorner from './components/PublicCorner/PublicCorner';
 
 function App() {
   return (
@@ -15,8 +16,9 @@ function App() {
         <Routes>
           <Route path='/' element={<HomePage />} />
           <Route path='/team' element={<TeamPage />} />
+          <Route path='/public' element={<PublicCorner />} />
           <Route path='/about' element={<AboutPage />} />
-          <Route path='/archives' element={<TeamArchive />} />
+          <Route path='/team/archives' element={<TeamArchive />} />
         </Routes>
         {/* <Footer /> */}
       </Router>
