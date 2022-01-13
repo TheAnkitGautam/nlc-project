@@ -28,7 +28,7 @@ const Navbar = () => {
                     <NavLink to='/'><li onClick={() => setMenuState(false)}>Home</li></NavLink>
                     <NavLink to='/team'><li onClick={() => setMenuState(false)}>Our Team</li></NavLink>
                     <li onClick={() => setMenuState(false)}>Achievments</li>
-                    <li onClick={() => setMenuState(false)}>Public Corner</li>
+                    <NavLink to='/public'><li onClick={() => setMenuState(false)}>Public Corner</li></NavLink>
                     <NavLink to='/about'><li onClick={() => setMenuState(false)}>About Us</li></NavLink>
                 </ul>
 
