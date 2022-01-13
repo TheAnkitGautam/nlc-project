@@ -62,8 +62,8 @@
     width: 90%;
 }
 
-.subs-input[type='text'] {
-    font-size: 1.15rem;
+.subs-input[type='email'] {
+    font-size: 1rem;
     padding: 5px 10px;
     color: rgb(85, 84, 84);
     font-family: 'Roboto', sans-serif;
@@ -101,6 +101,12 @@
     font-family: 'Roboto', sans-serif;
     color: #92989FD9;
     font-size: 0.75rem;
+}
+
+.error {
+    font-size: 12px;
+    padding: 0.25rem 1rem;
+    font-family: 'Roboto', sans-serif;
 }
 
 @media (max-width:700px) {

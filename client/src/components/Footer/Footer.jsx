@@ -1,7 +1,21 @@
+import { useState } from 'react';
 import './footer.css'
 
-const Footer = (props) => {
+const Footer = () => {
 
+    const [email, setEmail] = useState("");
+    const [err, setErr] = useState({
+        color: "",
+        msg: ""
+    })
+
+    const handleEmail = (e) => {
+        setEmail(e.target.value);
+    }
+
+    const handleSubmit = () => {
+        setErr({ color: "red", msg: "something went wrong" })
+    }
 
     return (
         <div className="foot">
@@ -32,9 +46,10 @@ const Footer = (props) => {
                 <div className="footer-right">
                     <h3 className='footer-title'>Subcribe us for event updates</h3>
                     <div className="footer-subs">
-                        <input className='subs-input' placeholder='Enter your email' type="text" />
-                        <button className='subs-btn'>Subscribe</button>
+                        <input className='subs-input' onChange={handleEmail} value={email} placeholder='Enter your email' type="email" />
+                        <button className='subs-btn' onClick={handleSubmit} >Subscribe</button>
                     </div>
+                    <p className='error' style={{ color: err.color }}>{err.msg}</p>
                 </div>
             </footer >
             <p className="copy-text">&copy; Designed and Developed by Web Development Team, NLC, NIT Agartala </p>
