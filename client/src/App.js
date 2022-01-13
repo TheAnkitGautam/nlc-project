@@ -1,5 +1,5 @@
 import React from 'react';
-// import Footer from "./components/Footer/Footer";
+import Footer from "./components/Footer/Footer";
 import Navbar from "./components/Navbar/Navbar";
 import HomePage from "./Pages/HomePage";
 import TeamPage from "./Pages/TeamPage";
@@ -20,7 +20,7 @@ function App() {
           <Route path='/about' element={<AboutPage />} />
           <Route path='/team/archives' element={<TeamArchive />} />
         </Routes>
-        {/* <Footer /> */}
+        <Footer />
       </Router>
     </>
   );
