@@ -1,0 +1,186 @@
+.imgBox {
+    margin: 0 0 1rem 0;
+    width: 99%;
+    padding-top: 80px;
+    display: flex;
+    justify-content: center;
+}
+
+.eventImg {
+   max-width: 100%; 
+}
+
+.title {
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    background-color: #DB5D4D;
+    color: white;
+    padding: 10px 0;
+    margin: 0 auto;
+    font-size: 2rem;
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    width: 99%;
+    border-radius: 10px;
+}
+
+.title span {
+    letter-spacing: 0;
+}
+
+.noticeBox {
+    margin: 4rem auto;
+    max-width: 1000px;
+    min-height: 100vh;
+}
+
+.noticeBox>div {
+    margin-top: 1.5rem;
+}
+
+.notice {
+    margin: 0 auto;
+    display: flex;
+    padding: 0 1rem 0.5rem 1rem;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(100, 100, 111, 0.2);
+    border-bottom: 1px solid rgba(100, 100, 111, 0.2);
+    cursor: pointer;
+    color: #333;
+}
+
+.notice:hover {
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.noticeTitle {
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+.center {
+    padding: 0.5rem 3rem;
+}
+
+.noticeTitle {
+    font-size: 1.75rem;
+}
+
+.startDate, .endDate {
+    font-family: 'Roboto', sans-serif;
+    min-width: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dateTitle {
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #db5d4d;
+}
+
+.day {
+    font-size: 2.5rem;
+}
+
+.desc {
+    font-family: 'Roboto', sans-serif;
+}
+
+.btnBox {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.regBtn {
+    border: 2px solid #db5d4d;
+    margin-top: 40px;
+    padding: 7px;
+    font-family: 'Roboto', sans-serif;
+    color: #444;
+}
+
+.regBtn:hover {
+    color: white;
+    background-color: #db5d4d;
+    transform: all 400ms;
+}
+
+@media (max-width:700px) {
+    .noticeBox {
+        margin: 2rem auto;
+    }
+
+    .notice {
+        display: grid;
+        grid-template-areas:
+            "it2 it2 it2""it1 . it3";
+        justify-content: space-between;
+        align-items: start;
+        padding: 0.5rem 0;
+    }
+
+    .noticeTitle {
+        padding: 0;
+    }
+
+    .startDate {
+        grid-area: it1;
+        margin-left: 10px;
+    }
+
+    .center {
+        grid-area: it2;
+    }
+
+    .endDate {
+        grid-area: it3;
+        margin-right: 10px;
+    }
+
+    .btnBox {
+        justify-content: center;
+    }
+
+    .desc {
+        text-align: center;
+        font-size: 13px;
+        margin-top: 10px;
+    }
+
+    .center {
+        padding: 0.5rem 1.25rem;
+    }
+
+    .dateTitle {
+        font-size: 10px;
+    }
+
+    .date {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .day {
+        font-size: 1rem;
+        margin-right: 4px;
+    }
+
+    .regBtn {
+        margin-top: 15px;
+    }
+
+    .title span {
+        display: none;
+    }
+
+    .title {
+        font-size: 1.25rem;
+    }
+}

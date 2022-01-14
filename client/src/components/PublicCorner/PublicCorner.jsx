@@ -1,10 +1,22 @@
 import React from 'react'
+import eventPoster from './eventPoster.jpg';
+import Notice from './Notice';
+import CSS from './public_corner.module.css';
+import RulesPage from './RulesPage';
+
 
 const PublicCorner = () => {
     return (
         <section className='pageLoadAnim'>
-            <h1 style={{ padding: "100px", fontFamily: "Roboto" }}>Will be activated soon...</h1>
-        </section>
+            <div className={CSS.imgBox}>
+                <img src={eventPoster} alt="" className={CSS.eventImg} />
+            </div>
+            <h2 className={CSS.title}><span>----------</span> Upcoming Events <span>----------</span></h2>
+            <div className={CSS.noticeBox}>
+                <Notice />
+                <RulesPage />
+            </div>
+        </section >
     )
 }
 

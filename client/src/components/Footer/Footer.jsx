@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import axios from 'axios';
 import './footer.css'
 
 const Footer = () => {
@@ -13,8 +14,13 @@ const Footer = () => {
         setEmail(e.target.value);
     }
 
-    const handleSubmit = () => {
-        setErr({ color: "red", msg: "something went wrong" })
+    const handleSubmit = async () => {
+        try {
+            let { data } = await axios.post('/api/subscribe', { "email": email });
+            setErr({ color: data.color, msg: data.msg });
+        } catch (err) {
+            setErr({ color: "red", msg: "Something went wrong. Try again" });
+        }
     }
 
     return (
