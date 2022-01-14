@@ -11,15 +11,15 @@ router.post("/", async (req, res) => {
     try {
 
         const saveSubscriber = await newSubscriber.save();
-        res.status(200).json({ success: saveSubscriber });
+        res.status(200).json({ msg: "subscribed successfully", color: "green" });
 
     } catch (err) {
 
         if (err.code === 11000) {
-            return res.status(200).json({ error: "You are already subscribed." });
+            return res.status(200).json({ msg: "You are already subscribed.", color: "red" });
         }
 
-        res.status(500).json(err);
+        res.status(500).json({ msg: "something went wrong", color: "red" });
 
     }
 
