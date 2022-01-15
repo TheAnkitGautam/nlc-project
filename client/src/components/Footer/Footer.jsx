@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import validator from 'validator';
 import axios from 'axios';
 import './footer.css'
 
@@ -8,18 +9,24 @@ const Footer = () => {
     const [err, setErr] = useState({
         color: "",
         msg: ""
-    })
+    });
 
     const handleEmail = (e) => {
         setEmail(e.target.value);
     }
 
     const handleSubmit = async () => {
-        try {
-            let { data } = await axios.post('/api/subscribe', { "email": email });
-            setErr({ color: data.color, msg: data.msg });
-        } catch (err) {
-            setErr({ color: "red", msg: "Something went wrong. Try again" });
+        if (validator.isEmail(email)) {
+            try {
+                let { data } = await axios.post('/api/subscribe', { "email": email });
+                setErr({ color: data.color, msg: data.msg });
+                setEmail("");
+            } catch (err) {
+                setErr({ color: "red", msg: "Something went wrong. Try again" });
+                setEmail("");
+            }
+        } else {
+            setErr({ color: "red", msg: "Please enter a valid email.." });
         }
     }
 

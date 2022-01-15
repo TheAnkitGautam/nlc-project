@@ -1,0 +1,171 @@
+.title {
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    color: #444;
+    padding: 10px 0;
+    margin: 0 auto 2rem auto;
+    font-size: 2rem;
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    position: relative;
+}
+
+.title::after {
+    content: '';
+    position: absolute;
+    height: 4px;
+    width: 70%;
+    background-color: #db5d4d;
+    left: 15%;
+    bottom: -4px;
+}
+
+.form {
+    max-width: 700px;
+    margin: 3rem auto;
+    min-height: 90vh;
+    display: flex;
+    padding: 0.5rem;
+    /* flex-wrap: wrap; */
+    flex-direction: column;
+    align-items: center;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 10px;
+}
+
+.formTitle {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin: 1rem 0 2rem 0;
+    color: #444;
+    position: relative;
+}
+
+.formTitle::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 5%;
+    width: 90%;
+    height: 3px;
+    background: #db5d4d;
+}
+
+.inputBox {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr 1fr;
+    margin: 10px 20px 10px 30px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.inputBox input {
+    padding: 10px;
+    border-radius: 5px;
+    outline: none;
+    min-width: 280px;
+    border: 2px solid rgba(128, 128, 128, 0.3);
+}
+
+.inputBox label {
+    font-weight: bold;
+    color: #333;
+}
+
+.inputBox input:focus {
+    border: 2px solid #DB5D4D;
+}
+
+.inputBox input::placeholder {
+    font-size: 13px;
+}
+
+.radioBox {
+    display: grid;
+    grid-template-columns: 0.5fr 1fr;
+    font-family: 'Roboto', sans-serif;
+    width: 80%;
+    margin: 15px 0;
+}
+
+.radioBox .radioLabel {
+    font-weight: bold;
+}
+
+.options {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.options label {
+    margin-left: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.options label input {
+    margin-right: 5px;
+    height: 15px;
+    width: 15px;
+}
+
+.btnBox {
+    display: flex;
+    font-display: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin: 2rem 0;
+    transition: all 0.4s ease;
+}
+
+.btnPublic {
+    padding: 10px;
+    border: 1px solid #DB5D4D;
+    border-radius: 4px;
+    font-size: 1.25rem;
+    width: 100px;
+    font-family: 'Roboto', sans-serif;
+    display: grid;
+    place-items: center;
+}
+
+.btn {
+    padding: 10px;
+    background-color: #DB5D4D;
+    border: none;
+    border: 1px solid #DB5D4D;
+    outline: none;
+    border-radius: 4px;
+    color: white;
+    font-size: 1.25rem;
+    cursor: pointer;
+    width: 200px;
+}
+
+.btn:hover {
+    background-color: transparent;
+    color: black;
+}
+
+.btnPublic:hover {
+    background-color: #DB5D4D;
+    color: white;
+}
+
+.error {
+    font-size: 14px;
+    color: #DB5D4D;
+    margin-top: 1rem;
+    font-family: 'Roboto', sans-serif;
+    /* visibility: hidden; */
+}
+
+@media(max-width:700px) {
+    .title {
+        font-size: 1.25em;
+    }
+}

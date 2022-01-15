@@ -1,12 +1,29 @@
+
 .title {
     text-align: center;
     font-family: 'Roboto', sans-serif;
+    color: #444;
+    padding: 10px 0;
+    margin: 0 auto 2rem auto;
     font-size: 2rem;
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    position: relative;
+}
 
+.title::after {
+    content: '';
+    position: absolute;
+    height: 4px;
+    width: 70%;
+    background-color: #db5d4d;
+    left: 15%;
+    bottom: -4px;
 }
 
 .ruleBox {
-    max-width: 1200px;
+    max-width: 1100px;
     margin: 2rem auto;
     font-family: 'Roboto', sans-serif;
     color: #444;
@@ -28,4 +45,33 @@
 
 .arrow {
     padding: 0.25rem 1rem;
+}
+
+.buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 5rem;
+}
+
+.checkbox label {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.checkbox input {
+    cursor: pointer;
+    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+    background: #ff0000;
+}
+
+@media(max-width:700px) {
+    .title {
+        font-size: 1.25em;
+    }
 }

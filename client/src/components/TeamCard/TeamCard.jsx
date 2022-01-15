@@ -13,8 +13,8 @@ const TeamCard = () => {
                 <h2 className={teamCardCSS.title}><span>Executive Posts</span></h2>
                 <div className={teamCardCSS.card_wrap}>
                     {
-                        Executive_Team.map((Exe_member) => {
-                            return <SingleCard key={Exe_member.index} props={Exe_member} />
+                        Executive_Team.map((Exe_member, index) => {
+                            return <SingleCard key={index} props={Exe_member} />
                         })
                     }
                 </div>
@@ -26,11 +26,11 @@ const TeamCard = () => {
                 <h3 className={teamCardCSS.secondary_title}><span>Editorial Team</span></h3>
                 <div className={teamCardCSS.social_card_wrap}>
                     {
-                        Editorial_Team.map((Editorial_member) => {
+                        Editorial_Team.map((Editorial_member, index) => {
 
                             return (
-                                <Fade delay={500} duration={1000}>
-                                    <SecondaryCard key={Editorial_member.index} props={Editorial_member} />
+                                <Fade key={Editorial_member.index} delay={500} duration={1000}>
+                                    <SecondaryCard key={index} props={Editorial_member} />
                                 </Fade>
                             )
                         })
@@ -45,10 +45,10 @@ const TeamCard = () => {
                 <h3 className={teamCardCSS.secondary_title}><span>Graphics & Tech. Team</span></h3>
                 <div className={teamCardCSS.graphics_card_wrap}>
                     {
-                        Graphics_Team.map((Graphics_member) => {
+                        Graphics_Team.map((Graphics_member, index) => {
                             return (
-                                <Fade delay={500} duration={1000}>
-                                    <SecondaryCard key={Graphics_member.index} props={Graphics_member} />
+                                <Fade key={Graphics_member.index} delay={500} duration={1000}>
+                                    <SecondaryCard key={index} props={Graphics_member} />
                                 </Fade>
                             )
                         })
@@ -63,10 +63,10 @@ const TeamCard = () => {
                 <h3 className={teamCardCSS.secondary_title}><span>Social Media Team</span></h3>
                 <div className={teamCardCSS.social_card_wrap}>
                     {
-                        Social_Team.map((Social_member) => {
+                        Social_Team.map((Social_member, index) => {
                             return (
-                                <Fade delay={500} duration={1000}>
-                                    <SecondaryCard key={Social_member.index} props={Social_member} />
+                                <Fade key={Social_member.index} delay={500} duration={1000}>
+                                    <SecondaryCard key={index} props={Social_member} />
                                 </Fade>
                             )
                         })
@@ -80,10 +80,10 @@ const TeamCard = () => {
                 <h3 className={teamCardCSS.secondary_title}><span>Debating Society</span></h3>
                 <div className={teamCardCSS.social_card_wrap}>
                     {
-                        Debating_Team.map((Debating_member) => {
+                        Debating_Team.map((Debating_member, index) => {
                             return (
-                                <Fade delay={500} duration={1000}>
-                                    <SecondaryCard key={Debating_member.index} props={Debating_member} />
+                                <Fade key={Debating_member.index} delay={500} duration={1000}>
+                                    <SecondaryCard key={index} props={Debating_member} />
                                 </Fade>
                             )
                         })

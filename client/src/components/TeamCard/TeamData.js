@@ -301,7 +301,7 @@ export const Debating_Team = [
         linkdUrl: "#",
     },
     {
-        index: 6,
+        index: 7,
         image: img,
         name: "Advait Girap",
         post: "Member",
@@ -309,7 +309,7 @@ export const Debating_Team = [
         linkdUrl: "#",
     },
     {
-        index: 6,
+        index: 8,
         image: img,
         name: "Sumit Kumar",
         post: "Member",

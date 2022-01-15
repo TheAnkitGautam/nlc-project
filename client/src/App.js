@@ -7,6 +7,9 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import AboutPage from './Pages/AboutPage';
 import TeamArchive from './components/Archives/TeamArchive';
 import PublicCorner from './components/PublicCorner/PublicCorner';
+import Notice from './components/PublicCorner/Notice';
+import RulesPage from './components/PublicCorner/RulesPage';
+import Form from './components/PublicCorner/Form';
 
 function App() {
   return (
@@ -15,10 +18,14 @@ function App() {
         <Navbar />
         <Routes>
           <Route path='/' element={<HomePage />} />
-          <Route path='/team' element={<TeamPage />} />
-          <Route path='/public' element={<PublicCorner />} />
-          <Route path='/about' element={<AboutPage />} />
+          <Route path='/team' element={<TeamPage />} ></Route>
           <Route path='/team/archives' element={<TeamArchive />} />
+          <Route path='/public' element={<PublicCorner />} >
+            <Route path="" element={<Notice />} />
+            <Route path="rules" element={<RulesPage />} />
+            <Route path="register" element={<Form />} />
+          </Route>
+          <Route path='/about' element={<AboutPage />} />
         </Routes>
         <Footer />
       </Router>
