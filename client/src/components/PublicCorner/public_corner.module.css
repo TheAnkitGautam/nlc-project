@@ -7,31 +7,38 @@
 }
 
 .eventImg {
-   max-width: 100%; 
+    max-width: 100%;
 }
 
 .title {
     text-align: center;
     font-family: 'Roboto', sans-serif;
-    background-color: #DB5D4D;
-    color: white;
+    color: #444;
     padding: 10px 0;
-    margin: 0 auto;
+    margin: 0 auto 2rem auto;
     font-size: 2rem;
     font-weight: bold;
     letter-spacing: 3px;
     text-transform: uppercase;
-    width: 99%;
-    border-radius: 10px;
+    position: relative;
+}
+
+.title::after {
+    content: '';
+    position: absolute;
+    height: 4px;
+    width: 70%;
+    background-color: #db5d4d;
+    left: 15%;
+    bottom: -4px;
 }
 
 .title span {
-    letter-spacing: 0;
+    letter-spacing: -1px;
 }
 
 .noticeBox {
     margin: 4rem auto;
-    max-width: 1000px;
     min-height: 100vh;
 }
 
@@ -40,6 +47,7 @@
 }
 
 .notice {
+    max-width: 1100px;
     margin: 0 auto;
     display: flex;
     padding: 0 1rem 0.5rem 1rem;

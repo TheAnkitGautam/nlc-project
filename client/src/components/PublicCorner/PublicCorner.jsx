@@ -1,8 +1,8 @@
 import React from 'react'
+import { Outlet } from 'react-router-dom';
 import eventPoster from './eventPoster.jpg';
-import Notice from './Notice';
 import CSS from './public_corner.module.css';
-import RulesPage from './RulesPage';
+
 
 
 const PublicCorner = () => {
@@ -11,11 +11,7 @@ const PublicCorner = () => {
             <div className={CSS.imgBox}>
                 <img src={eventPoster} alt="" className={CSS.eventImg} />
             </div>
-            <h2 className={CSS.title}><span>----------</span> Upcoming Events <span>----------</span></h2>
-            <div className={CSS.noticeBox}>
-                <Notice />
-                <RulesPage />
-            </div>
+            <Outlet />
         </section >
     )
 }

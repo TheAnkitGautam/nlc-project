@@ -1,8 +1,10 @@
+import { Link } from 'react-router-dom';
 import CSS from './public_corner.module.css';
 
 const Notice = () => {
     return (
-        <>
+        <div className={CSS.noticeBox} >
+            <h2 className={CSS.title}><span>----------</span> Upcoming Events <span>----------</span></h2>
             <div className={CSS.notice}>
                 <div className={CSS.startDate}>
                     <div className={CSS.dateTitle}>starts on</div>
@@ -15,10 +17,10 @@ const Notice = () => {
                     <h3 className={CSS.noticeTitle}>Winter Debate</h3>
                     <p className={CSS.desc}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam culpa sequi consequatur cupiditate repudiandae quod.</p>
                     <div className={CSS.btnBox}>
-                        <a href="#/" className={CSS.regBtn}>Register here&nbsp;
+                        <Link to="rules" className={CSS.regBtn}>Register here&nbsp;
                             <i className="fas fa-angle-right" />
                             <i className="fas fa-angle-right" />
-                        </a>
+                        </Link>
                     </div>
                 </div>
                 <div className={CSS.endDate}>
@@ -29,7 +31,7 @@ const Notice = () => {
                     </div>
                 </div>
             </div>
-        </>
+        </div >
     )
 }
 

@@ -1,7 +1,6 @@
 import CSS from './Rules.module.css';
 
 const Rule = ({ props }) => {
-    console.log(props);
     return (
         <div className={CSS.ruleBox}>
             <h3 className={CSS.heading}>{props.title}</h3>
