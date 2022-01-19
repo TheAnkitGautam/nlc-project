@@ -2,15 +2,10 @@ import CSS from './Rules.module.css';
 import Rules from './Rules';
 import { GoogleLogin } from 'react-google-login';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'
 
 
 
-const clientId = "417511021538-rg3ch2imncc0ujmikjv3n0b6eiunee9d.apps.googleusercontent.com";
-
-const onLoginFailure = (res) => {
-    console.log(res);
-}
 
 const rules = [
     {
@@ -31,16 +26,31 @@ const rules = [
     }
 ]
 
+
+
 const RulesPage = () => {
 
     const [check, setCheck] = useState(false);
+    const clientId = "417511021538-rg3ch2imncc0ujmikjv3n0b6eiunee9d.apps.googleusercontent.com";
+
     const navigate = useNavigate();
-    
+
+
     const onLoginSuccess = ({ profileObj }) => {
-        console.log(profileObj);
-        navigate('/public/register');
+        try {
+            console.log(profileObj);
+            navigate('/public/register');
+        } catch (error) {
+            console.log(error);
+        }
+
     }
 
+    const onLoginFailure = (res) => {
+        console.log(res);
+    }
+
+    
     return (
         <div className={CSS.wrapper}>
 
