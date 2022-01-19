@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import InputBox from './InputBox'
 import CSS from './Form.module.css';
-import { Link } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import RadioButton from './RadioButton';
 
 export default function Form() {
@@ -130,6 +130,7 @@ export default function Form() {
         e.preventDefault();
         console.log(formdata);
     }
+
 
     return (
         <div >
