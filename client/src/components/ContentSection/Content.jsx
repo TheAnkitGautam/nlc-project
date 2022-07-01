@@ -4,7 +4,7 @@ import contentData from './ContentData';
 
 const Content = () => {
     return (
-        <>
+        <section className='container'>
             <h2 className="post-title">Featured Content</h2>
             <div className="grid-container" >
                 <div className="content-wrap">
@@ -22,7 +22,7 @@ const Content = () => {
                     }
                 </div>
             </div >
-        </>
+        </section>
     )
 }
 export default Content;
