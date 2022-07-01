@@ -18,7 +18,7 @@ const Footer = () => {
     const handleSubmit = async () => {
         if (validator.isEmail(email)) {
             try {
-                let { data } = await axios.post('/api/subscribe', { "email": email });
+                let { data } = await axios.post('/subscribe', { "email": email });
                 setErr({ color: data.color, msg: data.msg });
                 setEmail("");
             } catch (err) {

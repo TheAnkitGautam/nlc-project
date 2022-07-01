@@ -2,7 +2,7 @@ import React from 'react'
 import './hero.css'
 const Hero = () => {
     return (
-        <div className="hero-wrap">
+        <div className="hero-wrap container">
             <section className="hero">
                 <div className="about">
                     <h2 className="about-title">Who are we?</h2>

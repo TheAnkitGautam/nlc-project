@@ -5,8 +5,12 @@
     -webkit-tap-highlight-color: transparent;
 }
 
+html {
+    box-sizing: border-box;
+}
+
 .container {
-    max-width: 1400px;
+    max-width: 1350px;
     margin: 0 auto;
 }
 
@@ -23,6 +27,7 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0;
     padding: 0;
 }
+
 .fa-instagram:hover {
     color: #f057ae;
     text-shadow: 0 0 40px #f057ae;

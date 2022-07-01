@@ -7,7 +7,7 @@ import './clubs.css';
 
 const Clubs = () => {
     return (
-        <section className='club-section'>
+        <section className='club-section container'>
             <h1 className="clubs-title">Our Other Cultural Clubs</h1>
             <p className='clubs-text'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis recusandae tempore enim impedit, nostrum suscipit itaque quidem iure ab. Cumque nostrum temporibus, ratione ab est rem sit distinctio quisquam facilis.</p>
             <div className="club">
