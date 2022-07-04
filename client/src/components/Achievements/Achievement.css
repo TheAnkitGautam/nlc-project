@@ -8,26 +8,26 @@
   display: grid;
   justify-content: space-around;
   /* perspective: 800px; */
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 .achievementCard {
   /* position: relative; */
   /* width: 200px; */
-  height: 210px;
+  height: 240px;
   /* border: 1px solid blue; */
   /* width: 100%; */
-  width: 280px;
+  width: 320px;
   margin: 30px auto;
   /* border: 1px solid pink; */
   border-radius: 10px;
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 .achievementCardFace {
-    
 }
 .achievementCardFront {
-    cursor: pointer;
-    z-index: 1;
+  cursor: pointer;
+  z-index: 1;
 }
 .achievementCardFront:hover {
   /* visibility: hidden; */
@@ -35,63 +35,80 @@
   animation: fadeIn 1.5s ease 0s normal forwards 1;
 }
 .achievementCardFace img {
-  width: 280px;
+  width: 320px;
   position: absolute;
   /* border: 1px solid red; */
   border-radius: 10px;
 }
 
 .achievementCardFront {
-    position: absolute;
+  position: absolute;
 }
-.achievementFontTitle{
-    z-index: 100;
-    position: absolute;
-    
+.achievementFontTitle {
+  z-index: 100;
+  position: absolute;
 }
 
-.achievementBackContent{
-    /* border: 1px solid pink; */
-    width: 100%;
+.achievementBackContent {
+  /* border: 1px solid pink; */
+  width: 100%;
 }
 @keyframes fadeIn {
-    0% { opacity: 1; }
-    100% { opacity: 0; }
+  0% {
+    opacity: 1;
   }
-
-@media screen and (max-width: 1300px) {
-  .achievementWrapper{
-    grid-template-columns: 1fr 1fr 1fr;
+  100% {
+    opacity: 0;
   }
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1250px) {
   .achievementCard,
   .achievementCardFace img {
     height: 180px;
     width: 240px;
   }
+  .achievementWrapper {
+    margin: 25px 140px;
+  }
+}
+@media screen and (max-width: 1150px) {
+  .achievementWrapper {
+    margin: 25px 100px;
+  }
+}
+@media screen and (max-width: 1050px) {
+  .achievementWrapper {
+    margin: 25px 80px;
+  }
 }
 
-@media screen and (max-width: 900px) {
-  .achievementWrapper{
+@media screen and (max-width: 925px) {
+  .achievementWrapper {
     grid-template-columns: 1fr 1fr;
+    margin: 25px 100px;
   }
   .achievementCard,
   .achievementCardFace img {
     height: 210px;
     width: 280px;
   }
-}
-
-@media screen and (max-width: 750px) {
-  .achievementCard{
+  .achievementCard {
     margin: 20px auto;
   }
+}
+
+@media screen and (max-width: 925px){
   .achievementCard,
   .achievementCardFace img {
     height: 180px;
     width: 240px;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .achievementWrapper {
+    margin: 25px 60px;
   }
 }
 
@@ -101,10 +118,13 @@
     height: 150px;
     width: 200px;
   }
+  .achievementCard {
+    margin: 10px auto;
+  }
 }
 
 @media screen and (max-width: 550px) {
-  .achievementWrapper{
+  .achievementWrapper {
     grid-template-columns: 1fr;
   }
   .achievementCard,
