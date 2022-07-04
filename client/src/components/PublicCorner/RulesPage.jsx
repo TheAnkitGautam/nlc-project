@@ -1,10 +1,7 @@
 import CSS from './Rules.module.css';
 import Rules from './Rules';
-import { GoogleLogin } from 'react-google-login';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom'
-
-
+import axios from 'axios';
 
 
 const rules = [
@@ -31,26 +28,15 @@ const rules = [
 const RulesPage = () => {
 
     const [check, setCheck] = useState(false);
-    const clientId = "417511021538-rg3ch2imncc0ujmikjv3n0b6eiunee9d.apps.googleusercontent.com";
 
-    const navigate = useNavigate();
+    const handleRegister = async () => {
+        window.open('http://localhost:5000/auth/google', '_blank');
+        // console.log("Hello");
 
-
-    const onLoginSuccess = ({ profileObj }) => {
-        try {
-            console.log(profileObj);
-            navigate('/public/register');
-        } catch (error) {
-            console.log(error);
-        }
-
+        const ress = await axios.get('/auth/google');
+        console.log(ress);
     }
 
-    const onLoginFailure = (res) => {
-        console.log(res);
-    }
-
-    
     return (
         <div className={CSS.wrapper}>
 
@@ -77,15 +63,7 @@ const RulesPage = () => {
                 </div>
 
 
-                <GoogleLogin
-                    clientId={clientId}
-                    buttonText="Continue to Register"
-                    onSuccess={onLoginSuccess}
-                    onFailure={onLoginFailure}
-                    cookiePolicy={'single_host_origin'}
-                    isSignedIn={true}
-                    disabled={!check}
-                />
+                <button onClick={handleRegister} disabled={!check}>Register with Google</button>
 
 
             </div>

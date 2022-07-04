@@ -2,11 +2,14 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 const mongoose = require('mongoose');
-const dotenv = require('dotenv');
+const dotenv = require('dotenv').config();
 const morgan = require('morgan');
+const passport = require('passport');
+const session = require('express-session')
+const passportSetup = require('./config/passport-setup');
 
 // Importing config files
-dotenv.config({ path: './config/config.env' });
+// dotenv.config({ path: './config/config.env' });
 
 // Enabling cross origin requests
 const corsOptions = {
@@ -18,9 +21,22 @@ app.use(cors(corsOptions));
 // Enabling pre-flight reqeust across 
 app.options('*', cors(corsOptions));
 
-// Body parser
+// Middlewares
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+app.use(session({
+    secret: 'somethingsecretgoeshere',
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: true }
+}));
+// app.use(cookieSession({
+//     maxAge: 24 * 60 * 60 * 1000,
+//     keys: [process.env.COOKIE_KEY],
+// }));
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Logging
 if (process.env.NODE_ENV === "dev") {
@@ -44,6 +60,8 @@ mongoose.connection.on("error", (err) => {
 // Importing routes
 app.use("/", require("./routes/index"));
 app.use("/auth", require("./routes/auth"));
+
+
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
