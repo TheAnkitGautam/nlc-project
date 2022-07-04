@@ -12,6 +12,7 @@ import RulesPage from './components/PublicCorner/RulesPage';
 import Form from './components/PublicCorner/Form';
 import ScrollButton from './components/ScrollToTop/ScrollToTop';
 import AchievementPage from './components/Achievements/AchievementPage';
+import NotFound from './Pages/NotFound';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       <Router>
         <Navbar />
         <Routes>
+        <Route path="*" element={<NotFound />} />
           <Route path='/' element={<HomePage />} />
           <Route path='/team' element={<TeamPage />} ></Route>
           <Route path='/achievement' element={<AchievementPage />} ></Route>
