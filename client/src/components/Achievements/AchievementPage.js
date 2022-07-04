@@ -10,14 +10,16 @@ const AchievementPage = () => {
         {
           Achievement_Set.map((Achievement, index) => {
             return (
-            <div className="achievementCard">
-              <div className="achievementCardFace achievementCardFront">
-                <img src={Achievement.frontImg} alt="" />
-              </div>
-              <div className="achievementCardFace achievementCardBack">
-                <img src={Achievement.backImg} alt="" />
-              </div>
-            </div>
+              <a key={Achievement.index} href={Achievement.linkUrl} target="_blank">
+                <div className="achievementCard">
+                  <div className="achievementCardFace achievementCardFront">
+                    <img src={Achievement.frontImg} alt="" />
+                  </div>
+                  <div className="achievementCardFace achievementCardBack">
+                    <img src={Achievement.backImg} alt="" />
+                  </div>
+                </div>
+              </a>
             )
           })
         }
