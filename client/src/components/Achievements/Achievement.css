@@ -1,0 +1,115 @@
+.achievementPage {
+  padding-top: 4.5rem;
+}
+.achievementWrapper {
+  margin: 25px 60px;
+  /* padding: 10px; */
+  /* width: 1000px; */
+  display: grid;
+  justify-content: space-around;
+  /* perspective: 800px; */
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+.achievementCard {
+  /* position: relative; */
+  /* width: 200px; */
+  height: 210px;
+  /* border: 1px solid blue; */
+  /* width: 100%; */
+  width: 280px;
+  margin: 30px auto;
+  /* border: 1px solid pink; */
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+.achievementCardFace {
+    
+}
+.achievementCardFront {
+    cursor: pointer;
+    z-index: 1;
+}
+.achievementCardFront:hover {
+  /* visibility: hidden; */
+  /* opacity: 0; */
+  animation: fadeIn 1.5s ease 0s normal forwards 1;
+}
+.achievementCardFace img {
+  width: 280px;
+  position: absolute;
+  /* border: 1px solid red; */
+  border-radius: 10px;
+}
+
+.achievementCardFront {
+    position: absolute;
+}
+.achievementFontTitle{
+    z-index: 100;
+    position: absolute;
+    
+}
+
+.achievementBackContent{
+    /* border: 1px solid pink; */
+    width: 100%;
+}
+@keyframes fadeIn {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+
+@media screen and (max-width: 1300px) {
+  .achievementWrapper{
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .achievementCard,
+  .achievementCardFace img {
+    height: 180px;
+    width: 240px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .achievementWrapper{
+    grid-template-columns: 1fr 1fr;
+  }
+  .achievementCard,
+  .achievementCardFace img {
+    height: 210px;
+    width: 280px;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .achievementCard{
+    margin: 20px auto;
+  }
+  .achievementCard,
+  .achievementCardFace img {
+    height: 180px;
+    width: 240px;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .achievementCard,
+  .achievementCardFace img {
+    height: 150px;
+    width: 200px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .achievementWrapper{
+    grid-template-columns: 1fr;
+  }
+  .achievementCard,
+  .achievementCardFace img {
+    height: 210px;
+    width: 280px;
+  }
+}

@@ -10,6 +10,8 @@ import PublicCorner from './components/PublicCorner/PublicCorner';
 import Notice from './components/PublicCorner/Notice';
 import RulesPage from './components/PublicCorner/RulesPage';
 import Form from './components/PublicCorner/Form';
+import ScrollButton from './components/ScrollToTop/ScrollToTop';
+import AchievementPage from './components/Achievements/AchievementPage';
 
 function App() {
   return (
@@ -19,6 +21,7 @@ function App() {
         <Routes>
           <Route path='/' element={<HomePage />} />
           <Route path='/team' element={<TeamPage />} ></Route>
+          <Route path='/achievement' element={<AchievementPage />} ></Route>
           <Route path='/team/archives' element={<TeamArchive />} />
           <Route path='/public' element={<PublicCorner />} >
             <Route path="" element={<Notice />} />
@@ -27,6 +30,7 @@ function App() {
           </Route>
           <Route path='/about' element={<AboutPage />} />
         </Routes>
+        <ScrollButton />
         <Footer />
       </Router>
     </>
