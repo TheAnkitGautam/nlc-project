@@ -27,7 +27,7 @@ window.addEventListener('scroll', toggleVisible);
 
 return (
 	<Button>
-	<i class="fa-solid fa-circle-chevron-up" onClick={scrollToTop}
+	<i className="fa-solid fa-circle-chevron-up" onClick={scrollToTop}
 	style={{display: visible ? 'inline' : 'none'}} />
 	{/* <FaRegArrowAltCircleUp onClick={scrollToTop}
 	style={{display: visible ? 'inline' : 'none'}} /> */}

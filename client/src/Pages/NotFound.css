@@ -8,12 +8,12 @@
 .NotFoundImage {
   width: 50%;
   /* border: 1px solid red; */
-  margin: 50px 25%;
+  margin: 45px 25%;
   margin-bottom: 0;
 }
 
 .backLink{
-    color: blue;
+    color: tomato;
     font-weight: 500;
     cursor: pointer;
 }
@@ -27,7 +27,7 @@
 @media screen and (max-width: 800px) {
     .NotFoundImage{
         width: 75%;
-        margin: 70px 12.5% 20px 12.5%;
+        margin: 62px 12.5% 20px 12.5%;
     }
 }
 @media screen and (max-width: 1000px) {
