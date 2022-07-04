@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, {useState} from 'react';
 import './navbar.css'
 import logo from './logo-white.png';
 import { NavLink } from 'react-router-dom';
@@ -10,26 +10,35 @@ const Navbar = () => {
             return (!menuState)
         })
     }
+
+    const scrollToTop = () =>{
+        window.scrollTo({
+        top: 0,
+        behavior: 'auto'
+        });
+        handleMenu();
+    };
+    
     return (
         <>
             <nav className="navbar menu">
                 <div className="nav-logo"><img className='logo-img' src={logo} alt="" /></div>
                 <div className="center">
                     <ul className="nav-links">
-                        <NavLink to='/'><li>Home</li></NavLink>
-                        <NavLink to='/team'><li>Our Team</li></NavLink>
-                        <li>Achievments</li>
-                        <NavLink to='/public'><li>Public Corner</li></NavLink>
-                        <NavLink to='/about'><li>About Us</li></NavLink>
+                        <NavLink to='/'><li onClick={scrollToTop}>Home</li></NavLink>
+                        <NavLink to='/team'><li onClick={scrollToTop}>Our Team</li></NavLink>
+                        <NavLink to='/achievement'><li onClick={scrollToTop}>Achievments</li></NavLink>
+                        <NavLink to='/public'><li onClick={scrollToTop}>Public Corner</li></NavLink>
+                        <NavLink to='/about'><li onClick={scrollToTop}>About Us</li></NavLink>
                     </ul>
                 </div>
 
                 <ul className={menuState ? "mobile-nav is-active" : "mobile-nav"}>
-                    <NavLink to='/'><li onClick={() => setMenuState(false)}>Home</li></NavLink>
-                    <NavLink to='/team'><li onClick={() => setMenuState(false)}>Our Team</li></NavLink>
-                    <li onClick={() => setMenuState(false)}>Achievments</li>
-                    <NavLink to='/public'><li onClick={() => setMenuState(false)}>Public Corner</li></NavLink>
-                    <NavLink to='/about'><li onClick={() => setMenuState(false)}>About Us</li></NavLink>
+                    <NavLink to='/'><li onClick={() => setMenuState(false)} onClick={scrollToTop}>Home</li></NavLink>
+                    <NavLink to='/team'><li onClick={() => setMenuState(false)} onClick={scrollToTop}>Our Team</li></NavLink>
+                    <NavLink to='/achievement'><li onClick={() => setMenuState(false)} onClick={scrollToTop}>Achievments</li></NavLink>
+                    <NavLink to='/public'><li onClick={() => setMenuState(false)} onClick={scrollToTop}>Public Corner</li></NavLink>
+                    <NavLink to='/about'><li onClick={() => setMenuState(false)} onClick={scrollToTop}>About Us</li></NavLink>
                 </ul>
 
                 <div className="nav-icon-wrapper">
