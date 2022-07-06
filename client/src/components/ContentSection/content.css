@@ -67,14 +67,14 @@
 .view-post {
     font-size: 0.9rem;
     margin-top: 4rem;
-    border: 2px solid #2980b9;
+    border: 2px solid tomato;
     padding: 8px;
     border-radius: 5px;
     transition:all 0.5s;
 }
 
 .view-post:hover {
-    background-color: #2980b9;
+    background-color: tomato;
 }
 
 .post-content:hover {

@@ -35,7 +35,8 @@
     width: 60%;
     margin: 2rem 0;
     border-radius: 10px;
-    box-shadow: -8px 0px 63px -30px rgba(0, 0, 0, 0.6);
+    box-shadow: -8px 0px 63px -30px #db5e4d95;
+    box-shadow: rgba(255, 99, 71, 0.44) 0px 7px 10px;
 }
 
 .club-logo {

@@ -34,11 +34,11 @@ const Navbar = () => {
                 </div>
 
                 <ul className={menuState ? "mobile-nav is-active" : "mobile-nav"}>
-                    <NavLink to='/'><li onClick={() => setMenuState(false)}>Home</li></NavLink>
-                    <NavLink to='/team'><li onClick={() => setMenuState(false)}>Our Team</li></NavLink>
-                    <NavLink to='/achievement'><li onClick={() => setMenuState(false)}>Achievments</li></NavLink>
-                    <NavLink to='/public'><li onClick={() => setMenuState(false)}>Public Corner</li></NavLink>
-                    <NavLink to='/about'><li onClick={() => setMenuState(false)}>About Us</li></NavLink>
+                    <NavLink to='/'><li onClick={scrollToTop}>Home</li></NavLink>
+                    <NavLink to='/team'><li onClick={scrollToTop}>Our Team</li></NavLink>
+                    <NavLink to='/achievement'><li onClick={scrollToTop}>Achievments</li></NavLink>
+                    <NavLink to='/public'><li onClick={scrollToTop}>Public Corner</li></NavLink>
+                    <NavLink to='/about'><li onClick={scrollToTop}>About Us</li></NavLink>
                 </ul>
 
                 <div className="nav-icon-wrapper">

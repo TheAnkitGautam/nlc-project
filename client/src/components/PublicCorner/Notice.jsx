@@ -15,7 +15,7 @@ const Notice = () => {
                     </div>
                 </div>
                 <div className={CSS.center} >
-                    <h3 className={CSS.noticeTitle}>Winter Debate</h3>
+                    <h3 className={CSS.noticeTitle}>Spill the Ink 3.0 - Debate Competition</h3>
                     <p className={CSS.desc}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam culpa sequi consequatur cupiditate repudiandae quod.</p>
                     <div className={CSS.btnBox}>
                         <Link to="rules" className={CSS.regBtn}>Register here&nbsp;
