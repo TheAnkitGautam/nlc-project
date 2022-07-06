@@ -18,5 +18,5 @@ height: 20px;
 font-size: 1.8rem;
 z-index: 1;
 cursor: pointer;
-color: brown;
+color: tomato;
 `;

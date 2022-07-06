@@ -34,7 +34,7 @@ const Footer = () => {
         <div className="foot">
             <footer className="footer">
                 <div className="footer-left">
-                    <h3 className='footer-title'>Follow our Social Media Handles</h3>
+                    <h3 className='footer-title'>Reach us on our Social Media Handles</h3>
                     <div className="icon-wrapper">
                         <div className="sm-icon">
                             <a href="https://www.instagram.com/nita_lit_club/" rel="noreferrer" target="_blank"> <i className="foot-icon fab fa-instagram" /></a>
@@ -50,10 +50,12 @@ const Footer = () => {
                         </div>
                         <div className="sm-icon">
                             <a href="https://www.youtube.com/channel/UCN4F89ff2F2qECLEa0YNUHA" rel="noreferrer" target="_blank"><i className="foot-icon fab fa-youtube" /></a>
-                            <h6 className='icon-text'>youtube</h6></div>
+                            <h6 className='icon-text'>youtube</h6>
+                        </div>
                         <div className="sm-icon">
-                            <a href="https://www.instagram.com/nita_lit_club/" rel="noreferrer" target="_blank"><i className="foot-icon fas fa-envelope" /></a>
-                            <h6 className='icon-text'>Email</h6></div>
+                            <a href="mailto: nitaliteraryclub@gmail.com?subject=Query%20Regarding%20:-" rel="noreferrer" target="_blank"><i className="foot-icon fas fa-envelope" /></a>
+                            <h6 className='icon-text'>Email</h6>
+                        </div>
                     </div>
                 </div >
                 <div className="footer-right">
@@ -64,8 +66,8 @@ const Footer = () => {
                     </div>
                     <p className='error' style={{ color: err.color }}>{err.msg}</p>
                 </div>
-            </footer >
-            <p className="copy-text">&copy; Designed and Developed by Web Development Team, NLC, NIT Agartala </p>
+            </footer>
+            <p className="copy-text">&copy; Designed and Developed by Web Development Team, NIT Agartala Literary Club</p>
         </div>
     );
 }

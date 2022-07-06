@@ -11,7 +11,7 @@ const AchievementPage = () => {
           Achievement_Set.map((Achievement, index) => {
             return (
               <div key={Achievement.index} className="achievementCard">
-                <a href={Achievement.linkUrl} target="_blank">
+                <a href={Achievement.linkUrl} target="_blank" rel="noreferrer">
                   <div className="achievementCardFace achievementCardFront">
                     <img src={Achievement.frontImg} alt="" />
                   </div>

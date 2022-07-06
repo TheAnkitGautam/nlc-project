@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import {FaRegArrowAltCircleUp} from 'react-icons/fa';
 import { Button } from './ScrollToTopStyles';
 
 const ScrollButton = () =>{
