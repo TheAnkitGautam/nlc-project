@@ -1,7 +1,6 @@
 import CSS from './Rules.module.css';
 import Rules from './Rules';
 import { useState } from 'react';
-import axios from 'axios';
 
 
 const rules = [
@@ -29,12 +28,8 @@ const RulesPage = () => {
 
     const [check, setCheck] = useState(false);
 
-    const handleRegister = async () => {
-        window.open('http://localhost:5000/auth/google', '_blank');
-        // console.log("Hello");
-
-        const ress = await axios.get('/auth/google');
-        console.log(ress);
+    const handleRegister = () => {
+        window.open('http://localhost:5000/auth/google', '_self');
     }
 
     return (
@@ -63,8 +58,9 @@ const RulesPage = () => {
                 </div>
 
 
-                <button onClick={handleRegister} disabled={!check}>Register with Google</button>
-
+                <button className={CSS.reg_Btn} onClick={handleRegister} disabled={!check}>
+                    Register with Google
+                </button>
 
             </div>
         </div>

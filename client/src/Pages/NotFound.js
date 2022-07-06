@@ -7,7 +7,9 @@ const NotFound = () => {
     <>
       <div className="NotFoundPage">
         <img className='NotFoundImage' src={Imag} alt="" />
-        <Link to="/" className='backLink'>Click Here</Link> to go back to homepage...
+        <div>
+          <Link to="/" className='backLink'>Click Here</Link> to go back to homepage...
+        </div>
       </div>
     </>
   );

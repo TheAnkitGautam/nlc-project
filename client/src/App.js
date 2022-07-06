@@ -15,16 +15,16 @@ import AchievementPage from './components/Achievements/AchievementPage';
 import NotFound from './Pages/NotFound';
 
 function App() {
+
   return (
     <>
       <Router>
         <Navbar />
         <Routes>
-        <Route path="*" element={<NotFound />} />
+          <Route path="*" element={<NotFound />} />
           <Route path='/' element={<HomePage />} />
           <Route path='/team' element={<TeamPage />} ></Route>
           <Route path='/achievement' element={<AchievementPage />} ></Route>
-          <Route path='/team/archives' element={<TeamArchive />} />
           <Route path='/public' element={<PublicCorner />} >
             <Route path="" element={<Notice />} />
             <Route path="rules" element={<RulesPage />} />

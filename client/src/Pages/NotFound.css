@@ -1,13 +1,17 @@
 .NotFoundPage{
-    /* width: 50%; */
-    /* border: 1px solid red; */
+    font-family: 'Roboto',sans-serif;
+    font-size: 16px;
     text-align: center;
     margin-bottom: 50px;
     font-size: 1.25rem;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 .NotFoundImage {
   width: 50%;
-  /* border: 1px solid red; */
   margin: 45px 25%;
   margin-bottom: 0;
 }

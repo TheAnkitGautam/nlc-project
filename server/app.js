@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv').config();
 const morgan = require('morgan');
 const passport = require('passport');
-const session = require('express-session')
+const cookieSession = require("cookie-session");
 const passportSetup = require('./config/passport-setup');
 
 // Importing config files
@@ -14,9 +14,12 @@ const passportSetup = require('./config/passport-setup');
 // Enabling cross origin requests
 const corsOptions = {
     origin: ['http://localhost:3000'],
-    optionsSuccessStatus: 200
+    optionsSuccessStatus: 200,
+    Credentials: true,
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
 }
 app.use(cors(corsOptions));
+
 
 // Enabling pre-flight reqeust across 
 app.options('*', cors(corsOptions));
@@ -24,16 +27,13 @@ app.options('*', cors(corsOptions));
 // Middlewares
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-app.use(session({
-    secret: 'somethingsecretgoeshere',
-    resave: false,
-    saveUninitialized: true,
-    cookie: { secure: true }
+
+
+app.use(cookieSession({
+    name: 'session',
+    maxAge: 24 * 60 * 60 * 1000,
+    keys: [process.env.COOKIE_KEY],
 }));
-// app.use(cookieSession({
-//     maxAge: 24 * 60 * 60 * 1000,
-//     keys: [process.env.COOKIE_KEY],
-// }));
 
 app.use(passport.initialize());
 app.use(passport.session());

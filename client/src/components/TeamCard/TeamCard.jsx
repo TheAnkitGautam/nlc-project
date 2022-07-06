@@ -90,7 +90,6 @@ const TeamCard = () => {
                     }
                 </div>
                 < Dots />
-                <h5 className={teamCardCSS.exterLink}><Link className={teamCardCSS.Link} to='/team/archives' >Meet Our Old Team <i className="fas fa-external-link-alt" /></Link></h5>
             </section>
         </>
     );

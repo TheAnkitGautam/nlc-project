@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import { useState, useEffect } from 'react'
 import InputBox from './InputBox'
 import CSS from './Form.module.css';
-import { Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import RadioButton from './RadioButton';
+import axios from 'axios';
 
 export default function Form() {
 
@@ -25,10 +26,9 @@ export default function Form() {
         setFormdata({ ...formdata, [e.target.name]: e.target.value });
     }
     const handleRadio = (e) => {
-        console.log(e);
         setFormdata({ ...formdata, [e.target.name]: e.target.checked });
     }
-    console.log(formdata);
+
     const form = [
         {
             id: 1,
@@ -125,6 +125,15 @@ export default function Form() {
         },
     ]
 
+    const getUser = async () => {
+        const { data } = await axios.get('/auth/login/success', { withCredentials: true })
+        const { email, fullName, eventList } = data.user;
+        console.log(email, fullName, eventList);
+    }
+
+    useEffect(() => {
+        getUser();
+    }, [])
 
     const handleSubmit = (e) => {
         e.preventDefault();
