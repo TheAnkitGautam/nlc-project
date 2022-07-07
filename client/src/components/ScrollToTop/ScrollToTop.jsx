@@ -1,37 +1,45 @@
-import React, {useState} from 'react';
-import { Button } from './ScrollToTopStyles';
+import React, { useState } from 'react';
 
-const ScrollButton = () =>{
+const ScrollButton = () => {
 
-const [visible, setVisible] = useState(false)
+	const [visible, setVisible] = useState(false)
 
-const toggleVisible = () => {
-	const scrolled = document.documentElement.scrollTop;
-	if (scrolled > 300){
-	setVisible(true)
+	const toggleVisible = () => {
+		const scrolled = document.documentElement.scrollTop;
+		if (scrolled > 300) {
+			setVisible(true)
+		}
+		else if (scrolled <= 300) {
+			setVisible(false)
+		}
+	};
+
+	const scrollToTop = () => {
+		window.scrollTo({
+			top: 0,
+			behavior: 'smooth'
+		});
+	};
+
+	window.addEventListener('scroll', toggleVisible);
+
+	const scroll_button = {
+		position: 'fixed',
+		right: '20px',
+		bottom: '40px',
+		height: '20px',
+		fontSize: '1.8rem',
+		zIndex: '1',
+		cursor: 'pointer',
+		color: 'tomato'
 	}
-	else if (scrolled <= 300){
-	setVisible(false)
-	}
-};
 
-const scrollToTop = () =>{
-	window.scrollTo({
-	top: 0,
-	behavior: 'smooth'
-	});
-};
-
-window.addEventListener('scroll', toggleVisible);
-
-return (
-	<Button>
-	<i className="fa-solid fa-circle-chevron-up" onClick={scrollToTop}
-	style={{display: visible ? 'inline' : 'none'}} />
-	{/* <FaRegArrowAltCircleUp onClick={scrollToTop}
-	style={{display: visible ? 'inline' : 'none'}} /> */}
-	</Button>
-);
+	return (
+		<div style={scroll_button}>
+			<i className="fa-solid fa-circle-chevron-up" onClick={scrollToTop}
+				style={{ display: visible ? 'inline' : 'none' }} />
+		</div>
+	);
 }
 
 export default ScrollButton;

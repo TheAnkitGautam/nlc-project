@@ -3,9 +3,8 @@ import Footer from "./components/Footer/Footer";
 import Navbar from "./components/Navbar/Navbar";
 import HomePage from "./Pages/HomePage";
 import TeamPage from "./Pages/TeamPage";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import AboutPage from './Pages/AboutPage';
-import TeamArchive from './components/Archives/TeamArchive';
 import PublicCorner from './components/PublicCorner/PublicCorner';
 import Notice from './components/PublicCorner/Notice';
 import RulesPage from './components/PublicCorner/RulesPage';
@@ -18,15 +17,15 @@ function App() {
 
   return (
     <>
-      <Router>
+      <BrowserRouter>
         <Navbar />
         <Routes>
           <Route path="*" element={<NotFound />} />
           <Route path='/' element={<HomePage />} />
-          <Route path='/team' element={<TeamPage />} ></Route>
-          <Route path='/achievement' element={<AchievementPage />} ></Route>
+          <Route path='/team' element={<TeamPage />} />
+          <Route path='/achievement' element={<AchievementPage />} />
           <Route path='/public' element={<PublicCorner />} >
-            <Route path="" element={<Notice />} />
+            <Route path='' element={<Notice />} />
             <Route path="rules" element={<RulesPage />} />
             <Route path="register" element={<Form />} />
           </Route>
@@ -34,7 +33,7 @@ function App() {
         </Routes>
         <ScrollButton />
         <Footer />
-      </Router>
+      </BrowserRouter>
     </>
   );
 }

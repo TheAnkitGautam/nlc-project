@@ -16,11 +16,9 @@ router.get('/google/redirect', passport.authenticate('google', {
 
 router.get('/login/success', (req, res) => {
     if (req.user) {
-        res.status(200).json({
-            error: false,
-            message: "Login Successful",
-            user: req.user
-        })
+        res.status(200).json(
+            { user: req.user }
+        )
     } else {
         res.status(200).json({
             error: true,

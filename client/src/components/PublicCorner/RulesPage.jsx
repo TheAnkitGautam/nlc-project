@@ -1,6 +1,7 @@
 import CSS from './Rules.module.css';
-import Rules from './Rules';
+import Rule from './Rule';
 import { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 
 
 const rules = [
@@ -26,20 +27,27 @@ const rules = [
 
 const RulesPage = () => {
 
+    const location = useLocation()
+    const eventName = location.state;
+    console.log(eventName);
+
     const [check, setCheck] = useState(false);
 
+
+
     const handleRegister = () => {
+        localStorage.setItem("eventName", eventName)
         window.open('http://localhost:5000/auth/google', '_self');
     }
 
     return (
         <div className={CSS.wrapper}>
 
-            <h2 className={CSS.title}>Rules / नियम</h2>
+            <h2 className={CSS.title}>Rules / नियम - {eventName}</h2>
 
             {
                 rules.map((rule) => {
-                    return <Rules key={rule.id} props={rule} />
+                    return <Rule key={rule.id} props={rule} />
                 })
             }
 

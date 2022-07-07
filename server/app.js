@@ -31,7 +31,7 @@ app.use(express.json());
 
 app.use(cookieSession({
     name: 'session',
-    maxAge: 24 * 60 * 60 * 1000,
+    maxAge: 60 * 60 * 1000,
     keys: [process.env.COOKIE_KEY],
 }));
 
@@ -60,6 +60,7 @@ mongoose.connection.on("error", (err) => {
 // Importing routes
 app.use("/", require("./routes/index"));
 app.use("/auth", require("./routes/auth"));
+app.use("/user", require("./routes/user"));
 
 
 

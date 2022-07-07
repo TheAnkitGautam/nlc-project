@@ -1,174 +1,190 @@
-import { useState, useEffect } from 'react'
-import InputBox from './InputBox'
-import CSS from './Form.module.css';
-import { Link } from 'react-router-dom';
-import RadioButton from './RadioButton';
-import axios from 'axios';
+import CSS from './Form.module.css'
+import axios from 'axios'
+import { Box, Paper, MenuItem, TextField, Avatar, Container, styled, Typography } from '@mui/material'
+import LoadingButton from '@mui/lab/LoadingButton';
+import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
+import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined';
+import WhatsappOutlinedIcon from '@mui/icons-material/WhatsappOutlined';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import SchoolOutlinedIcon from '@mui/icons-material/SchoolOutlined';
+import { useEffect, useState } from 'react';
+
+
+const StyledBox = styled(Box)(({ theme }) => ({
+    [theme.breakpoints.down('sm')]: {
+        width: '90%'
+    },
+}))
 
 export default function Form() {
 
-    const [formdata, setFormdata] = useState({
-        regId: "",
-        email: "",
-        fullName: "",
-        contact: "",
-        instaId: "",
-        linkedIn: "",
-        gender: "",
-        college: "",
-        year: "",
-        city: "",
-        state: "",
-        pinCode: ""
+    const eventName = localStorage.getItem('eventName')
+
+    const [gender, setGender] = useState("")
+    const [fullName, setFullName] = useState("")
+    const [loading, setLoading] = useState(false);
+
+    const [otherDetails, setOtherDetails] = useState({
+        whatsappNumber: "",
+        instaUrl: "",
+        instituteName: ""
     })
 
-    const handleChange = (e) => {
-        setFormdata({ ...formdata, [e.target.name]: e.target.value });
-    }
-    const handleRadio = (e) => {
-        setFormdata({ ...formdata, [e.target.name]: e.target.checked });
+    const handleOtherDetails = (e) => {
+        setOtherDetails({
+            ...otherDetails,
+            [e.target.name]: e.target.value
+        })
     }
 
-    const form = [
-        {
-            id: 1,
-            name: "regId",
-            type: "text",
-            placeholder: "",
-            className: "regInput",
-            label: "Registration ID",
-            disabled: true,
-        },
-        {
-            id: 2,
-            name: "email",
-            type: "email",
-            placeholder: "",
-            errMsg: "Enter a valid email address!",
-            label: "Email",
-            disabled: true,
-        },
-        {
-            id: 3,
-            name: "fullName",
-            type: "text",
-            placeholder: "Enter Your Full Name",
-            errMsg: "Name should contain alphabets",
-            pattern: "^[a-zA-z\\s]+$",
-            label: "Full Name",
-            required: true
-        },
-        {
-            id: 50,
-            name: "gender",
-            type: "radio",
-            options: ["Male", "Female", "Others"],
-            label: "Gender",
-            required: true
-        },
-        {
-            id: 4,
-            name: "contact",
-            type: "text",
-            placeholder: "Enter Your WhatsApp Number",
-            pattern: "[6-9]{1}[0-9]{9}",
-            label: "WhatsApp Number",
-            required: true
-        },
-        {
-            id: 5,
-            name: "instaId",
-            type: "text",
-            placeholder: "Instagram ID",
-            label: "Instagram ID",
-            required: false
-        },
-        {
-            id: 6,
-            name: "linkedIn",
-            type: "url",
-            placeholder: "LinkedIn URL",
-            label: "LinkedIn URL",
-            required: false
-        },
-        {
-            id: 9,
-            name: "college",
-            type: "text",
-            placeholder: "Enter Your Institute's Name",
-            label: "Institute Name",
-            required: true
-        },
-        {
-            id: 10,
-            name: "city",
-            type: "text",
-            placeholder: "Your City",
-            label: "City",
-            required: true
-        },
-        {
-            id: 11,
-            name: "state",
-            type: "text",
-            placeholder: "State",
-            label: "State",
-            required: true
-        },
-        {
-            id: 12,
-            name: "pinCode",
-            type: "text",
-            placeholder: "Postal Code",
-            label: "PIN Code",
-            required: true
-        },
-    ]
-
-    const getUser = async () => {
-        const { data } = await axios.get('/auth/login/success', { withCredentials: true })
-        const { email, fullName, eventList } = data.user;
-        console.log(email, fullName, eventList);
-    }
+    const [userData, setUserData] = useState({})
 
     useEffect(() => {
-        getUser();
+        axios.get('/auth/login/success', { withCredentials: true })
+            .then(res => res.data.user)
+            .then(user => {
+                setUserData(user);
+                setFullName(user?.fullName)
+            })
     }, [])
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
+
+
+
+    const handleSubmit = async () => {
+
+        setLoading(true);
+
+        const newEventList = userData.eventList;
+        if (!newEventList.includes(eventName))
+            newEventList.push(eventName)
+
+        const newUserData = {
+            id: userData._id,
+            googleId: userData.googleId,
+            fullName: fullName,
+            email: userData.email,
+            profilePic: userData.profilePic,
+            eventList: newEventList,
+            gender: gender,
+            whatsappNumber: otherDetails.whatsappNumber,
+            instaUrl: otherDetails.instaUrl,
+            instituteName: otherDetails.instituteName
+        }
+
+        const res = await axios.post('/user/register', newUserData)
+        console.log(res);
+
+        setLoading(false);
     }
 
 
     return (
-        <div >
+        <div>
             <h2 className={CSS.title}>Registration Form </h2>
-            <form className={CSS.form} onSubmit={handleSubmit}>
-                <h3 className={CSS.formTitle}>Winter Debate</h3>
-                {
-                    form.map((input, index) => {
-                        return (
-                            input.type === "radio" ?
-                                <RadioButton
-                                    key={index}
-                                    {...input}
-                                    onChange={handleRadio} />
-                                :
-                                <InputBox
-                                    key={index}
-                                    onChange={handleChange}
-                                    {...input}
-                                    value={formdata[input.name]}
-                                />
-                        )
-                    })
-                }
-                <div className={CSS.error}>*Please fill all the form fields</div>
-                <div className={CSS.btnBox}>
-                    <Link className={CSS.btnPublic} to="/public">Cancel</Link>
-                    <button className={CSS.btn} type='submit' >Submit</button>
-                </div>
-            </form>
+
+            <Box sx={{ my: 10 }}>
+                <Container sx={{ display: 'flex', justifyContent: "center" }} component={Paper} maxWidth="sm">
+                    <StyledBox sx={{ height: '100%', width: '68%', padding: '2rem 0' }}>
+                        <Box sx={{ display: 'flex', justifyContent: "center" }}>
+                            <Avatar
+                                alt={userData.fullName || ''}
+                                src={userData.profilePic || ''}
+                                sx={{ mb: 1, width: 56, height: 56 }}
+                            />
+                        </Box>
+                        <Typography sx={{ mb: 5 }} color="gray" align='center' variant="subtitle1" >
+                            {`Hi, ${userData.fullName}`}
+                        </Typography>
+                        <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
+                            <PersonOutlineIcon sx={{ mr: 2 }} />
+                            <TextField
+                                name='fullName'
+                                variant='outlined'
+                                size='small'
+                                type='text'
+                                label='Full Name'
+                                value={fullName}
+                                onChange={e => setFullName(e.target.value)}
+                                fullWidth
+                            />
+                        </Box>
+                        <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
+                            <PeopleAltOutlinedIcon sx={{ mr: 2 }} />
+                            <TextField
+                                fullWidth
+                                select
+                                size='small'
+                                value={gender}
+                                label="Gender"
+                                onChange={e => setGender(e.target.value)}
+                            >
+                                <MenuItem value="male">Male</MenuItem>
+                                <MenuItem value="female">Female</MenuItem>
+                                <MenuItem value="others">Others</MenuItem>
+                            </TextField>
+                        </Box>
+                        <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
+                            <WhatsappOutlinedIcon sx={{ mr: 2 }} />
+                            <TextField
+                                name='whatsappNumber'
+                                variant='outlined'
+                                size='small'
+                                type='text'
+                                value={otherDetails.whatsappNumber}
+                                onChange={handleOtherDetails}
+                                label='WhatsApp Number'
+                                fullWidth
+                            />
+                        </Box>
+                        <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
+                            <InstagramIcon sx={{ mr: 2 }} />
+                            <TextField
+                                name='instaUrl'
+                                variant='outlined'
+                                size='small'
+                                type='url'
+                                label='Instagram URL'
+                                value={otherDetails.instaUrl}
+                                onChange={handleOtherDetails}
+                                fullWidth
+                            />
+                        </Box>
+                        <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
+                            <SchoolOutlinedIcon sx={{ mr: 2 }} />
+                            <TextField
+                                name='instituteName'
+                                variant='outlined'
+                                size='small'
+                                type='text'
+                                value={otherDetails.instituteName}
+                                onChange={handleOtherDetails}
+                                label='Institute Name'
+                                fullWidth
+                            />
+                        </Box>
+                        <Box sx={{ mt: 8 }}>
+                            <Box>
+                                <LoadingButton
+                                    sx={{
+                                        background: "#ff6347",
+                                        "&:hover": { background: "#f27f6b" }
+                                    }}
+                                    size="large"
+                                    onClick={handleSubmit}
+                                    loading={loading}
+                                    variant="contained"
+                                    fullWidth
+                                >
+                                    Submit
+                                </LoadingButton>
+                            </Box>
+                        </Box>
+                    </StyledBox>
+                </Container>
+            </Box>
+
+
 
         </div>
     )

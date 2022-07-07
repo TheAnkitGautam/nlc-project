@@ -15,9 +15,9 @@
     content: '';
     position: absolute;
     height: 4px;
-    width: 70%;
+    width: 50%;
     background-color: #db5d4d;
-    left: 15%;
+    left: 25%;
     bottom: -4px;
 }
 
@@ -41,6 +41,7 @@
     margin: 1rem 0 2rem 0;
     color: #444;
     position: relative;
+    text-transform: uppercase;
 }
 
 .formTitle::after {
@@ -166,6 +167,6 @@
 
 @media(max-width:700px) {
     .title {
-        font-size: 1.25em;
+        font-size: 1.25rem;
     }
 }
