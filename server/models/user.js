@@ -16,26 +16,6 @@ const userSchema = new mongoose.Schema({
     profilePic: {
         type: String,
     },
-    eventList: {
-        type: Array,
-        default: [],
-    },
-    gender: {
-        type: String,
-        default: ''
-    },
-    whatsappNumber: {
-        type: String,
-        default: ''
-    },
-    instaUrl: {
-        type: String,
-        default: ''
-    },
-    instituteName: {
-        type: String,
-        default: ''
-    }
 },
     { timestamps: true }
 );

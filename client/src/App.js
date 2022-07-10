@@ -1,4 +1,3 @@
-import React from 'react';
 import Footer from "./components/Footer/Footer";
 import Navbar from "./components/Navbar/Navbar";
 import HomePage from "./Pages/HomePage";
@@ -6,14 +5,22 @@ import TeamPage from "./Pages/TeamPage";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import AboutPage from './Pages/AboutPage';
 import PublicCorner from './components/PublicCorner/PublicCorner';
-import Notice from './components/PublicCorner/Notice';
-import RulesPage from './components/PublicCorner/RulesPage';
-import Form from './components/PublicCorner/Form';
 import ScrollButton from './components/ScrollToTop/ScrollToTop';
 import AchievementPage from './components/Achievements/AchievementPage';
 import NotFound from './Pages/NotFound';
+import Profile from "./components/PublicCorner/Profile";
+import { useContext, useLayoutEffect } from "react";
+import { AuthContext } from "./context/AuthContext";
+import { API_Login_Request } from './utils/API_Calls';
 
 function App() {
+
+  const { user, dispatch } = useContext(AuthContext);
+
+  useLayoutEffect(() => {
+    API_Login_Request(dispatch)
+  }, [dispatch])
+
 
   return (
     <>
@@ -24,11 +31,8 @@ function App() {
           <Route path='/' element={<HomePage />} />
           <Route path='/team' element={<TeamPage />} />
           <Route path='/achievement' element={<AchievementPage />} />
-          <Route path='/public' element={<PublicCorner />} >
-            <Route path='' element={<Notice />} />
-            <Route path="rules" element={<RulesPage />} />
-            <Route path="register" element={<Form />} />
-          </Route>
+          <Route path='/public' element={<PublicCorner />} />
+          <Route path='/profile' element={user !== null ? <Profile /> : <PublicCorner />} />
           <Route path='/about' element={<AboutPage />} />
         </Routes>
         <ScrollButton />

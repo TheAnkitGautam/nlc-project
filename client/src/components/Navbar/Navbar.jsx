@@ -1,9 +1,15 @@
-import React, {useState} from 'react';
+import React, { useContext, useState } from 'react';
 import './navbar.css'
 import logo from './logo-white.png';
-import { NavLink } from 'react-router-dom';
+import { useNavigate, NavLink } from 'react-router-dom';
+import { Avatar, Button } from '@mui/material';
+import { AuthContext } from '../../context/AuthContext';
+import axios from 'axios';
 
 const Navbar = () => {
+
+    const navigate = useNavigate();
+
     const [menuState, setMenuState] = useState(false);
     const handleMenu = () => {
         setMenuState((menuState) => {
@@ -11,14 +17,27 @@ const Navbar = () => {
         })
     }
 
-    const scrollToTop = () =>{
+    const scrollToTop = () => {
         window.scrollTo({
-        top: 0,
-        behavior: 'auto'
+            top: 0,
+            behavior: 'auto'
         });
         handleMenu();
     };
-    
+
+    const { user, dispatch } = useContext(AuthContext);
+
+    const handleLogin = () => {
+        window.open('http://localhost:5000/auth/google', '_self');
+    }
+
+    const handleLogout = () => {
+        axios.get('/auth/logout')
+            .then(dispatch({ type: 'LOGOUT' }))
+            .then(navigate('/'))
+            .catch(err => console.log(err));
+    }
+
     return (
         <>
             <nav className="navbar menu">
@@ -42,11 +61,33 @@ const Navbar = () => {
                 </ul>
 
                 <div className="nav-icon-wrapper">
-                    <a href="https://www.instagram.com/nita_lit_club/" rel="noreferrer" target="_blank"><i className="foot-icon nav-sm nav-ig fab fa-instagram" /></a>
-                    <a href="https://www.instagram.com/nita_lit_club/" rel="noreferrer" target="_blank"><i className="foot-icon nav-sm nav-fb fab fa-facebook" /></a>
-                    <a href="https://www.instagram.com/nita_lit_club/" rel="noreferrer" target="_blank"><i className="foot-icon nav-sm nav-lik fab fa-linkedin" /></a>
-                    <a href="https://www.youtube.com/channel/UCN4F89ff2F2qECLEa0YNUHA" rel="noreferrer" target="_blank"><i className="foot-icon nav-sm nav-yt fab fa-youtube" /></a>
                 </div>
+                {
+                    user !== null ? (
+                        <>
+                            <Avatar
+                                alt={user.user.fullName}
+                                src={user.user.profilePic}
+                                sx={{ mr: 1, width: 35, height: 35 }}
+                            />
+                            <Button sx={{ mr: 2 }} onClick={handleLogout}>Logout</Button>
+                        </>
+                    )
+                        :
+                        (
+                            <Button sx={{
+                                mr: 2,
+                                "&:hover": { background: '#1565c0', color: 'white' }
+                            }}
+                                disableElevation
+                                variant='outlined'
+                                onClick={handleLogin}
+                            >
+                                Login
+                            </Button>
+                        )
+                }
+
                 <div className="menu-btn" onClick={handleMenu}><i className={menuState ? "far fa-times-circle" : "fas fa-bars"} /></div>
             </nav>
         </>

@@ -6,10 +6,9 @@ const dotenv = require('dotenv').config();
 const morgan = require('morgan');
 const passport = require('passport');
 const cookieSession = require("cookie-session");
+const expressSession = require("express-session");
 const passportSetup = require('./config/passport-setup');
-
-// Importing config files
-// dotenv.config({ path: './config/config.env' });
+const mongoStore = require('connect-mongo');
 
 // Enabling cross origin requests
 const corsOptions = {
@@ -29,10 +28,20 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 
-app.use(cookieSession({
-    name: 'session',
-    maxAge: 60 * 60 * 1000,
-    keys: [process.env.COOKIE_KEY],
+// app.use(cookieSession({
+//     name: 'session',
+//     maxAge: 60 * 60 * 1000,
+//     keys: [process.env.COOKIE_KEY],
+// }));
+
+app.use(expressSession({
+    secret: process.env.COOKIE_KEY,
+    resave: true,
+    saveUninitialized: true,
+    cookie: {
+        maxAge: 60 * 60 * 1000,
+    },
+    store: mongoStore.create({ mongoUrl: process.env.MONGO_URI }, { collection: 'sessions' }),
 }));
 
 app.use(passport.initialize());

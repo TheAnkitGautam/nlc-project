@@ -9,8 +9,8 @@ router.get('/google', passport.authenticate('google', {
 // callback route for google to redirect to
 // hand control to passport to use code to grab profile info
 router.get('/google/redirect', passport.authenticate('google', {
-    successRedirect: `${process.env.CLIENT_URL}/public/register`,
-    failureRedirect: "/login/failed"
+    successRedirect: `${process.env.CLIENT_URL}`,
+    failureRedirect: `${process.env.CLIENT_URL}`
 })
 );
 
@@ -20,23 +20,14 @@ router.get('/login/success', (req, res) => {
             { user: req.user }
         )
     } else {
-        res.status(200).json({
-            error: true,
-            message: "Login Failed!"
-        })
+        res.status(401)
     }
-})
-
-router.get('/login/failed', (req, res) => {
-    res.status(401).json({
-        error: true,
-        message: "Login Failed!"
-    })
 })
 
 router.get('/logout', (req, res) => {
     req.logout();
-    res.redirect(process.env.CLIENT_URL);
+    res.status(200).json('Logout Successfull')
+    console.log('logout');
 })
 
 module.exports = router;

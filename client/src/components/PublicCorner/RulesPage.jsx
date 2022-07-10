@@ -1,8 +1,6 @@
 import CSS from './Rules.module.css';
 import Rule from './Rule';
-import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
-
 
 const rules = [
     {
@@ -29,11 +27,6 @@ const RulesPage = () => {
 
     const location = useLocation()
     const eventName = location.state;
-    console.log(eventName);
-
-    const [check, setCheck] = useState(false);
-
-
 
     const handleRegister = () => {
         localStorage.setItem("eventName", eventName)
@@ -52,21 +45,7 @@ const RulesPage = () => {
             }
 
             <div className={CSS.buttons}>
-
-                <div className={CSS.checkbox}>
-                    <label htmlFor="accept">
-                        <input type="checkbox"
-                            name="accept"
-                            id='accept'
-                            checked={check}
-                            onChange={(e) => setCheck(e.target.checked)}
-                            required />
-                        I accept the rules
-                    </label>
-                </div>
-
-
-                <button className={CSS.reg_Btn} onClick={handleRegister} disabled={!check}>
+                <button className={CSS.reg_Btn} onClick={handleRegister}>
                     Register with Google
                 </button>
 

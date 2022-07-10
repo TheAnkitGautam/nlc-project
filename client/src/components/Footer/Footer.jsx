@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import validator from 'validator';
 import axios from 'axios';
 import './footer.css'
 
@@ -16,7 +15,8 @@ const Footer = () => {
     }
 
     const handleSubmit = async () => {
-        if (validator.isEmail(email)) {
+        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i
+        if (regex.test(email)) {
             try {
                 let { data } = await axios.post('/subscribe', { "email": email });
                 setErr({ color: data.color, msg: data.msg });
