@@ -11,7 +11,8 @@ import { useEffect, useState } from 'react';
 import { useContext } from 'react';
 import { AuthContext } from '../../context/AuthContext';
 import { Save_User_Profile } from '../../utils/API_Calls';
-import { Redirect } from 'react-router-dom';
+import Backdrop from '@mui/material/Backdrop';
+import CircularProgress from '@mui/material/CircularProgress';
 import axios from 'axios';
 
 
@@ -55,6 +56,7 @@ export default function Profile() {
 
     const { user } = useContext(AuthContext)
     const [createdProfile, setCreatedProfile] = useState(false)
+    const [loader, setLoader] = useState(true)
 
     const [errors, setErrors] = useState({})
     const [formValues, setFormValues] = useState({
@@ -100,10 +102,19 @@ export default function Profile() {
             .then(data =>
                 data.isProfileCreated ? setCreatedProfile(true) : setCreatedProfile(false)
             )
+            .finally(() => setLoader(false))
     }, [])
 
     return (
         <>
+            <div>
+                <Backdrop
+                    sx={{ color: '#ff6347', zIndex: 10 }}
+                    open={loader}
+                >
+                    <CircularProgress color="inherit" thickness={3} size={70} />
+                </Backdrop>
+            </div>
             <section className='pageLoadAnim' >
                 <div className={styles.imgBox}>
                     <img src={eventPoster} alt="" className={styles.eventImg} />

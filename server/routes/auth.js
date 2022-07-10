@@ -30,4 +30,8 @@ router.get('/logout', (req, res) => {
     console.log('logout');
 })
 
+router.get('/test', (req, res) => {
+    res.json(req.headers)
+})
+
 module.exports = router;

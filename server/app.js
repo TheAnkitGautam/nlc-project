@@ -38,6 +38,7 @@ app.use(expressSession({
     secret: process.env.COOKIE_KEY,
     resave: true,
     saveUninitialized: true,
+    httpOnly: true,
     cookie: {
         maxAge: 60 * 60 * 1000,
     },
