@@ -1,0 +1,101 @@
+.carousal {
+    padding: 0 1rem;
+}
+
+.carousal_title {
+    font-family: 'Merriweather', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 4rem 1rem 3rem 1rem;
+    color: #282828;
+    line-height: 3.5rem;
+}
+
+.carousal_title::after {
+    content: '';
+    display: block;
+    width: 70px;
+    height: 1px;
+    background: #4a4a4a;
+}
+
+.carousal_cards {
+    padding: 0 1rem;
+}
+
+.card {
+    border-radius: 10px;
+    width: min-content;
+    margin-bottom: 1rem;
+    border: 1px solid #e0e0e0;
+}
+
+
+.card_img img {
+    aspect-ratio: 1/1;
+    width: 400px;
+    border-radius: 10px 10px 0 0;
+
+}
+
+.card_content {
+    padding: 1rem;
+}
+
+.card_title {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.postLink {
+    color: #1976d2;
+    text-transform: uppercase;
+    font-family: 'Roboto', sans-serif;
+}
+
+@media (max-width:1300px) {
+    .card_img img {
+        width: 350px;
+    }
+}
+
+@media (max-width:1140px) {
+    .card_img img {
+        width: 320px;
+    }
+}
+
+@media (max-width:1140px) {
+    .card_img img {
+        width: 320px;
+    }
+}
+
+@media (max-width:800px) {
+    .card_img img {
+        width: 400px;
+    }
+}
+
+@media (max-width:600px) {
+    .card_img img {
+        width: 360px;
+    }
+
+    .carousal_title {
+        font-size: 1.5rem;
+        margin: 1rem 0 1.5rem 0;
+    }
+}
+
+@media (max-width:510px) {
+    .card_img img {
+        width: 350px;
+    }
+
+    .carousal_cards {
+        padding: 0;
+    }
+
+}

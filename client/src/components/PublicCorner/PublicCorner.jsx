@@ -37,7 +37,7 @@ const PublicCorner = () => {
               </div>
             </div>
           </div>
-          
+
           <div className={CSS.eventbox}>
             <div className={CSS.eventDesc}>
                 <div className={CSS.eventTitleBanner}>

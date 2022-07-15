@@ -1,0 +1,30 @@
+.react__slick__slider__parent {
+    position: relative;
+}
+
+.react__slick__slider__parent .slick-prev,
+.react__slick__slider__parent .slick-next {
+    position: absolute;
+    height: auto;
+    width: auto;
+}
+
+.react__slick__slider__parent .slick-prev {
+    color: black;
+    z-index: 1;
+}
+
+.react__slick__slider__parent .slick-next {
+    color: black;
+    z-index: 1;
+}
+
+.react__slick__slider__parent .slick-prev:before {
+    color: black;
+    font-size: 2rem;
+}
+
+.react__slick__slider__parent .slick-next:before {
+    color: black;
+    font-size: 2rem;
+}

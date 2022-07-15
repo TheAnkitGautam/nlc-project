@@ -1,5 +1,5 @@
 import styles from './public_corner.module.css'
-import { Box, Paper, MenuItem, TextField, Avatar, Container, styled, Typography } from '@mui/material'
+import { Box, Paper, MenuItem, TextField, Avatar, Container, styled, Typography, Alert, Snackbar } from '@mui/material'
 import LoadingButton from '@mui/lab/LoadingButton';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined';
@@ -53,10 +53,11 @@ const Validate = (formValues) => {
 // const eventName = localStorage.getItem('eventName')
 
 export default function Profile() {
-
     const { user } = useContext(AuthContext)
     const [createdProfile, setCreatedProfile] = useState(false)
     const [loader, setLoader] = useState(true)
+    const [alert, setAlert] = useState(false)
+    const [error, setError] = useState(false)
 
     const [errors, setErrors] = useState({})
     const [formValues, setFormValues] = useState({
@@ -74,13 +75,21 @@ export default function Profile() {
         })
     }
 
+    const handleClose = (event, reason) => {
+        if (reason === 'clickaway') {
+            return;
+        }
+
+        setAlert(false);
+    };
+
     const handleSubmit = async () => {
         const errors = Validate(formValues);
         setErrors(errors);
 
         if (Object.keys(errors).length === 0) {
             try {
-                await Save_User_Profile({
+                const res = await Save_User_Profile({
                     googleId: user.user.googleId,
                     fullName: formValues.fullName,
                     email: user.user.email,
@@ -90,20 +99,21 @@ export default function Profile() {
                     instaUrl: formValues.instaUrl,
                     instituteName: formValues.instituteName
                 });
+                setAlert(true);
             } catch (err) {
-                console.log(err);
+                setError(true)
             }
         }
     }
 
     useEffect(() => {
-        axios.post('/user/findprofile', { googleId: user.user.googleId })
+        axios.post('/user/profile', { googleId: user.user.googleId })
             .then(res => res.data)
-            .then(data =>
-                data.isProfileCreated ? setCreatedProfile(true) : setCreatedProfile(false)
+            .then(participant =>
+                participant ? setCreatedProfile(true) : setCreatedProfile(false)
             )
             .finally(() => setLoader(false))
-    }, [])
+    }, [user.user.googleId])
 
     return (
         <>
@@ -234,6 +244,14 @@ export default function Profile() {
                             <Typography align='center' variant="h3" color="initial">Profile Already Exists!</Typography>
                         )
                     }
+                    <Snackbar open={alert} autoHideDuration={6000} onClose={handleClose}>
+                        <Alert variant='filled' elevation={6} severity="success" sx={{ width: '100%' }} onClose={handleClose}>
+                            Profile Created Successfully
+                        </Alert>
+                    </Snackbar>
+                    <Snackbar open={error} autoHideDuration={6000} onClose={handleClose}>
+                        <Alert variant='filled' elevation={6} severity="error">Something went wrong! Try again later</Alert>
+                    </Snackbar>
                 </Box>
             </section >
 

@@ -2,6 +2,7 @@ import './teamHeader.css';
 import coord1 from './coord-1.png';
 import Dots from '../Dots';
 import FacultyCord from '../TeamCard/FacultyCord';
+
 const TeamHeader = () => {
     return (
         <>
