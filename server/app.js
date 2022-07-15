@@ -2,12 +2,11 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 const mongoose = require('mongoose');
-const dotenv = require('dotenv').config();
+require('dotenv').config();
 const morgan = require('morgan');
 const passport = require('passport');
-const cookieSession = require("cookie-session");
 const expressSession = require("express-session");
-const passportSetup = require('./config/passport-setup');
+require('./config/passport-setup');
 const mongoStore = require('connect-mongo');
 
 // Enabling cross origin requests
@@ -26,13 +25,6 @@ app.options('*', cors(corsOptions));
 // Middlewares
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-
-
-// app.use(cookieSession({
-//     name: 'session',
-//     maxAge: 60 * 60 * 1000,
-//     keys: [process.env.COOKIE_KEY],
-// }));
 
 app.use(expressSession({
     secret: process.env.COOKIE_KEY,
@@ -62,10 +54,9 @@ mongoose.connection.on("connected", () => {
     console.log("conneted to DB");
 });
 mongoose.connection.on("error", (err) => {
-    console.log("err connecting", err);
+    console.log("err connecting db");
 });
 
-// Importing models
 
 // Importing routes
 app.use("/", require("./routes/index"));

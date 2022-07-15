@@ -12,6 +12,8 @@ import Profile from "./components/PublicCorner/Profile";
 import { useContext, useLayoutEffect } from "react";
 import { AuthContext } from "./context/AuthContext";
 import { API_Login_Request } from './utils/API_Calls';
+import AdminPage from "./Pages/AdminPage";
+
 
 function App() {
 
@@ -23,22 +25,23 @@ function App() {
 
 
   return (
-    <>
-      <BrowserRouter>
+    <BrowserRouter>
+      <>
         <Navbar />
         <Routes>
           <Route path="*" element={<NotFound />} />
           <Route path='/' element={<HomePage />} />
           <Route path='/team' element={<TeamPage />} />
           <Route path='/achievement' element={<AchievementPage />} />
-          <Route path='/public' element={<PublicCorner />} />
+          <Route path='/events' element={<PublicCorner />} />
           <Route path='/profile' element={user !== null ? <Profile /> : <PublicCorner />} />
           <Route path='/about' element={<AboutPage />} />
+          <Route path='/admin' element={user?.user.isAdmin ? <AdminPage /> : <HomePage />} />
         </Routes>
         <ScrollButton />
         <Footer />
-      </BrowserRouter>
-    </>
+      </>
+    </BrowserRouter>
   );
 }
 

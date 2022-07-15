@@ -5,7 +5,7 @@ import { Achievement_Set } from "./AchievementSet";
 const AchievementPage = () => {
   return (
     <div className="achievementPage pageLoadAnim">
-      <h1 className="team-heading"> <span className='meet-word'>OUR </span>ACHIEVEMENTS</h1>
+      <h1 className="team-heading"><span className='meet-word'>OUR </span>ACHIEVEMENTS</h1>
       <div className="achievementWrapper">
         {
           Achievement_Set.map((Achievement, index) => {

@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
 import eventPoster from './eventPoster.jpg';
 import CSS from './public_corner.module.css';
 

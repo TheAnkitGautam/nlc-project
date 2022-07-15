@@ -47,7 +47,7 @@ const Navbar = () => {
                         <NavLink to='/'><li onClick={scrollToTop}>Home</li></NavLink>
                         <NavLink to='/team'><li onClick={scrollToTop}>Our Team</li></NavLink>
                         <NavLink to='/achievement'><li onClick={scrollToTop}>Achievments</li></NavLink>
-                        <NavLink to='/public'><li onClick={scrollToTop}>Public Corner</li></NavLink>
+                        <NavLink to='/events'><li onClick={scrollToTop}>Events</li></NavLink>
                         <NavLink to='/about'><li onClick={scrollToTop}>About Us</li></NavLink>
                     </ul>
                 </div>
@@ -56,7 +56,7 @@ const Navbar = () => {
                     <NavLink to='/'><li onClick={scrollToTop}>Home</li></NavLink>
                     <NavLink to='/team'><li onClick={scrollToTop}>Our Team</li></NavLink>
                     <NavLink to='/achievement'><li onClick={scrollToTop}>Achievments</li></NavLink>
-                    <NavLink to='/public'><li onClick={scrollToTop}>Public Corner</li></NavLink>
+                    <NavLink to='/events'><li onClick={scrollToTop}>Events</li></NavLink>
                     <NavLink to='/about'><li onClick={scrollToTop}>About Us</li></NavLink>
                 </ul>
 
