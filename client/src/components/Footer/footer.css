@@ -1,7 +1,7 @@
 .foot {
     display: grid;
     grid-template-rows: 1fr 0.2fr;
-    background-color: rgb(255, 236, 233);
+    background-color: #FCF8E8;
     box-shadow: 0 -3px 10px -8px rgb(0 0 0 / 62%);
 }
 
@@ -99,7 +99,7 @@
     text-align: center;
     padding: 1.5rem 0;
     font-family: 'Roboto', sans-serif;
-    color: #92989FD9;
+    color: #354259;
     font-size: 0.75rem;
 }
 

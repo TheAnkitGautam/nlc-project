@@ -1,18 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400&display=swap');
+.hero_bg {
+    background-color: #FCF8E8;
+}
 
 .hero-wrap {
     padding: 3rem 0;
-    background-color: #F7F7F7;
 }
 
 .about-title {
     text-align: center;
-    font-weight: 600;
     font-size: 2.5rem;
-    padding: 3rem 0 2rem 0;
-    color: rgb(32, 31, 31);
-    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    padding: 3rem 0 0 0;
+    color: #282828;
+    font-family: 'Merriweather', sans-serif;
 }
 
 .about-title span {
@@ -20,17 +20,18 @@
 }
 
 .about-text {
-    text-align: center;
-    font-size: 1.5rem;
-    line-height: 1.9rem;
-    width: 75%;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    width: 95%;
     margin: 0 auto;
-    padding-bottom: 3rem;
+    padding: 1.5rem;
+    padding-bottom: 2rem;
     font-family: 'Roboto', sans-serif;
+    color: #282828;
 }
 
 .about-icons {
-    padding: 1.5rem 0;
+    padding: 1.25rem 0;
     font-size: 3rem;
     font-family: 'Roboto', sans-serif;
     display: grid;
@@ -46,13 +47,13 @@
     width: 100px;
     height: 100px;
     text-align: center;
-    color: #fce28b;
+    color: #fce28bfa;
     border-radius: 1.3rem;
-    margin-top: 1.25rem;
+    margin-top: 1rem;
     margin-bottom: 0.5rem;
     position: relative;
-    font-family: 'Dancing Script', cursive;
-    font-weight: bolder;
+    font-family: 'Merriweather', cursive;
+    font-weight: 400;
 }
 
 .icon-item {
@@ -61,20 +62,16 @@
 }
 
 .icon-txt {
-    font-size: 1.5rem;
-    font-weight: bold;
+    font-size: 1.25rem;
+    font-family: 'Merriweather',serif;
     text-align: center;
-    color: #333;
+    color: #282828;
     padding: 0 1.5rem;
 }
 
 @media (max-width:700px) {
     .about-icons {
         grid-template-columns: 1fr 1fr;
-    }
-
-    .about-text {
-        width: 90%;
     }
 
     .icon {
@@ -85,8 +82,6 @@
 
     .icon-txt {
         font-size: 1rem;
-        font-weight: bold;
-        color: #333;
-        padding: 0 1.25rem;
+        color: #282828;
     }
 }
