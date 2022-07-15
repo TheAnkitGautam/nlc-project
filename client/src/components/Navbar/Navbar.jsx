@@ -3,7 +3,7 @@ import './navbar.css'
 import logo from './logo-white.png';
 import { useNavigate, NavLink } from 'react-router-dom';
 import { Avatar, Button } from '@mui/material';
-import { AuthContext } from '../../context/AuthContext';
+import { AuthContext } from './../../Context/AuthContext';
 import axios from 'axios';
 
 const Navbar = () => {

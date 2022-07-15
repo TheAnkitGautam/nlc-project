@@ -4,7 +4,7 @@ import { Executive_Team, Social_Team, Editorial_Team, Graphics_Team, Debating_Te
 import Dots from './../Dots';
 import SecondaryCard from './SecondaryCard';
 import { Fade } from 'react-reveal';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 const TeamCard = () => {
     return (
