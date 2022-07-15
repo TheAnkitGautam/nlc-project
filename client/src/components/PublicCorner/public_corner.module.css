@@ -1,194 +1,305 @@
 .imgBox {
-    margin: 0 0 1rem 0;
-    width: 99%;
-    padding-top: 80px;
-    display: flex;
-    justify-content: center;
+  margin: 0 0 1rem 0;
+  width: 99%;
+  padding-top: 80px;
+  display: flex;
+  justify-content: center;
 }
 
 .eventImg {
-    max-width: 100%;
+  max-width: 100%;
 }
 
 .title {
-    text-align: center;
-    font-family: 'Roboto', sans-serif;
-    color: #444;
-    padding: 10px 0;
-    margin: 0 auto 2rem auto;
-    font-size: 2rem;
-    font-weight: bold;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    position: relative;
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  color: #444;
+  padding: 10px 0;
+  margin: 0 auto 2rem auto;
+  font-size: 2rem;
+  font-weight: bold;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  position: relative;
 }
 
 .title::after {
-    content: '';
-    position: absolute;
-    height: 4px;
-    width: 70%;
-    background-color: #db5d4d;
-    left: 15%;
-    bottom: -4px;
+  content: "";
+  position: absolute;
+  height: 4px;
+  width: 70%;
+  background-color: #db5d4d;
+  left: 15%;
+  bottom: -4px;
 }
 
 .title span {
-    letter-spacing: -1px;
+  letter-spacing: -1px;
+}
+
+.loginRemark {
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+  font-weight: normal;
+}
+.eventContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 1200px;
+  margin: 1rem auto;
+}
+.eventbox {
+  display: flex;
+  justify-content: space-between;
+  width: 570px;
+  margin: 1rem auto;
+  padding: 20px 10px;
+  font-family: "Roboto", sans-serif;
+  background: #db5e4d20;
+  /* background-image: url(./Graffiti.png);
+  background-size: contain; */
+  border-top: 2.25px solid rgba(100, 100, 111, 0.2);
+  border-bottom: 2.25px solid rgba(100, 100, 111, 0.2);
+}
+.eventbox:hover {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.eventDesc {
+  margin: auto;
+}
+.eventTitleBanner {
+  display: flex;
+  align-items: center;
+}
+.eventLogo {
+  height: 76px;
+}
+.eventTitle {
+  font-size: 1.47rem;
+  padding: 10px;
+  width: 330px;
+
+  /* text-align: center; */
+}
+.registrationBtn {
+  border: 1.6px solid #db5d4d;
+  border-radius: 7px;
+  padding: 5.5px;
+  width: fit-content;
+  cursor: pointer;
+  margin: 10px 5px;
+  color: #db5d4d;
+  margin-left: 20px;
+  text-align: center;
+}
+.registrationBtn:hover {
+  background: #db5d4d;
+  color: snow;
+}
+
+.eventDate {
+  margin: 0 auto;
+}
+.eventStart {
+  margin: 18.5px auto;
+}
+.dateTitle {
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #db5d4d;
+}
+.startDate {
+  font-family: "Roboto", sans-serif;
+  min-width: 100px;
+  display: flex;
+  flex-direction: column;
+  padding-left: 15px;
+  font-size: 17px;
 }
 
 .noticeBox {
-    margin: 4rem auto;
-    min-height: 100vh;
+  margin: 4rem auto;
+  /* min-height: 100vh; */
 }
 
-.noticeBox>div {
-    margin-top: 1.5rem;
-}
-
-.notice {
+@media screen and (max-width: 1250px) {
+  .eventContainer {
     max-width: 1100px;
-    margin: 0 auto;
-    display: flex;
-    padding: 0 1rem 0.5rem 1rem;
-    justify-content: space-between;
-    align-items: center;
-    border-top: 1px solid rgba(100, 100, 111, 0.2);
-    border-bottom: 1px solid rgba(100, 100, 111, 0.2);
-    cursor: pointer;
-    color: #333;
+  }
+  .eventbox {
+    width: 520px;
+  }
+  .eventTitle {
+    font-size: 1.4rem;
+    width: 300px;
+  }
 }
-
-.notice:hover {
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+@media screen and (max-width: 1180px) {
+  .eventContainer {
+    grid-template-columns: 1fr;
+    max-width: 1100px;
+  }
+  .eventbox {
+    width: 580px;
+  }
+  .eventTitle {
+    font-size: 1.4rem;
+    width: 350px;
+  }
 }
-
-.noticeTitle {
-    font-family: 'Roboto', sans-serif;
-    text-align: center;
-    padding: 1rem 0;
-}
-
-.center {
-    padding: 0.5rem 3rem;
-}
-
-.noticeTitle {
-    font-size: 1.75rem;
-}
-
-.startDate, .endDate {
-    font-family: 'Roboto', sans-serif;
-    min-width: 100px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.dateTitle {
-    font-size: 14px;
-    text-transform: uppercase;
-    color: #db5d4d;
-}
-
-.day {
-    font-size: 2.5rem;
-}
-
-.desc {
-    font-family: 'Roboto', sans-serif;
-}
-
-.btnBox {
-    display: flex;
+@media screen and (max-width: 850px) {
+  .eventbox {
+    display: grid;
+    padding: 10px;
     justify-content: center;
-    align-items: center;
+    padding-top: 20px;
+    width: 70%;
+  }
+  .eventTitle {
+    width: 330px;
+  }
+  .eventDesc,
+  .eventDate,
+  .eventStart {
+    display: flex;
+    justify-content: space-between;
+  }
+  .registrationBtn {
+    margin: 10px;
+    height: fit-content;
+  }
+  .eventDate {
+    margin: 15px auto;
+  }
+  .eventStart {
+    margin: 0px 20px;
+  }
+  .dateTitle,
+  .startDate {
+    font-size: 15px;
+  }
 }
 
-.regBtn {
-    border: 2px solid #db5d4d;
-    margin-top: 40px;
-    padding: 7px;
-    font-family: 'Roboto', sans-serif;
-    color: #444;
+@media screen and (max-width: 750px) {
+  .eventTitle {
+    width: 310px;
+  }
+}
+@media screen and (max-width: 700px) {
+  .eventbox {
+    padding: 10px 10px;
+  }
+  .eventLogo {
+    height: 60px;
+  }
+  .eventTitle {
+    font-size: 1.25rem;
+    width: 350px;
+  }
+  .eventDesc {
+    display: grid;
+    place-items: center;
+  }
+  .eventDate {
+    margin: 5px auto;
+  }
+  .startDate {
+    padding-left: 10px;
+  }
+  .dateTitle,
+  .startDate {
+    font-size: 13px;
+  }
+  .registrationBtn {
+    font-size: 14px;
+    margin: -2px auto 8px auto;
+  }
 }
 
-.regBtn:hover {
-    color: white;
-    background-color: #db5d4d;
-    transform: all 400ms;
+@media screen and (max-width: 600px) {
+  .eventbox {
+    width: 75%;
+  }
+}
+@media screen and (max-width: 550px) {
+  .eventbox {
+    width: 80%;
+    border-right: 1px solid rgba(100, 100, 111, 0.2);
+    border-left: 1px solid rgba(100, 100, 111, 0.2);
+    border-top: 3px solid rgba(100, 100, 111, 0.2);
+    border-bottom: 3px solid rgba(100, 100, 111, 0.2);
+  }
+
+  .eventTitle {
+    font-size: 1.15rem;
+    width: 325px;
+  }
 }
 
-@media (max-width:700px) {
-    .noticeBox {
-        margin: 2rem auto;
-    }
+@media screen and (max-width: 490px) {
+  .eventDesc{
+    position: relative;
+  }
+  .eventTitleBanner{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .eventTitle{
+    font-size: 1rem;
+    text-align: center;
+    margin-top: -3px;
+  }
+  .registrationBtn{
+    position: absolute;
+    right: 70px;
+    top: 12px;
+    margin: 0;
+    font-size: 15px;
+  }
+  .eventStart{
+    margin: 0 10px;
+  }
+  .startDate {
+    padding-left: 8px;
+  }
+  .eventLogo{
+    margin-left: 60px;
+  }
+}
 
-    .notice {
-        display: grid;
-        grid-template-areas:
-            "it2 it2 it2""it1 . it3";
-        justify-content: space-between;
-        align-items: start;
-        padding: 0.5rem 0;
-    }
+@media screen and (max-width: 425px) {
+  .eventStart{
+    margin: 0 5px;
+  }
+  .eventTitle {
+    width: 300px;
+  }
+  .startDate{
+    min-width: 80px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .eventStart{
+    margin: 0 2px;
+  }
+  .eventTitle {
+    width: 290px;
+  }
+  .dateTitle,
+  .startDate {
+    font-size: 12px;
+  }
+}
 
-    .noticeTitle {
-        padding: 0;
-    }
+@media (max-width: 700px) {
+  .noticeBox {
+    margin: 2rem auto;
+  }
+  .title span {
+    display: none;
+  }
 
-    .startDate {
-        grid-area: it1;
-        margin-left: 10px;
-    }
-
-    .center {
-        grid-area: it2;
-    }
-
-    .endDate {
-        grid-area: it3;
-        margin-right: 10px;
-    }
-
-    .btnBox {
-        justify-content: center;
-    }
-
-    .desc {
-        text-align: center;
-        font-size: 13px;
-        margin-top: 10px;
-    }
-
-    .center {
-        padding: 0.5rem 1.25rem;
-    }
-
-    .dateTitle {
-        font-size: 10px;
-    }
-
-    .date {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .day {
-        font-size: 1rem;
-        margin-right: 4px;
-    }
-
-    .regBtn {
-        margin-top: 15px;
-    }
-
-    .title span {
-        display: none;
-    }
-
-    .title {
-        font-size: 1.25rem;
-    }
+  .title {
+    font-size: 1.25rem;
+  }
 }
