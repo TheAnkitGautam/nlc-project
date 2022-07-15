@@ -56,8 +56,9 @@
   padding: 20px 10px;
   font-family: "Roboto", sans-serif;
   background: #db5e4d20;
-  /* background-image: url(./Graffiti.png);
-  background-size: contain; */
+  background: #FDFCE5;
+  background-image: url(./Graffiti1.png);
+  /* background-size: cover; */
   border-top: 2.25px solid rgba(100, 100, 111, 0.2);
   border-bottom: 2.25px solid rgba(100, 100, 111, 0.2);
 }
