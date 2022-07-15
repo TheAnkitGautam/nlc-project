@@ -9,7 +9,7 @@ import SchoolOutlinedIcon from '@mui/icons-material/SchoolOutlined';
 import eventPoster from './eventPoster.jpg';
 import { useEffect, useState } from 'react';
 import { useContext } from 'react';
-import { AuthContext } from './../../context/AuthContext';
+import { AuthContext } from './../../Context/AuthContext';
 import { Save_User_Profile } from '../../utils/API_Calls';
 import Backdrop from '@mui/material/Backdrop';
 import CircularProgress from '@mui/material/CircularProgress';
