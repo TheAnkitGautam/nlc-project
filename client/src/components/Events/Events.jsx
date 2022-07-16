@@ -1,9 +1,10 @@
 import React from "react";
-// import { Link } from "react-router-dom";
 import eventPoster from "./eventPoster.jpg";
 import CSS from "./public_corner.module.css";
 import logo from "./../Clubs/D-Zire.png";
-const PublicCorner = () => {
+
+
+const Events = () => {
   return (
     <section className="pageLoadAnim">
       <div className={CSS.imgBox}>
@@ -68,4 +69,4 @@ const PublicCorner = () => {
   );
 };
 
-export default PublicCorner;
+export default Events;

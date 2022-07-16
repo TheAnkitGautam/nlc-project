@@ -66,8 +66,8 @@ const Navbar = () => {
                     user !== null ? (
                         <>
                             <Avatar
-                                alt={user.user.fullName}
-                                src={user.user.profilePic}
+                                alt={user?.fullName}
+                                src={user?.profilePic}
                                 sx={{ mr: 1, width: 35, height: 35 }}
                             />
                             <Button sx={{ mr: 2 }} onClick={handleLogout}>Logout</Button>
