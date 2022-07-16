@@ -82,7 +82,7 @@
 
   /* text-align: center; */
 }
-.registrationBtn {
+.registrationBtn, .completionBtn {
   border: 1.6px solid #db5d4d;
   border-radius: 7px;
   padding: 5.5px;
@@ -93,6 +93,14 @@
   margin-left: 20px;
   text-align: center;
 }
+
+.completionBtn{
+  color: white;
+  background: green;
+  border: 1.6px solid darkgreen;
+  cursor: default;
+}
+
 .registrationBtn:hover {
   background: #db5d4d;
   color: snow;
@@ -165,7 +173,7 @@
     display: flex;
     justify-content: space-between;
   }
-  .registrationBtn {
+  .registrationBtn, .completionBtn {
     margin: 10px;
     height: fit-content;
   }
@@ -211,7 +219,7 @@
   .startDate {
     font-size: 13px;
   }
-  .registrationBtn {
+  .registrationBtn, .completionBtn {
     font-size: 14px;
     margin: -2px auto 8px auto;
   }
@@ -250,7 +258,7 @@
     text-align: center;
     margin-top: -3px;
   }
-  .registrationBtn{
+  .registrationBtn, .completionBtn{
     position: absolute;
     right: 70px;
     top: 12px;

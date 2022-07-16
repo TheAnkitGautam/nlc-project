@@ -1,23 +1,16 @@
 import React from "react";
-// import { Link } from "react-router-dom";
-import eventPoster from "./eventPoster.jpg";
 import CSS from "./public_corner.module.css";
-import logo from "./../Clubs/D-Zire.png";
-import { Upcoming_events_list } from "./Events_list";
-const PublicCorner = () => {
+import logo from "./../Clubs/Aaveg.png";
+import { Previous_events_list} from "./Events_list";
+const PreviousEvents = () => {
   return (
     <section className="pageLoadAnim">
-      <div className={CSS.imgBox}>
-        <img src={eventPoster} alt="" className={CSS.eventImg} />
-      </div>
       <div className={CSS.noticeBox}>
         <h2 className={CSS.title}>
-          <span>----------</span> Upcoming Events <span>----------</span>
+          <span>----------</span> Previous Events <span>----------</span>
         </h2>
-        <h3 className={CSS.loginRemark}>Login to Register</h3>
-
         <div className={CSS.eventContainer}>
-          {Upcoming_events_list.map((Event, index) => {
+          {Previous_events_list.map((Event, index) => {
             return (
               <div className={CSS.eventbox} key={index}>
                 <div className={CSS.eventDesc}>
@@ -25,7 +18,7 @@ const PublicCorner = () => {
                     <img className={CSS.eventLogo} src={logo} alt="" />
                     <div className={CSS.eventTitle}>{Event.name}</div>
                   </div>
-                  <div className={CSS.registrationBtn}>Register</div>
+                  <div className={CSS.completionBtn}>Completed</div>
                 </div>
                 <div className={CSS.eventDate}>
                   <div className={CSS.eventStart}>
@@ -46,4 +39,4 @@ const PublicCorner = () => {
   );
 };
 
-export default PublicCorner;
+export default PreviousEvents;

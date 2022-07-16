@@ -13,6 +13,7 @@ import { useContext, useLayoutEffect } from "react";
 import { AuthContext } from "./Context/AuthContext";
 import { API_Login_Request } from './utils/API_Calls';
 import AdminPage from "./Pages/AdminPage";
+import PreviousEvents from "./components/PublicCorner/PreviousEvents";
 
 
 function App() {
@@ -33,7 +34,7 @@ function App() {
           <Route path='/' element={<HomePage />} />
           <Route path='/team' element={<TeamPage />} />
           <Route path='/achievement' element={<AchievementPage />} />
-          <Route path='/events' element={<PublicCorner />} />
+          <Route path='/events' element={<><PublicCorner /><PreviousEvents/></>} />
           <Route path='/profile' element={user !== null ? <Profile /> : <PublicCorner />} />
           <Route path='/about' element={<AboutPage />} />
           <Route path='/admin' element={user?.user.isAdmin ? <AdminPage /> : <HomePage />} />
