@@ -89,6 +89,10 @@ nav a.active li {
         margin-left: 1rem;
     }
 
+    .logo-img{
+        height: 50px;
+    }
+    
     .nav-icon-wrapper {
         display: none;
     }
