@@ -3,8 +3,7 @@ import { createContext, useReducer } from 'react'
 
 const INITIAL_STATE = {
     user: null,
-    isFetching: false,
-    error: false
+    profile: null,
 };
 
 export const AuthContext = createContext(INITIAL_STATE);
@@ -15,8 +14,7 @@ export const AuthContextProvider = ({ children }) => {
     return (
         <AuthContext.Provider value={{
             user: state.user,
-            isFetching: state.isFetching,
-            error: state.error,
+            profile: state.profile,
             dispatch
         }}>
             {children}

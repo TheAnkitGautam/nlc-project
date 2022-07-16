@@ -7,14 +7,11 @@ import WhatsappOutlinedIcon from '@mui/icons-material/WhatsappOutlined';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import SchoolOutlinedIcon from '@mui/icons-material/SchoolOutlined';
 import eventPoster from './eventPoster.jpg';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useContext } from 'react';
 import { AuthContext } from './../../Context/AuthContext';
 import { Save_User_Profile } from '../../utils/API_Calls';
-import Backdrop from '@mui/material/Backdrop';
-import CircularProgress from '@mui/material/CircularProgress';
-import axios from 'axios';
-
+import { useNavigate } from 'react-router-dom';
 
 const StyledBox = styled(Box)(({ theme }) => ({
     [theme.breakpoints.down('sm')]: {
@@ -50,12 +47,9 @@ const Validate = (formValues) => {
     return errors;
 }
 
-// const eventName = localStorage.getItem('eventName')
-
 export default function Profile() {
-    const { user } = useContext(AuthContext)
-    const [createdProfile, setCreatedProfile] = useState(false)
-    const [loader, setLoader] = useState(true)
+    const navigate = useNavigate();
+    const { user, profile } = useContext(AuthContext)
     const [alert, setAlert] = useState(false)
     const [error, setError] = useState(false)
 
@@ -89,42 +83,33 @@ export default function Profile() {
 
         if (Object.keys(errors).length === 0) {
             try {
-                const res = await Save_User_Profile({
-                    googleId: user.user.googleId,
+                await Save_User_Profile({
+                    googleId: user.googleId,
                     fullName: formValues.fullName,
-                    email: user.user.email,
-                    profilePic: user.user.profilePic,
+                    email: user.email,
+                    profilePic: user.profilePic,
                     gender: formValues.gender,
                     whatsappNumber: formValues.whatsappNumber,
                     instaUrl: formValues.instaUrl,
                     instituteName: formValues.instituteName
                 });
                 setAlert(true);
+
+                setTimeout(() => {
+                    navigate('/', { replace: true });
+                }, 3000);
+
             } catch (err) {
                 setError(true)
+                setTimeout(() => {
+                    navigate('/events', { replace: true });
+                }, 3000);
             }
         }
     }
 
-    useEffect(() => {
-        axios.post('/user/profile', { googleId: user.user.googleId })
-            .then(res => res.data)
-            .then(participant =>
-                participant ? setCreatedProfile(true) : setCreatedProfile(false)
-            )
-            .finally(() => setLoader(false))
-    }, [user.user.googleId])
-
     return (
         <>
-            <div>
-                <Backdrop
-                    sx={{ color: '#ff6347', zIndex: 10 }}
-                    open={loader}
-                >
-                    <CircularProgress color="inherit" thickness={3} size={70} />
-                </Backdrop>
-            </div>
             <section className='pageLoadAnim' >
                 <div className={styles.imgBox}>
                     <img src={eventPoster} alt="" className={styles.eventImg} />
@@ -132,18 +117,18 @@ export default function Profile() {
                 <Box sx={{ my: 10 }}>
                     <h2 className={styles.title}><span>----------</span> Upcoming Events <span>----------</span></h2>
                     {
-                        !createdProfile ? (
+                        !profile ? (
                             <Container sx={{ display: 'flex', justifyContent: "center" }} component={Paper} maxWidth="sm">
                                 <StyledBox sx={{ height: '100%', width: '68%', padding: '2rem 0' }}>
                                     <Box sx={{ display: 'flex', justifyContent: "center" }}>
                                         <Avatar
-                                            alt={user !== null ? user.user.fullName : ''}
-                                            src={user !== null ? user.user.profilePic : ''}
+                                            alt={user !== null ? user.fullName : ''}
+                                            src={user !== null ? user.profilePic : ''}
                                             sx={{ mb: 1, width: 56, height: 56 }}
                                         />
                                     </Box>
                                     <Typography sx={{ mb: 5 }} color="gray" align='center' variant="subtitle1" >
-                                        {user !== null ? user.user.fullName : ''}
+                                        {user !== null ? user.fullName : ''}
                                     </Typography>
                                     <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
                                         <PersonOutlineIcon sx={{ mr: 2 }} />

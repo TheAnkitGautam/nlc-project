@@ -1,10 +1,11 @@
-export const LoginStart = () => ({
-    type: 'LOGIN_START',
+export const LoginSuccess = (data) => ({
+    type: 'GOT_USER',
+    payload: data
 })
 
-export const LoginSuccess = (user) => ({
-    type: 'LOGIN_SUCCESS',
-    payload: user
+export const FetchProfile = (data) => ({
+    type: 'GOT_USER_PROFILE',
+    payload: data
 })
 
 export const Logout = () => ({

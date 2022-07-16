@@ -2,23 +2,24 @@ import Footer from "./components/Footer/Footer";
 import Navbar from "./components/Navbar/Navbar";
 import HomePage from "./Pages/HomePage";
 import TeamPage from "./Pages/TeamPage";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import AboutPage from './Pages/AboutPage';
-import PublicCorner from './components/PublicCorner/PublicCorner';
+import Events from './components/Events/Events';
 import ScrollButton from './components/ScrollToTop/ScrollToTop';
 import AchievementPage from './components/Achievements/AchievementPage';
 import NotFound from './Pages/NotFound';
-import Profile from "./components/PublicCorner/Profile";
+import Profile from "./components/Events/Profile";
 import { useContext, useLayoutEffect } from "react";
 import { AuthContext } from "./Context/AuthContext";
 import { API_Login_Request } from './utils/API_Calls';
 import AdminPage from "./Pages/AdminPage";
-import PreviousEvents from "./components/PublicCorner/PreviousEvents";
+import { Previous_events_list } from "./components/Events/Events_list";
+import PreviousEvents from "./components/Events/PreviousEvents";
 
 
 function App() {
 
-  const { user, dispatch } = useContext(AuthContext);
+  const { user, profile, dispatch } = useContext(AuthContext);
 
   useLayoutEffect(() => {
     API_Login_Request(dispatch)
@@ -34,10 +35,10 @@ function App() {
           <Route path='/' element={<HomePage />} />
           <Route path='/team' element={<TeamPage />} />
           <Route path='/achievement' element={<AchievementPage />} />
-          <Route path='/events' element={<><PublicCorner /><PreviousEvents/></>} />
-          <Route path='/profile' element={user !== null ? <Profile /> : <PublicCorner />} />
+          <Route path='/events' element={<><Events /><PreviousEvents/></>} />
+          <Route path='/profile' element={!profile ? <Profile /> : <Navigate to="/events" replace />} />
           <Route path='/about' element={<AboutPage />} />
-          <Route path='/admin' element={user?.user.isAdmin ? <AdminPage /> : <HomePage />} />
+          <Route path='/admin' element={user?.isAdmin ? <AdminPage /> : <HomePage />} />
         </Routes>
         <ScrollButton />
         <Footer />
