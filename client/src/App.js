@@ -10,10 +10,9 @@ import AchievementPage from './components/Achievements/AchievementPage';
 import NotFound from './Pages/NotFound';
 import Profile from "./components/Events/Profile";
 import { useContext, useLayoutEffect } from "react";
-import { AuthContext } from "./Context/AuthContext";
+import { AuthContext } from "./context/AuthContext";
 import { API_Login_Request } from './utils/API_Calls';
 import AdminPage from "./Pages/AdminPage";
-import { Previous_events_list } from "./components/Events/Events_list";
 import PreviousEvents from "./components/Events/PreviousEvents";
 
 
