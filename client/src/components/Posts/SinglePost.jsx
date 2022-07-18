@@ -11,4 +11,4 @@ const SinglePost = (props) => {
     )
 }
 
-export default SinglePost
+export default SinglePost;

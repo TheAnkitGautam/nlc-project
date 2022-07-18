@@ -14,7 +14,7 @@ const TeamHeader = () => {
                 
                 <div className="coordinator">
                     <div className="coord-wrap">
-                        <div className="coordinator-img"><img src={coord1} alt="" /></div>
+                        <div className="coordinator-img"><img className="coordinator-image" src="https://i.postimg.cc/XJ7hhq5J/anawil-tiwari.jpg" alt="" /></div>
                         <div className="coordinator-desc">
                             <h3 className="coord-name">Anawil Tiwari</h3>
                             <h5 className="coord-post">President</h5>
@@ -27,7 +27,7 @@ const TeamHeader = () => {
                         </div>
                     </div>
                     <div className="coord-wrap">
-                        <div className="coordinator-img"><img src={coord1} alt="" /></div>
+                        <div className="coordinator-img"><img className="coordinator-image" src="https://i.postimg.cc/DZ2XVJnt/tarang-vats.jpg" alt="" /></div>
                         <div className="coordinator-desc">
                             <h3 className="coord-name">Tarang Vats</h3>
                             <h5 className="coord-post">Vice President</h5>
