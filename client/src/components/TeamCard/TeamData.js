@@ -41,6 +41,14 @@ export const Social_Team = [
     },
     {
         index: 1,
+        image: "https://i.postimg.cc/2yYqsTDX/madhumita-moi-compressed.png",
+        name: "Madhumita Moi",
+        post: "Lead",
+        instaUrl: "https://www.instagram.com/madhumitamoi",
+        linkdUrl: "https://www.linkedin.com/in/madhumita-moi/",
+    },
+    {
+        index: 2,
         image: "https://i.postimg.cc/8CJ86TSS/abhudhya-kumar.png",
         name: "Abhudhya Kumar",
         post: "Member",
@@ -48,20 +56,12 @@ export const Social_Team = [
         linkdUrl: "https://www.linkedin.com/in/abhyuday-kumar-b1aa051a6/",
     },
     {
-        index: 2,
+        index: 3,
         image: "https://i.postimg.cc/bY9tjXBy/rakshita.png",
         name: "Rakshita",
         post: "Member",
         instaUrl: "#",
         linkdUrl: "https://www.linkedin.com/in/rakshita-srivastava-58946b201/",
-    },
-    {
-        index: 3,
-        image: "https://i.postimg.cc/2yYqsTDX/madhumita-moi-compressed.png",
-        name: "Madhumita Moi",
-        post: "Lead",
-        instaUrl: "https://www.instagram.com/madhumitamoi",
-        linkdUrl: "https://www.linkedin.com/in/madhumita-moi/",
     },
     {
         index: 4,

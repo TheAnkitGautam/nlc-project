@@ -5,7 +5,7 @@ const FacultyCord = () => {
     return (
         <>
             <div className={CSS.wrap}>
-                <img src={img} alt="" />
+                <img className='coordinator-image' src="https://i.postimg.cc/PxZWWpTc/anuradha-nongmaithem.jpg" alt="" />
                 <div className={CSS.details}>
                     <h3 className={CSS.name}>Dr. Anuradha Nongmaithem</h3>
                     <h5 className={CSS.post}>Faculty Coordinator</h5>
