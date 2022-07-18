@@ -49,6 +49,10 @@ const Events = () => {
               <Button size="small" variant="outlined" color="primary"><Link to={'/profile'}>Create Profile</Link></Button>
             </>
           }
+          {
+            (user && profile) &&
+            <Typography variant="body1" sx={{ mr: 2 }} color={'success'}>Click on Register Button to register for a event.</Typography>
+          }
         </div>
         <div className={CSS.eventContainer}>
           {

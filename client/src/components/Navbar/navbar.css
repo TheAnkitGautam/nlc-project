@@ -5,7 +5,7 @@
     align-items: center;
     height: 70px;
     position: fixed;
-    background-color: #FDFCE5;
+    background-color: #FCF8E8;
     width: 100%;
     box-shadow: 0 0 10px rgba(121, 142, 160, 0.5);
     z-index: 10;
@@ -109,7 +109,7 @@ nav a.active li {
     .menu-btn {
         display: block;
         margin-right: 2rem;
-        font-size: rem;
+        /* font-size: 0rem; */
         cursor: pointer;
     }
 
@@ -151,7 +151,11 @@ nav a.active li {
         transition: color 0.5s all;
     }
 
-    .fa-times-circle, .fa-bars {
+    .fa-times-circle {
+        font-size: 1.77rem;
+        font-weight: bold;
+    } 
+    .fa-bars {
         font-size: 2rem;
     }
 }

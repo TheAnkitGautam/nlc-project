@@ -36,6 +36,11 @@
     place-items: center;
 }
 
+.coordinator-image{
+    width: 234px;
+    height: 234px;
+    border: 3px solid #DB5D4D;
+}
 .coordinator-desc {
     display: grid;
     place-items: center;
