@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import axios from 'axios';
 import './footer.css'
+import { Subscribe } from '../../utils/API_Calls';
 
 const Footer = () => {
 
@@ -18,7 +18,7 @@ const Footer = () => {
         const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i
         if (regex.test(email)) {
             try {
-                let { data } = await axios.post('/subscribe', { "email": email });
+                let { data } = await Subscribe(email);
                 setErr({ color: data.color, msg: data.msg });
                 setEmail("");
             } catch (err) {

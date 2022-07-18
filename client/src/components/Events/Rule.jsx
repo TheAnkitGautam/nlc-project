@@ -10,7 +10,7 @@ const Rule = ({ props }) => {
                 props.rules.map((rule, index) => {
                     return (
                         <p key={index} className={CSS.rule}>
-                            <i className={`${CSS.arrow} fas fa-location-arrow`} />
+                            <i className={`${CSS.arrow} fa-solid fa-circle`} />
                             {rule}
                         </p>
                     )

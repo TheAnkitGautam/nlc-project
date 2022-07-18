@@ -1,31 +1,31 @@
 export const Upcoming_events_list = [
   {
     index: 0,
-    name: "Spill the ink 3.0 - Debate Competition",
+    name: "Debate Competition",
     startDate: "20 January",
     endDate: "18 September",
   },
   {
     index: 1,
-    name: "Spill the ink 3.0 - Debate Competition",
+    name: "Story Writing Competition",
     startDate: "20 January",
     endDate: "18 September",
   },
   {
     index: 2,
-    name: "Spill the ink 3.0 - Debate Competition",
+    name: "Poetry Competition",
     startDate: "20 January",
     endDate: "18 September",
   },
   {
     index: 3,
-    name: "Spill the ink 3.0 - Debate Competition",
+    name: "Debate Competition",
     startDate: "20 January",
     endDate: "18 September",
   },
   {
     index: 4,
-    name: "Spill the ink 3.0 - Debate Competition",
+    name: "Debate Competition",
     startDate: "20 January",
     endDate: "18 September",
   },

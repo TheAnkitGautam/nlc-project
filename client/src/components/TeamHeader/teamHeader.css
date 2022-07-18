@@ -3,25 +3,25 @@
 }
 
 .team-heading {
-    padding-top: 1rem;
-    font-family: 'Roboto', sans-serif;
+    padding: 1.5rem 0 1rem 0;
+    font-family: 'Merriweather', sans-serif;
     text-align: center;
     font-size: 3rem;
     font-weight: 700;
 }
 
-.meet-word {
+.team-heading span {
     color: #DB5D4D;
 }
 
 .team-intro-para {
-    padding-top: 1rem;
+    padding: 2rem 0 3rem 0;
     text-align: center;
     font-family: 'Roboto', sans-serif;
     font-size: 22px;
-    width: 80%;
+    width: 90%;
     margin: 0 auto 2rem auto;
-    color: #333;
+    color: #282828;
 }
 
 .coordinator {

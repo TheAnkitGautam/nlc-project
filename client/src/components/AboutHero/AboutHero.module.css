@@ -1,8 +1,8 @@
 .mainTitle {
-    padding-top: 1rem;
+    padding-top: 1.5rem;
     text-align: center;
     font-size: 3rem;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Merriweather', sans-serif;
 }
 
 .aboutWord {
@@ -16,9 +16,8 @@
     max-width: 1300px;
     padding: 2rem 1rem;
     margin: 0 auto;
-}
-.heroText{
-    color: rgba(0, 0, 0, 0.9);
+    color: #282828;
+    margin-bottom: 2rem;
 }
 .img_box {
     margin-top: 1rem;
