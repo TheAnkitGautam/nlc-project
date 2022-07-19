@@ -15,7 +15,7 @@ const PreviousEvents = () => {
               <div className={CSS.eventbox} key={index}>
                 <div className={CSS.eventDesc}>
                   <div className={CSS.eventTitleBanner}>
-                    <img className={CSS.eventLogo} src={logo} alt="" />
+                    <img className={CSS.eventLogo} src="https://i.postimg.cc/nL0ch7Mx/Untitled-design-1.png" alt="" />
                     <div className={CSS.eventTitle}>{Event.name}</div>
                   </div>
                   <div className={CSS.completionBtn}>Completed</div>

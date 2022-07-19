@@ -1,0 +1,107 @@
+.messagetitle {
+    font-size: 2.5rem;
+    font-weight: 700;
+    padding: 2rem 0 0 0;
+    color: #282828;
+    font-family: 'Merriweather', sans-serif;
+    text-align: center;
+    margin: 0 1rem;
+}
+
+.messagetitle span {
+    color: #db5d4d;
+}
+.messagewrapper {
+  display: grid;
+  margin: 2rem 14rem;
+  grid-template-columns: 1fr 4fr;
+  gap: 8rem;
+  font-family: "Roboto", sans-serif;
+}
+
+.messageimage {
+  width: 220px;
+  border-radius: 50%;
+  box-shadow: 0px 4px 10px #333;
+}
+.name {
+  font-size: 1.1rem;
+  margin: 10px auto 2px auto;
+  width: fit-content;
+}
+.post {
+  font-size: 0.9rem;
+  margin: 0 auto;
+  width: fit-content;
+  color: #db5d4d;
+}
+.messagecontent {
+  display: grid;
+  align-items: center;
+  line-height: 1.3rem;
+}
+
+@media screen and (max-width: 1300px) {
+  .messagewrapper {
+    gap: 5rem;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .messagewrapper {
+    margin: 2rem 11rem;
+  }
+  .messagecontent {
+    font-size: 0.85rem;
+    line-height: 1.1rem;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .messagewrapper {
+    gap: 4rem;
+    margin: 2rem 9rem;
+  }
+  .messageimage {
+    width: 190px;
+  }
+  .name {
+    font-size: 0.93rem;
+  }
+  .post {
+    font-size: 0.8rem;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+    .messagewrapper{
+        margin: 2rem 7rem;
+    }
+    .messagecontent{
+        text-align: justify;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .messagewrapper {
+        gap: 2.5rem;
+        margin: 2rem 5rem;
+      }
+      .messagecontent {
+        line-height: 1.05rem;
+        font-size: 0.78rem;
+      }
+}
+
+@media screen and (max-width: 650px) {
+    .messagewrapper{
+        grid-template-columns: 1fr;
+        place-items: center;
+        gap: 1rem;
+        margin: 2rem;
+    }
+    .messagetitle {
+        font-size: 2.25rem;
+        padding: 1.75rem 0 0 1rem;
+        margin: 0 0.5rem;
+    }
+}
