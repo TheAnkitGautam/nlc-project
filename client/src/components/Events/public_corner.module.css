@@ -37,17 +37,21 @@
   letter-spacing: -1px;
 }
 
-.loginRemark {
-  font-family: "Roboto", sans-serif;
-  text-align: center;
-  font-weight: normal;
+.buttonContainer {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  padding: 2rem 10px 1rem 10px;
 }
+
 .eventContainer {
   display: grid;
   grid-template-columns: 1fr 1fr;
   max-width: 1200px;
   margin: 1rem auto;
 }
+
 .eventbox {
   display: flex;
   justify-content: space-between;
@@ -62,19 +66,24 @@
   border-top: 2.25px solid rgba(100, 100, 111, 0.2);
   border-bottom: 2.25px solid rgba(100, 100, 111, 0.2);
 }
+
 .eventbox:hover {
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
+
 .eventDesc {
   margin: auto;
 }
+
 .eventTitleBanner {
   display: flex;
   align-items: center;
 }
+
 .eventLogo {
   height: 76px;
 }
+
 .eventTitle {
   font-size: 1.47rem;
   padding: 10px;
@@ -82,9 +91,11 @@
 
   /* text-align: center; */
 }
-.registrationBtn, .completionBtn {
+
+.registrationBtn,
+.completionBtn {
   border: 1.6px solid #db5d4d;
-  border-radius: 7px;
+  border-radius: 3px;
   padding: 5.5px;
   width: fit-content;
   cursor: pointer;
@@ -92,9 +103,10 @@
   color: #db5d4d;
   margin-left: 20px;
   text-align: center;
+  background: #fff;
 }
 
-.completionBtn{
+.completionBtn {
   color: white;
   background: green;
   border: 1.6px solid darkgreen;
@@ -109,14 +121,17 @@
 .eventDate {
   margin: 0 auto;
 }
+
 .eventStart {
   margin: 18.5px auto;
 }
+
 .dateTitle {
   font-size: 14px;
   text-transform: uppercase;
   color: #db5d4d;
 }
+
 .startDate {
   font-family: "Roboto", sans-serif;
   min-width: 100px;
@@ -135,27 +150,33 @@
   .eventContainer {
     max-width: 1100px;
   }
+
   .eventbox {
     width: 520px;
   }
+
   .eventTitle {
     font-size: 1.4rem;
     width: 300px;
   }
 }
+
 @media screen and (max-width: 1180px) {
   .eventContainer {
     grid-template-columns: 1fr;
     max-width: 1100px;
   }
+
   .eventbox {
     width: 580px;
   }
+
   .eventTitle {
     font-size: 1.4rem;
     width: 350px;
   }
 }
+
 @media screen and (max-width: 850px) {
   .eventbox {
     display: grid;
@@ -164,25 +185,32 @@
     padding-top: 20px;
     width: 70%;
   }
+
   .eventTitle {
     width: 330px;
   }
+
   .eventDesc,
   .eventDate,
   .eventStart {
     display: flex;
     justify-content: space-between;
   }
-  .registrationBtn, .completionBtn {
+
+  .registrationBtn,
+  .completionBtn {
     margin: 10px;
     height: fit-content;
   }
+
   .eventDate {
     margin: 15px auto;
   }
+
   .eventStart {
     margin: 0px 20px;
   }
+
   .dateTitle,
   .startDate {
     font-size: 15px;
@@ -194,32 +222,41 @@
     width: 310px;
   }
 }
+
 @media screen and (max-width: 700px) {
   .eventbox {
     padding: 10px 10px;
   }
+
   .eventLogo {
     height: 60px;
   }
+
   .eventTitle {
     font-size: 1.25rem;
     width: 350px;
   }
+
   .eventDesc {
     display: grid;
     place-items: center;
   }
+
   .eventDate {
     margin: 5px auto;
   }
+
   .startDate {
     padding-left: 10px;
   }
+
   .dateTitle,
   .startDate {
     font-size: 13px;
   }
-  .registrationBtn, .completionBtn {
+
+  .registrationBtn,
+  .completionBtn {
     font-size: 14px;
     margin: -2px auto 8px auto;
   }
@@ -230,6 +267,7 @@
     width: 75%;
   }
 }
+
 @media screen and (max-width: 550px) {
   .eventbox {
     width: 80%;
@@ -246,54 +284,66 @@
 }
 
 @media screen and (max-width: 490px) {
-  .eventDesc{
+  .eventDesc {
     position: relative;
   }
-  .eventTitleBanner{
+
+  .eventTitleBanner {
     flex-direction: column;
     align-items: flex-start;
   }
-  .eventTitle{
+
+  .eventTitle {
     font-size: 1rem;
     text-align: center;
     margin-top: -3px;
   }
-  .registrationBtn, .completionBtn{
+
+  .registrationBtn,
+  .completionBtn {
     position: absolute;
     right: 70px;
     top: 12px;
     margin: 0;
     font-size: 15px;
   }
-  .eventStart{
+
+  .eventStart {
     margin: 0 10px;
   }
+
   .startDate {
     padding-left: 8px;
   }
-  .eventLogo{
+
+  .eventLogo {
     margin-left: 60px;
   }
 }
 
 @media screen and (max-width: 425px) {
-  .eventStart{
+  .eventStart {
     margin: 0 5px;
   }
+
   .eventTitle {
     width: 300px;
   }
-  .startDate{
+
+  .startDate {
     min-width: 80px;
   }
 }
+
 @media screen and (max-width: 400px) {
-  .eventStart{
+  .eventStart {
     margin: 0 2px;
   }
+
   .eventTitle {
     width: 290px;
   }
+
   .dateTitle,
   .startDate {
     font-size: 12px;
@@ -304,6 +354,7 @@
   .noticeBox {
     margin: 2rem auto;
   }
+
   .title span {
     display: none;
   }

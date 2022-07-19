@@ -94,7 +94,6 @@ export default function Profile() {
                     instituteName: formValues.instituteName
                 });
                 setAlert(true);
-
                 setTimeout(() => {
                     navigate('/', { replace: true });
                 }, 3000);

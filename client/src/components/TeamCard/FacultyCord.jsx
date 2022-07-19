@@ -1,6 +1,7 @@
 import CSS from './faculty.module.css';
 // import img from './../TeamHeader/coord-1.png';
 import Dots from './../Dots';
+
 const FacultyCord = () => {
     return (
         <>

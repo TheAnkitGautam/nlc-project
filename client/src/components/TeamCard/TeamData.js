@@ -218,7 +218,7 @@ export const Graphics_Team = [
     },
     {
         index: 2,
-        image: "https://i.postimg.cc/Dw3CC4mj/ankit-gautam.png",
+        image: "",
         name: "Ankit Gautam",
         post: "Member",
         instaUrl: "https://www.instagram.com/someone___404",

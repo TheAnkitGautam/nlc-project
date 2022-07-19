@@ -9,39 +9,45 @@ import ScrollButton from './components/ScrollToTop/ScrollToTop';
 import AchievementPage from './components/Achievements/AchievementPage';
 import NotFound from './Pages/NotFound';
 import Profile from "./components/Events/Profile";
-import { useContext, useLayoutEffect } from "react";
+import { useContext, useState, useLayoutEffect } from "react";
 import { AuthContext } from "./Context/AuthContext";
 import { API_Login_Request } from './utils/API_Calls';
 import AdminPage from "./Pages/AdminPage";
 import PreviousEvents from "./components/Events/PreviousEvents";
-
+import RulesPage from "./components/Events/RulesPage";
+import Loader from "./components/Loader";
+import Notification from "./components/Notification";
 
 function App() {
 
-  const { user, profile, dispatch } = useContext(AuthContext);
+  const { user, profile, msg, dispatch } = useContext(AuthContext);
+  const [loader, setLoader] = useState(true);
 
   useLayoutEffect(() => {
     API_Login_Request(dispatch)
+      .then(() => {
+        setLoader(false);
+      })
   }, [dispatch])
-
 
   return (
     <BrowserRouter>
-      <>
-        <Navbar />
-        <Routes>
-          <Route path="*" element={<NotFound />} />
-          <Route path='/' element={<HomePage />} />
-          <Route path='/team' element={<TeamPage />} />
-          <Route path='/achievement' element={<AchievementPage />} />
-          <Route path='/events' element={<><Events /><PreviousEvents/></>} />
-          <Route path='/profile' element={!profile ? <Profile /> : <Navigate to="/events" replace />} />
-          <Route path='/about' element={<AboutPage />} />
-          <Route path='/admin' element={user?.isAdmin ? <AdminPage /> : <HomePage />} />
-        </Routes>
-        <ScrollButton />
-        <Footer />
-      </>
+      <Navbar />
+      <Loader loader={loader} />
+      {msg && <Notification msg={msg} />}
+      <Routes>
+        <Route path="*" element={<NotFound />} />
+        <Route path='/' element={<HomePage />} />
+        <Route path='/team' element={<TeamPage />} />
+        <Route path='/achievement' element={<AchievementPage />} />
+        <Route path='/events' element={<><Events /><PreviousEvents /></>} />
+        <Route path='/events/rules' element={<RulesPage />} />
+        <Route path='/profile' element={!profile ? <Profile /> : <Navigate to="/events" replace />} />
+        <Route path='/about' element={<AboutPage />} />
+        <Route path='/admin' element={user?.isAdmin ? <AdminPage /> : <HomePage />} />
+      </Routes>
+      <ScrollButton />
+      <Footer />
     </BrowserRouter>
   );
 }

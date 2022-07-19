@@ -37,10 +37,6 @@
     cursor: pointer;
 }
 
-.secondary_card:hover .card_img {
-    border-radius: 10px;
-    transition: all 0.75s;
-}
 
 .cardSm i {
     font-size: 0.8rem;

@@ -4,7 +4,7 @@ import logo from './logo-white.png';
 import { useNavigate, NavLink } from 'react-router-dom';
 import { Avatar, Button } from '@mui/material';
 import { AuthContext } from './../../Context/AuthContext';
-import axios from 'axios';
+import { Logout } from '../../utils/API_Calls';
 
 const Navbar = () => {
 
@@ -31,11 +31,13 @@ const Navbar = () => {
         window.open('http://localhost:5000/auth/google', '_self');
     }
 
-    const handleLogout = () => {
-        axios.get('/auth/logout')
-            .then(dispatch({ type: 'LOGOUT' }))
-            .then(navigate('/'))
-            .catch(err => console.log(err));
+    const handleLogout = async () => {
+        try {
+            await Logout(dispatch);
+            navigate('/')
+        } catch (error) {
+            console.log(error);
+        }
     }
 
     return (

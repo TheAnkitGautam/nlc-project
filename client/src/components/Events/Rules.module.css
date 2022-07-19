@@ -1,13 +1,18 @@
+.wrapper {
+    min-height: 100vh;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 6rem 1rem 0 1rem;
+}
+
 .title {
-    text-align: center;
-    font-family: 'Roboto', sans-serif;
-    color: #444;
-    padding: 10px 0;
-    margin: 0 auto 2rem auto;
-    font-size: 2rem;
-    font-weight: bold;
-    letter-spacing: 3px;
-    text-transform: uppercase;
+    font-family: 'Merriweather', serif;
+    color: #282828;
+    padding: 0.75rem 0;
+    margin-bottom: 2.75rem;
+    font-size: 2.25rem;
+    font-weight: 700;
+    letter-spacing: 1px;
     position: relative;
 }
 
@@ -15,91 +20,84 @@
     content: '';
     position: absolute;
     height: 4px;
-    width: 70%;
+    width: 90%;
     background-color: #db5d4d;
-    left: 15%;
-    bottom: -4px;
+    left: 0;
+    bottom: -6px;
 }
 
 .ruleBox {
-    max-width: 1100px;
-    margin: 2rem auto;
+    margin: 2rem auto 3rem auto;
     font-family: 'Roboto', sans-serif;
-    color: #444;
-    border-bottom: 1px solid rgba(128, 128, 128, 0.37);
-    padding-bottom: 2rem;
+    color: #282828;
 }
 
 .heading {
-    font-size: 1.5rem;
-    margin: 1rem 3rem;
-    color: #db5d4d;
+    font-family: 'Merriweather', serif;
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: #282828;
+    margin-bottom: 2rem;
+}
+
+.heading::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 1px;
+    background: #4a4a4a;
 }
 
 .rule {
     display: flex;
-    justify-content: center;
-    margin-top: 1rem;
+    margin-top: 0.8rem;
 }
 
 .arrow {
-    padding: 0.25rem 1rem;
+    margin-right: 1rem;
+    font-size: 0.5rem;
+    display: grid;
+    place-items: center;
+    color: #db5d4d;
 }
 
 .buttons {
     display: flex;
     align-items: center;
-    justify-content: space-around;
-    margin-bottom: 5rem;
-}
-
-.checkbox label {
-    font-family: 'Roboto', sans-serif;
-    font-size: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.checkbox input {
-    cursor: pointer;
-    margin-right: 10px;
-    width: 20px;
-    height: 20px;
-    background: #ff0000;
+    margin-bottom: 4rem;
 }
 
 .reg_Btn {
-    transition: background-color .3s, box-shadow .3s;
-    padding: 12px 16px 12px 42px;
+    background-color: #dd2b13;
+    color: #fff;
     border: none;
+    padding: 0.8rem 1rem;
     border-radius: 2px;
-    box-shadow: 0 -1px 0 rgba(0, 0, 0, .04), 0 1px 1px rgba(0, 0, 0, .25);
-    color: #757575;
-    font-size: 14px;
-    font-weight: 500;
     font-family: 'Roboto', sans-serif;
-    background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBkPSJNMTcuNiA5LjJsLS4xLTEuOEg5djMuNGg0LjhDMTMuNiAxMiAxMyAxMyAxMiAxMy42djIuMmgzYTguOCA4LjggMCAwIDAgMi42LTYuNnoiIGZpbGw9IiM0Mjg1RjQiIGZpbGwtcnVsZT0ibm9uemVybyIvPjxwYXRoIGQ9Ik05IDE4YzIuNCAwIDQuNS0uOCA2LTIuMmwtMy0yLjJhNS40IDUuNCAwIDAgMS04LTIuOUgxVjEzYTkgOSAwIDAgMCA4IDV6IiBmaWxsPSIjMzRBODUzIiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48cGF0aCBkPSJNNCAxMC43YTUuNCA1LjQgMCAwIDEgMC0zLjRWNUgxYTkgOSAwIDAgMCAwIDhsMy0yLjN6IiBmaWxsPSIjRkJCQzA1IiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48cGF0aCBkPSJNOSAzLjZjMS4zIDAgMi41LjQgMy40IDEuM0wxNSAyLjNBOSA5IDAgMCAwIDEgNWwzIDIuNGE1LjQgNS40IDAgMCAxIDUtMy43eiIgZmlsbD0iI0VBNDMzNSIgZmlsbC1ydWxlPSJub256ZXJvIi8+PHBhdGggZD0iTTAgMGgxOHYxOEgweiIvPjwvZz48L3N2Zz4=);
-    background-color: white;
-    background-repeat: no-repeat;
-    background-position: 12px 11px;
+    font-size: 1rem;
     cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.3s ease-in-out;
 }
 
-.reg_Btn:hover,.reg_Btn:focus {
-    box-shadow: 0 -1px 0 rgba(0, 0, 0, .04), 0 2px 4px rgba(0, 0, 0, .25);
-    outline: 2px solid #4285f4;
-}
-
-.reg_Btn:disabled {
-    filter: grayscale(100%);
-    background-color: #ebebeb;
-    box-shadow: 0 -1px 0 rgba(0, 0, 0, .04), 0 1px 1px rgba(0, 0, 0, .25);
-    cursor: not-allowed;
+.reg_Btn:hover, .reg_Btn:focus {
+    background-color: #db5d4d;
+    outline: 2px solid #dd5d4d;
+    outline-offset: 2px;
 }
 
 @media(max-width:700px) {
     .title {
-        font-size: 1.25em;
+        font-size: 1.5em;
+        padding: 0.5rem 0;
+    }
+
+    .title::after {
+        height: 2px;
+        bottom: -2px;
+    }
+
+    .rule {
+        margin-top: 0.6rem;
     }
 }

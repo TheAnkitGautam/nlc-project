@@ -51,7 +51,7 @@ const Carousal = ({ title }) => {
   };
 
   return (
-    <Fade delay={500} duration={1000}>
+    <Fade right delay={100} duration={1000}>
       <div className={CSS.carousal}>
         <h3 className={CSS.carousal_title}>{title}</h3>
         <div className={CSS.carousal_cards}>

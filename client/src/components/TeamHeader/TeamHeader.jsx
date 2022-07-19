@@ -7,7 +7,7 @@ const TeamHeader = () => {
     return (
         <>
             <header className="team-header">
-                <h1 className="team-heading"> <span className='meet-word'>MEET </span>OUR TEAM</h1>
+                <h1 className="team-heading"><span>Meet </span>Our Team</h1>
                 <p className="team-intro-para">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.</p>
 
                 <FacultyCord />
