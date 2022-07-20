@@ -1,6 +1,6 @@
 import CSS from './Rules.module.css';
 import Rule from './Rule';
-import { Navigate, useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../../context/AuthContext'
 import { GetRules, RegisterForEvent } from '../../utils/API_Calls';
@@ -35,7 +35,7 @@ const RulesPage = () => {
         }
         fetchRules();
         setLoader(false);
-    }, [eventName])
+    }, [eventName, navigate])
 
 
     const handleRegister = async () => {

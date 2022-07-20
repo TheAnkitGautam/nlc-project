@@ -1,13 +1,13 @@
 import { useEffect, useState, useContext } from "react";
-import eventPoster from "./eventPoster.jpg";
-import CSS from "./public_corner.module.css";
-import logo from "./../Clubs/D-Zire.png";
-import { Upcoming_events_list } from "./Events_list";
+import eventPoster from "../components/Events/eventPoster.jpg";
+import CSS from "../components/Events/public_corner.module.css";
+import logo from "../components/Clubs/D-Zire.png";
+import { Upcoming_events_list } from "../components/Events/Events_list";
 import { Link } from 'react-router-dom'
 import { Button, Typography } from "@mui/material";
-import { AuthContext } from "../../context/AuthContext";
+import { AuthContext } from "../context/AuthContext";
 
-const Events = () => {
+const EventsPage = () => {
 
   const { user, profile } = useContext(AuthContext);
   const [notExists, setNotExists] = useState(true)
@@ -90,4 +90,4 @@ const Events = () => {
   );
 };
 
-export default Events;
+export default EventsPage;

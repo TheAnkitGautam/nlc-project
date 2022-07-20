@@ -19,9 +19,9 @@
 
 .title {
     text-align: center;
-    margin: 6rem 0 3rem 0;
+    margin: 7rem 0 5rem 0;
     font-size: 2rem;
-    font-family: 'Roboto', serif;
+    font-family: 'Merriweather', serif;
 }
 
 .title span {
@@ -33,7 +33,7 @@
 
 .secondary_title {
     text-align: center;
-    font-family: 'Roboto', serif;
+    font-family: 'Merriweather', serif;
     font-size: 2rem;
 }
 

@@ -1,5 +1,5 @@
-.NotFoundPage{
-    font-family: 'Roboto',sans-serif;
+.NotFoundPage {
+    font-family: 'Roboto', sans-serif;
     font-size: 16px;
     text-align: center;
     margin-bottom: 50px;
@@ -10,32 +10,35 @@
     align-items: center;
     flex-direction: column;
 }
+
 .NotFoundImage {
-  width: 50%;
-  margin: 45px 25%;
-  margin-bottom: 0;
+    width: 50%;
+    margin: 45px 25%;
+    margin-bottom: 0;
 }
 
-.backLink{
+.backLink {
     color: tomato;
     font-weight: 500;
     cursor: pointer;
 }
 
 @media screen and (max-width: 1000px) {
-    .NotFoundImage{
+    .NotFoundImage {
         width: 60%;
         margin: 50px 20%;
     }
 }
+
 @media screen and (max-width: 800px) {
-    .NotFoundImage{
+    .NotFoundImage {
         width: 75%;
         margin: 62px 12.5% 20px 12.5%;
     }
 }
+
 @media screen and (max-width: 1000px) {
-    .NotFoundPage{
+    .NotFoundPage {
         font-size: 1rem;
     }
 }

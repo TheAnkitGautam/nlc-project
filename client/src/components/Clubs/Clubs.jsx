@@ -2,46 +2,45 @@ import React from 'react'
 import Dzire from './D-Zire.png'
 import Aaveg from './Aaveg.png'
 import Sargam from './sargam.png'
-import DSN from './DSN.png'
 import './clubs.css';
 
 const Clubs = () => {
     return (
-        <section className='club-section container'>
-            <h1 className="about-title"><span>Our</span> Other Cultural Clubs</h1>
-            <p className='clubs-text'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis recusandae tempore enim impedit, nostrum suscipit itaque quidem iure ab. Cumque nostrum temporibus, ratione ab est rem sit distinctio quisquam facilis.</p>
-            <div className="club">
-                <div className='single-club'>
-                    <img src={Dzire} alt="" className='club-logo' />
-                    <div className="club-desc">
-                        <div className='club-title'>Dance Club</div>
-                        <p className='club-about'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since </p>
-                    </div>
-                </div>
-                <div className='single-club'>
-                    <img src={Aaveg} alt="" className='club-logo' />
-                    <div className="club-desc">
-                        <div className='club-title'>Dramatics Society</div>
-                        <p className='club-about'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since </p>
-                    </div>
-                </div>
+        <div className="club-section">
+            <section className='container'>
+                <h1 className="clubs-title"><span>Our</span> Other Cultural Clubs</h1>
 
-                <div className='single-club'>
-                    <img src={Sargam} alt="" className='club-logo' />
-                    <div className="club-desc">
-                        <div className='club-title'>Music Club</div>
-                        <p className='club-about'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since </p>
+                <div className="clubs">
+                    <div className='club'>
+                        <div className="club-img-box">
+                            <img className='club-image' src={Dzire} alt="D-Zire" />
+                        </div>
+                        <div className="club-info">
+                            <h2 className="club-name">D-Zire</h2>
+                            <p className="club-desc">The Dance Club</p>
+                        </div>
+                    </div>
+                    <div className='club'>
+                        <div className="club-img-box">
+                            <img className='club-image' src={Aaveg} alt="D-Zire" />
+                        </div>
+                        <div className="club-info">
+                            <h2 className="club-name">Aaveg</h2>
+                            <p className="club-desc">The Dramatics Club</p>
+                        </div>
+                    </div>
+                    <div className='club'>
+                        <div className="club-img-box">
+                            <img className='club-image' src={Sargam} alt="D-Zire" />
+                        </div>
+                        <div className="club-info">
+                            <h2 className="club-name">Sargam</h2>
+                            <p className="club-desc">The Music Club</p>
+                        </div>
                     </div>
                 </div>
-                <div className='single-club'>
-                    <img src={DSN} alt="" className='club-logo' />
-                    <div className="club-desc">
-                        <div className='club-title'>Debate Society</div>
-                        <p className='club-about'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since </p>
-                    </div>
-                </div>
-            </div>
-        </section >
+            </section >
+        </div>
     )
 }
 

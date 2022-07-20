@@ -18,7 +18,7 @@ const AdminPage = () => {
             </List>
         </>
     )
-    const container = window !== undefined ? () => window().document.body : undefined;
+    // const container = window !== undefined ? () => window().document.body : undefined;
 
     return (
         <>

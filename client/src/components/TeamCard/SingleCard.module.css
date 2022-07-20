@@ -4,12 +4,8 @@
     font-family: 'Roboto', serif;
     position: relative;
     transition: all 0.5s;
-    border-radius: 15px;
+    border-radius: 5px;
     box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
-}
-
-.card:hover {
-    transform: scale(1.05);
 }
 
 .card_img {
@@ -17,7 +13,7 @@
     max-width: 170px;
     border-radius: 50%;
     z-index: 11;
-    margin-top: 1rem;
+    margin: 1rem 0 1rem 0;
 }
 
 .cardDetails {
@@ -57,14 +53,8 @@
 }
 
 .desc {
-    width: 70%;
+    width: 90%;
     margin: 0 auto;
-    padding: 1rem 0;
+    padding: 0.5rem 0 1.5rem 0;
     text-align: center;
-}
-
-@media (max-width:950px) {
-    .card {
-        width: 70%;
-    }
 }

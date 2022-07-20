@@ -4,10 +4,10 @@ import HomePage from "./Pages/HomePage";
 import TeamPage from "./Pages/TeamPage";
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import AboutPage from './Pages/AboutPage';
-import Events from './components/Events/Events';
+import Events from './Pages/EventsPage';
 import ScrollButton from './components/ScrollToTop/ScrollToTop';
-import AchievementPage from './components/Achievements/AchievementPage';
-import NotFound from './Pages/NotFound';
+import AchievementPage from './Pages/AchievementPage';
+import NotFound from './Pages/NotFound/NotFound';
 import Profile from "./components/Events/Profile";
 import { useContext, useState, useLayoutEffect } from "react";
 import { AuthContext } from "./context/AuthContext";
@@ -24,6 +24,7 @@ function App() {
   const [loader, setLoader] = useState(true);
 
   useLayoutEffect(() => {
+    window.scrollTo(0, 0)
     API_Login_Request(dispatch)
       .then(() => {
         setLoader(false);
