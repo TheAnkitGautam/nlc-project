@@ -5,18 +5,10 @@ const postSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    imgUrl: {
-        type: String,
-        required: true
-    },
-    instaUrl: {
-        type: String,
-        required: true
-    },
-    postType: {
-        type: String,
-        required: true
-    },
-}, { timestamps: true });
+    postList: {
+        type: Array,
+        default: []
+    }
+});
 
-module.exports = mongoose.model("post", postSchema);
+module.exports = mongoose.model("Post", postSchema);

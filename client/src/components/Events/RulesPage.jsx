@@ -1,49 +1,42 @@
 import CSS from './Rules.module.css';
 import Rule from './Rule';
-import { useLocation } from 'react-router-dom';
+import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../../context/AuthContext'
-import { RegisterForEvent } from '../../utils/API_Calls';
+import { GetRules, RegisterForEvent } from '../../utils/API_Calls';
 import { Alert, Snackbar } from "@mui/material"
-import { useState } from "react"
-
-const rules = [
-    {
-        id: "1",
-        title: "Title",
-        rules: [
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia quos quam eum ipsum optio reprehenderit maxime id sed voluptatibus molestiae.",
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia quos quam eum ipsum optio reprehenderit maxime id sed voluptatibus molestiae.",
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia quos quam eum ipsum optio reprehenderit maxime id sed voluptatibus molestiae.",
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia quos quam eum ipsum optio reprehenderit maxime id sed voluptatibus molestiae.",
-        ]
-    },
-    {
-        id: "2",
-        title: "Title",
-        rules: [
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia quos quam eum ipsum optio reprehenderit maxime id sed voluptatibus molestiae.",
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia quos quam eum ipsum optio reprehenderit maxime id sed voluptatibus molestiae.",
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia quos quam eum ipsum optio reprehenderit maxime id sed voluptatibus molestiae.",
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia quos quam eum ipsum optio reprehenderit maxime id sed voluptatibus molestiae.",
-        ]
-    }
-]
-
-
+import { useState, useEffect } from "react"
+import Loader from '../Loader';
 
 const RulesPage = () => {
 
     const location = useLocation();
     const eventName = location.state?.from;
+    const navigate = useNavigate()
 
     const { profile } = useContext(AuthContext);
     const [msg, setMsg] = useState("")
     const [open, setOpen] = useState(false)
+    const [loader, setLoader] = useState(true)
+
+    const [rulesData, setRulesData] = useState(null)
 
     const handleClose = () => {
         setOpen(false)
     }
+
+    useEffect(() => {
+        if (!eventName) {
+            navigate('/events')
+        }
+        const fetchRules = async () => {
+            const res = await GetRules(eventName);
+            setRulesData(res);
+        }
+        fetchRules();
+        setLoader(false);
+    }, [eventName])
+
 
     const handleRegister = async () => {
 
@@ -58,22 +51,32 @@ const RulesPage = () => {
 
     return (
         <>
-            <div className={CSS.wrapper}>
-
-                <h2 className={CSS.title}>Rules / नियम - {eventName}</h2>
-
-                {
-                    rules.map((rule) => {
-                        return <Rule key={rule.id} props={rule} />
-                    })
-                }
-
-                <div className={CSS.buttons}>
-                    <button className={CSS.reg_Btn} onClick={handleRegister}>
-                        Register Now
-                    </button>
-                </div>
-            </div>
+            <Loader loader={loader} />
+            {
+                rulesData ?
+                    (
+                        <div className={CSS.wrapper}>
+                            <h2 className={CSS.title}>Rules / नियम - {rulesData?.eventName}</h2>
+                            <Rule title={rulesData?.subTitle1} rules={rulesData?.englishRules} />
+                            <Rule title={rulesData?.subTitle2} rules={rulesData?.hindiRules} />
+                            <div className={CSS.buttons}>
+                                <button className={CSS.reg_Btn} onClick={handleRegister}>
+                                    Register Now
+                                </button>
+                            </div>
+                        </div>
+                    ) : (
+                        <div style={{
+                            display: 'flex',
+                            justifyContent: "center",
+                            alignItems: "center",
+                            minHeight: "100vh",
+                            fontSize:"2rem"
+                        }}>
+                            No Data Found!
+                        </div>
+                    )
+            }
             {
                 msg !== "" && (
                     <Snackbar

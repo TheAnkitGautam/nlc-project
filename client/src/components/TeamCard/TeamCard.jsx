@@ -46,7 +46,7 @@ const TeamCard = () => {
                     {
                         Graphics_Team.map((Graphics_member, index) => {
                             return (
-                                <Fade key={Graphics_member.index} delay={500} duration={1000}>
+                                <Fade key={Graphics_member.index} delay={200} duration={500}>
                                     <SecondaryCard key={index} props={Graphics_member} />
                                 </Fade>
                             )

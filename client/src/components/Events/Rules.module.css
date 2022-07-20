@@ -80,7 +80,8 @@
     transition: all 0.3s ease-in-out;
 }
 
-.reg_Btn:hover, .reg_Btn:focus {
+.reg_Btn:hover,
+.reg_Btn:focus {
     background-color: #db5d4d;
     outline: 2px solid #dd5d4d;
     outline-offset: 2px;
@@ -95,6 +96,10 @@
     .title::after {
         height: 2px;
         bottom: -2px;
+    }
+
+    .heading {
+        font-size: 1.25rem;
     }
 
     .rule {

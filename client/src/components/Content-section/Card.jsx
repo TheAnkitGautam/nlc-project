@@ -1,14 +1,14 @@
 import CSS from './content.module.css'
 
-const Card = () => {
+const Card = ({ post }) => {
     return (
         <div className={CSS.card}>
             <div className={CSS.card_img}>
-                <img src={'https://i.postimg.cc/WbB7KQ7R/post-Img-628b1c8a10021a81a2f1.jpg'} alt="" loading='lazy' />
+                <img src={post.imgUrl} alt={post.postTitle} loading='lazy' />
             </div>
             <div className={CSS.card_content}>
-                <h3 className={CSS.card_title}>Fighting Bias with Bias</h3>
-                <a className={CSS.postLink} href="/#">Read</a>
+                <h3 className={CSS.card_title}>{post.postTitle}</h3>
+                <a className={CSS.postLink} target='_blank' rel="noreferrer" href={post.instaUrl}>Read</a>
             </div>
         </div>
     )

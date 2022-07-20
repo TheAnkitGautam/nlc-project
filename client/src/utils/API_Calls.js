@@ -52,9 +52,22 @@ export const RegisterForEvent = async (newData) => {
     return data;
 }
 
+
 export const Logout = async (dispatch) => {
     await axios.get(API_BASE_URL + '/auth/logout', { withCredentials: true })
     dispatch({ type: 'LOGOUT' })
+}
+
+
+// Public Routes
+export const GetContent = async () => {
+    const { data } = await axios.get(API_BASE_URL + '/getcontent')
+    return data;
+}
+
+export const GetRules = async (eventName) => {
+    const { data } = await axios.post(API_BASE_URL + '/getrules', { eventName });
+    return data;
 }
 
 export const Subscribe = async (email) => {

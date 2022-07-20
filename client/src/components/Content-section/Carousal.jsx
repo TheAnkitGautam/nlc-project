@@ -4,7 +4,7 @@ import Card from "./Card";
 import Slider from "react-slick";
 import { Fade } from "react-reveal";
 
-const Carousal = ({ title }) => {
+const Carousal = ({ title, postList }) => {
   const settings = {
     speed: 500,
     slidesToShow: 3,
@@ -49,16 +49,17 @@ const Carousal = ({ title }) => {
       },
     ],
   };
-
   return (
     <Fade right delay={100} duration={1000}>
       <div className={CSS.carousal}>
         <h3 className={CSS.carousal_title}>{title}</h3>
         <div className={CSS.carousal_cards}>
           <Slider {...settings}>
-            {[1, 2, 3, 4].map((index) => (
-              <Card key={index} />
-            ))}
+            {
+              postList.map((post, index) => (
+                <Card key={index} post={post} />
+              ))
+            }
           </Slider>
         </div>
       </div>

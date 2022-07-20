@@ -3,7 +3,7 @@
 }
 
 .team-heading {
-    padding: 1.5rem 0 1rem 0;
+    padding: 1.5rem 0 0 0;
     font-family: 'Merriweather', sans-serif;
     text-align: center;
     font-size: 3rem;
@@ -15,7 +15,7 @@
 }
 
 .team-intro-para {
-    padding: 2rem 0 3rem 0;
+    padding: 1rem 0 3rem 0;
     text-align: center;
     font-family: 'Roboto', sans-serif;
     font-size: 22px;
@@ -40,6 +40,7 @@
     width: 234px;
     height: 234px;
     border: 3px solid #DB5D4D;
+    margin-bottom: 0.25rem;
 }
 .coordinator-desc {
     display: grid;
@@ -55,10 +56,11 @@
 
 .coord-name {
     font-size: 1.5rem;
+    line-height: 1.75rem;
 }
 
 .coord-name::after {
-    margin: 7px auto;
+    margin: 5px auto;
     display: block;
     content: '';
     border-bottom: 3px solid #000;
@@ -67,7 +69,7 @@
 
 .coord-post {
     color: gray;
-    font-size: 1.05rem;
+    font-size: 1rem;
 }
 
 .team-sm-icon {
