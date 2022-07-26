@@ -8,20 +8,19 @@ const Content_section = () => {
 
   useEffect(() => {
     const fetchContent = async () => {
-      const res = await GetContent();
-      setContent(res)
+      const posts = await GetContent();
+      setContent(posts);
     }
     fetchContent();
   }, [])
-
 
   return (
     <section className={CSS.content_section_bg}>
       <div className="container">
         <h2 className={CSS.content_title}><span>Featured</span> Content</h2>
         {
-          content.map((posts) => {
-            return <Carousal key={posts._id} title={posts.title} postList={posts.postList} />
+          content.map((doc, index) => {
+            return <Carousal key={index} category={doc.category} postList={doc.postList} />
           })
         }
       </div>

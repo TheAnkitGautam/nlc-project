@@ -6,6 +6,7 @@ import { Upcoming_events_list } from "../components/Events/Events_list";
 import { Link } from 'react-router-dom'
 import { Button, Typography } from "@mui/material";
 import { AuthContext } from "../context/AuthContext";
+import { Start_Login } from "../utils/API_Calls";
 
 const EventsPage = () => {
 
@@ -13,7 +14,7 @@ const EventsPage = () => {
   const [notExists, setNotExists] = useState(true)
 
   const handleLogin = () => {
-    window.open('http://localhost:5000/auth/google', '_self');
+    Start_Login()
   }
 
   useEffect(() => {

@@ -4,7 +4,7 @@ import logo from './logo-white.png';
 import { useNavigate, NavLink } from 'react-router-dom';
 import { Avatar, Button } from '@mui/material';
 import { AuthContext } from './../../context/AuthContext';
-import { Logout } from '../../utils/API_Calls';
+import { Logout, Start_Login } from '../../utils/API_Calls';
 
 const Navbar = () => {
 
@@ -28,7 +28,7 @@ const Navbar = () => {
     const { user, dispatch } = useContext(AuthContext);
 
     const handleLogin = () => {
-        window.open('http://localhost:5000/auth/google', '_self');
+        Start_Login()
     }
 
     const handleLogout = async () => {
