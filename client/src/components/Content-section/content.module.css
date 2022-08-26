@@ -68,6 +68,17 @@
     font-family: 'Roboto', sans-serif;
 }
 
+.contentError {
+    padding: 0 1rem 2rem 1rem;
+    font-size: 1.25rem;
+    min-height: 300px;
+    font-family: 'Merriweather', serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(135, 9, 9);
+}
+
 @media (max-width:1300px) {
     .card_img img {
         width: 350px;

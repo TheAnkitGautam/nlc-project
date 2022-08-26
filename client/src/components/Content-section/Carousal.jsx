@@ -51,7 +51,7 @@ const settings = {
 
 const Carousal = ({ category, postList }) => {
   return (
-    <Fade right delay={100} duration={1000}>
+    <Fade right delay={100} duration={300}>
       <div className={CSS.carousal}>
         <h3 className={CSS.carousal_title}>{category}</h3>
         <div className={CSS.carousal_cards}>

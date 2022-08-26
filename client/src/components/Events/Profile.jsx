@@ -7,11 +7,9 @@ import WhatsappOutlinedIcon from '@mui/icons-material/WhatsappOutlined';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import SchoolOutlinedIcon from '@mui/icons-material/SchoolOutlined';
 import eventPoster from './eventPoster.jpg';
-import { useState } from 'react';
-import { useContext } from 'react';
-import { AuthContext } from './../../context/AuthContext';
-import { Save_User_Profile } from '../../utils/API_Calls';
-import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { Create_User_Profile } from '../../utils/API_Calls';
+import { useAuth } from '../../context/AuthContext';
 
 const StyledBox = styled(Box)(({ theme }) => ({
     [theme.breakpoints.down('sm')]: {
@@ -48,10 +46,18 @@ const Validate = (formValues) => {
 }
 
 export default function Profile() {
-    const navigate = useNavigate();
-    const { user, profile } = useContext(AuthContext)
+    const { data } = useAuth();
+
+    useEffect(() => {
+        if (data?.profile) {
+            setMsg({ type: "warning", text: "Account already exists" })
+            setAlert(true)
+        }
+    }, [data?.profile])
+
+
     const [alert, setAlert] = useState(false)
-    const [error, setError] = useState(false)
+    const [msg, setMsg] = useState(false)
 
     const [errors, setErrors] = useState({})
     const [formValues, setFormValues] = useState({
@@ -82,162 +88,148 @@ export default function Profile() {
         setErrors(errors);
 
         if (Object.keys(errors).length === 0) {
-            try {
-                await Save_User_Profile({
-                    googleId: user.googleId,
-                    fullName: formValues.fullName,
-                    email: user.email,
-                    profilePic: user.profilePic,
-                    gender: formValues.gender,
-                    whatsappNumber: formValues.whatsappNumber,
-                    instaUrl: formValues.instaUrl,
-                    instituteName: formValues.instituteName
-                });
-                setAlert(true);
-                setTimeout(() => {
-                    navigate('/', { replace: true });
-                }, 3000);
-
-            } catch (err) {
-                setError(true)
-                setTimeout(() => {
-                    navigate('/events', { replace: true });
-                }, 3000);
-            }
+            const response = await Create_User_Profile({
+                googleId: data.user?.googleId || data.profile?.email,
+                fullName: formValues.fullName,
+                email: data.user?.email || data.profile?.email,
+                profilePic: data.user?.profilePic || data.profile?.profilePic,
+                gender: formValues.gender,
+                whatsappNumber: formValues.whatsappNumber,
+                instaUrl: formValues.instaUrl,
+                instituteName: formValues.instituteName
+            })
+            setAlert(true)
+            setMsg(response);
+            setTimeout(() => {
+                window.location.href = "/"
+            }, 2000)
         }
     }
 
     return (
         <>
-            <section className='pageLoadAnim' >
+            <section style={data?.profile ? { pointerEvents: "none", opacity: "0.3" } : {}} className='pageLoadAnim' >
                 <div className={styles.imgBox}>
                     <img src={eventPoster} alt="" className={styles.eventImg} />
                 </div>
                 <Box sx={{ my: 10 }}>
                     <h2 className={styles.title}><span>----------</span> Upcoming Events <span>----------</span></h2>
-                    {
-                        !profile ? (
-                            <Container sx={{ display: 'flex', justifyContent: "center" }} component={Paper} maxWidth="sm">
-                                <StyledBox sx={{ height: '100%', width: '68%', padding: '2rem 0' }}>
-                                    <Box sx={{ display: 'flex', justifyContent: "center" }}>
-                                        <Avatar
-                                            alt={user !== null ? user.fullName : ''}
-                                            src={user !== null ? user.profilePic : ''}
-                                            sx={{ mb: 1, width: 56, height: 56 }}
-                                        />
-                                    </Box>
-                                    <Typography sx={{ mb: 5 }} color="gray" align='center' variant="subtitle1" >
-                                        {user !== null ? user.fullName : ''}
-                                    </Typography>
-                                    <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
-                                        <PersonOutlineIcon sx={{ mr: 2 }} />
-                                        <TextField
-                                            name='fullName'
-                                            variant='outlined'
-                                            size='small'
-                                            type='text'
-                                            label='Full Name'
-                                            value={formValues.fullName}
-                                            onChange={handleChange}
-                                            error={Boolean(errors.fullName)}
-                                            helperText={errors.fullName}
-                                            fullWidth
-                                        />
-                                    </Box>
-                                    <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
-                                        <PeopleAltOutlinedIcon sx={{ mr: 2 }} />
-                                        <TextField
-                                            fullWidth
-                                            select
-                                            size='small'
-                                            name='gender'
-                                            value={formValues.gender}
-                                            label="Gender"
-                                            onChange={handleChange}
-                                            error={Boolean(errors.gender)}
-                                            helperText={errors.gender}
-                                        >
-                                            <MenuItem value="male">Male</MenuItem>
-                                            <MenuItem value="female">Female</MenuItem>
-                                            <MenuItem value="others">Others</MenuItem>
-                                        </TextField>
-                                    </Box>
-                                    <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
-                                        <WhatsappOutlinedIcon sx={{ mr: 2 }} />
-                                        <TextField
-                                            name='whatsappNumber'
-                                            variant='outlined'
-                                            size='small'
-                                            type='text'
-                                            value={formValues.whatsappNumber}
-                                            onChange={handleChange}
-                                            label='WhatsApp Number'
-                                            error={Boolean(errors.whatsappNumber)}
-                                            helperText={errors.whatsappNumber}
-                                            fullWidth
-                                        />
-                                    </Box>
-                                    <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
-                                        <InstagramIcon sx={{ mr: 2 }} />
-                                        <TextField
-                                            name='instaUrl'
-                                            variant='outlined'
-                                            size='small'
-                                            type='url'
-                                            label='Instagram URL (optional)'
-                                            value={formValues.instaUrl}
-                                            onChange={handleChange}
-                                            fullWidth
-                                        />
-                                    </Box>
-                                    <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
-                                        <SchoolOutlinedIcon sx={{ mr: 2 }} />
-                                        <TextField
-                                            name='instituteName'
-                                            variant='outlined'
-                                            size='small'
-                                            type='text'
-                                            value={formValues.instituteName}
-                                            onChange={handleChange}
-                                            label='Institute Name'
-                                            error={Boolean(errors.instituteName)}
-                                            helperText={errors.instituteName}
-                                            fullWidth
-                                        />
-                                    </Box>
-                                    <Box sx={{ mt: 8 }}>
-                                        <Box>
-                                            <LoadingButton
-                                                sx={{
-                                                    background: "#ff6347",
-                                                    "&:hover": { background: "#f27f6b" }
-                                                }}
-                                                size="large"
-                                                onClick={handleSubmit}
-                                                loading={false}
-                                                variant="contained"
-                                                fullWidth
-                                            >
-                                                Submit
-                                            </LoadingButton>
-                                        </Box>
-                                    </Box>
-                                </StyledBox>
-                            </Container>
-                        ) : (
-                            <Typography align='center' variant="h3" color="initial">Profile Already Exists!</Typography>
-                        )
-                    }
-                    <Snackbar open={alert} autoHideDuration={6000} onClose={handleClose}>
-                        <Alert variant='filled' elevation={6} severity="success" sx={{ width: '100%' }} onClose={handleClose}>
-                            Profile Created Successfully
-                        </Alert>
-                    </Snackbar>
-                    <Snackbar open={error} autoHideDuration={6000} onClose={handleClose}>
-                        <Alert variant='filled' elevation={6} severity="error">Something went wrong! Try again later</Alert>
-                    </Snackbar>
+                    <Container sx={{ display: 'flex', justifyContent: "center" }} component={Paper} maxWidth="sm">
+                        <StyledBox sx={{ height: '100%', width: '68%', padding: '2rem 0' }}>
+                            <Box sx={{ display: 'flex', justifyContent: "center" }}>
+                                <Avatar
+                                    alt={data.user?.fullName || data.profile?.fullName || ''}
+                                    src={data.user?.profilePic || data.profile?.profilePic || ''}
+                                    sx={{ mb: 1, width: 40, height: 40 }}
+                                />
+                            </Box>
+                            <Typography sx={{ mb: 1 }} color="gray" align='center' variant="subtitle1" >
+                                {data.user?.fullName || data.profile?.fullName || ''}
+                            </Typography>
+                            <Typography align='center' sx={{ mb: 4 }} variant="subtitle2" color="error">Please create a account to continue</Typography>
+
+                            <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
+                                <PersonOutlineIcon sx={{ mr: 2 }} />
+                                <TextField
+                                    name='fullName'
+                                    variant='outlined'
+                                    size='small'
+                                    type='text'
+                                    label='Full Name'
+                                    value={formValues.fullName}
+                                    onChange={handleChange}
+                                    error={Boolean(errors.fullName)}
+                                    helperText={errors.fullName}
+                                    fullWidth
+                                />
+                            </Box>
+                            <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
+                                <PeopleAltOutlinedIcon sx={{ mr: 2 }} />
+                                <TextField
+                                    fullWidth
+                                    select
+                                    size='small'
+                                    name='gender'
+                                    value={formValues.gender}
+                                    label="Gender"
+                                    onChange={handleChange}
+                                    error={Boolean(errors.gender)}
+                                    helperText={errors.gender}
+                                >
+                                    <MenuItem value="male">Male</MenuItem>
+                                    <MenuItem value="female">Female</MenuItem>
+                                    <MenuItem value="others">Others</MenuItem>
+                                </TextField>
+                            </Box>
+                            <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
+                                <WhatsappOutlinedIcon sx={{ mr: 2 }} />
+                                <TextField
+                                    name='whatsappNumber'
+                                    variant='outlined'
+                                    size='small'
+                                    type='text'
+                                    value={formValues.whatsappNumber}
+                                    onChange={handleChange}
+                                    label='WhatsApp Number'
+                                    error={Boolean(errors.whatsappNumber)}
+                                    helperText={errors.whatsappNumber}
+                                    fullWidth
+                                />
+                            </Box>
+                            <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
+                                <InstagramIcon sx={{ mr: 2 }} />
+                                <TextField
+                                    name='instaUrl'
+                                    variant='outlined'
+                                    size='small'
+                                    type='url'
+                                    label='Instagram URL (optional)'
+                                    value={formValues.instaUrl}
+                                    onChange={handleChange}
+                                    fullWidth
+                                />
+                            </Box>
+                            <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
+                                <SchoolOutlinedIcon sx={{ mr: 2 }} />
+                                <TextField
+                                    name='instituteName'
+                                    variant='outlined'
+                                    size='small'
+                                    type='text'
+                                    value={formValues.instituteName}
+                                    onChange={handleChange}
+                                    label='Institute Name'
+                                    error={Boolean(errors.instituteName)}
+                                    helperText={errors.instituteName}
+                                    fullWidth
+                                />
+                            </Box>
+                            <Box sx={{ mt: 8 }}>
+                                <Box>
+                                    <LoadingButton
+                                        sx={{
+                                            background: "#ff6347",
+                                            "&:hover": { background: "#f27f6b" }
+                                        }}
+                                        size="large"
+                                        onClick={handleSubmit}
+                                        loading={false}
+                                        variant="contained"
+                                        fullWidth
+                                    >
+                                        Create Account
+                                    </LoadingButton>
+                                </Box>
+                            </Box>
+                        </StyledBox>
+                    </Container>
                 </Box>
             </section >
+            <Snackbar open={alert} autoHideDuration={6000} onClose={handleClose}>
+                <Alert variant='filled' elevation={6} severity={msg.type} sx={{ width: '100%' }} onClose={handleClose}>
+                    {msg.text}
+                </Alert>
+            </Snackbar>
 
         </>
     )

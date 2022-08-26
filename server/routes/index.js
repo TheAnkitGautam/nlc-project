@@ -17,6 +17,7 @@ router.post('/subscribe', async (req, res) => {
         res.status(500).json({ msg: "something went wrong", color: "red" });
     }
 })
+
 // Get Content
 router.get('/getcontent', async (req, res) => {
     try {

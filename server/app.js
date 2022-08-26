@@ -10,6 +10,7 @@ require('./config/passport-setup');
 const mongoStore = require('connect-mongo');
 
 // Enabling cross origin requests
+var whitelist = ['http://example1.com', 'http://example2.com']
 const corsOptions = {
     origin: 'http://localhost:3000',
     credentials: true,
@@ -27,13 +28,18 @@ app.use(express.json());
 
 app.use(expressSession({
     secret: process.env.COOKIE_KEY,
-    resave: true,
-    saveUninitialized: true,
+    resave: false,
+    saveUninitialized: false,
     httpOnly: true,
     cookie: {
         maxAge: 60 * 60 * 1000,
     },
-    store: mongoStore.create({ mongoUrl: process.env.LOCAL_MONGO_URI }, { collection: 'sessions' }),
+    store: mongoStore.create({
+        mongoUrl: process.env.LOCAL_MONGO_URI,
+        collection: 'sessions',
+        autoRemove: 'interval',
+        autoRemoveInterval: 10
+    }),
 }));
 
 app.use(passport.initialize());
@@ -59,9 +65,9 @@ mongoose.connection.on("error", (err) => {
 
 // Importing routes
 app.use("/", require("./routes/index"));
-app.use("/auth", require("./routes/auth"));
-app.use("/user", require("./routes/user"));
-app.use("/admin", require("./routes/adminAuth"));
+app.use("/auth", require("./routes/userAuthRoutes"));
+app.use("/user", require("./routes/userRoutes"));
+app.use("/admin", require("./routes/adminRoutes"));
 
 
 

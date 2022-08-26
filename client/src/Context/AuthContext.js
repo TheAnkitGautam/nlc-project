@@ -1,25 +1,32 @@
-import AuthReducer from './AuthReducer';
-import { createContext, useReducer } from 'react'
+import { createContext, useContext, useEffect, useState } from 'react'
+import { Get_User, Logout } from '../utils/API_Calls';
 
-const INITIAL_STATE = {
-    user: null,
-    profile: null,
-    msg: null,
-};
+const INITIAL_STATE = null;
 
 export const AuthContext = createContext(INITIAL_STATE);
 
 export const AuthContextProvider = ({ children }) => {
-    const [state, dispatch] = useReducer(AuthReducer, INITIAL_STATE);
+
+    const [data, setData] = useState(null)
+
+    useEffect(() => {
+        const findUser = async () => {
+            const response = await Get_User();
+            setData(response);
+        }
+        findUser();
+    }, [])
+
+    const LogoutUser = async () => {
+        setData(null)
+        await Logout();
+    }
 
     return (
-        <AuthContext.Provider value={{
-            user: state.user,
-            profile: state.profile,
-            msg: state.msg,
-            dispatch
-        }}>
+        <AuthContext.Provider value={{ data, LogoutUser }}>
             {children}
         </AuthContext.Provider>
     );
 }
+
+export const useAuth = () => useContext(AuthContext);

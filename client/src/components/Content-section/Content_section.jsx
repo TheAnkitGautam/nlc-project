@@ -19,9 +19,16 @@ const Content_section = () => {
       <div className="container">
         <h2 className={CSS.content_title}><span>Featured</span> Content</h2>
         {
-          content.map((doc, index) => {
-            return <Carousal key={index} category={doc.category} postList={doc.postList} />
-          })
+          content.length !== 0 ?
+            content.map((doc, index) => {
+              return <Carousal key={index} category={doc.category} postList={doc.postList} />
+            })
+            : (
+              <div className={CSS.contentError}>
+                Error Fetching Content......
+              </div>
+
+            )
         }
       </div>
     </section>

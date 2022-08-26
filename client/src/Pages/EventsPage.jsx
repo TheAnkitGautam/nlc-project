@@ -1,16 +1,16 @@
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState } from "react";
 import eventPoster from "../components/Events/eventPoster.jpg";
 import CSS from "../components/Events/public_corner.module.css";
 import logo from "../components/Clubs/D-Zire.png";
 import { Upcoming_events_list } from "../components/Events/Events_list";
 import { Link } from 'react-router-dom'
 import { Button, Typography } from "@mui/material";
-import { AuthContext } from "../context/AuthContext";
+import { useAuth } from "../context/AuthContext";
 import { Start_Login } from "../utils/API_Calls";
 
 const EventsPage = () => {
 
-  const { user, profile } = useContext(AuthContext);
+  const { data } = useAuth()
   const [notExists, setNotExists] = useState(true)
 
   const handleLogin = () => {
@@ -18,14 +18,14 @@ const EventsPage = () => {
   }
 
   useEffect(() => {
-    if (profile !== null && user !== null) {
+    if (data?.profile !== null && data?.user !== null) {
       setNotExists(false)
-    } else if (profile === null && user !== null) {
+    } else if (data?.profile === null && data?.user !== null) {
       setNotExists(true)
     } else {
       setNotExists(true)
     }
-  }, [profile, user])
+  }, [data?.profile, data?.user])
 
 
   return (
@@ -37,25 +37,14 @@ const EventsPage = () => {
         <h2 className={CSS.title}>
           <span>----------</span> Upcoming Events <span>----------</span>
         </h2>
-        <div className={CSS.buttonContainer}>
-          {
-            !user && <>
-              <Typography variant="body1" sx={{ mr: 2 }} color={'error'}>You can only register for events after Login!</Typography>
-              <Button size="small" variant="outlined" color="primary" onClick={handleLogin} >Login Here</Button>
-            </>
-          }
-          {
-            (user && !profile) && <>
-              <Typography variant="body1" sx={{ mr: 2 }} color={'error'}>Please create profile before registering for events!</Typography>
-              <Button size="small" variant="outlined" color="primary"><Link to={'/profile'}>Create Profile</Link></Button>
-            </>
-          }
-          {
-            (user && profile) &&
-            <Typography variant="body1" sx={{ mr: 2 }} color={'success'}>Click on Register Button to register for a event.</Typography>
-          }
-        </div>
-        <div className={CSS.eventContainer}>
+        {
+          !data &&
+          <div className={CSS.buttonContainer}>
+            <Typography variant="body1" sx={{ mr: 2 }} color={'error'}>You can only register for events after Login!</Typography>
+            <Button size="small" variant="outlined" color="primary" onClick={handleLogin} >Login Here</Button>
+          </div>
+        }
+        <div style={!data?.profile ? { pointerEvents: "none", opacity: "0.3" } : {}} className={CSS.eventContainer}>
           {
             Upcoming_events_list.map((Event, index) => {
               return (
@@ -66,7 +55,7 @@ const EventsPage = () => {
                       <div className={CSS.eventTitle}>{Event.name}</div>
                     </div>
                     <Button variant="contained" disabled={notExists}>
-                      <Link to={'/events/rules'} state={{ from: Event.name }}>
+                      <Link to={`/event/${Event.name}`}>
                         Register
                       </Link>
                     </Button>

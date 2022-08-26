@@ -1,8 +1,7 @@
 import CSS from './Rules.module.css';
 import Rule from './Rule';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { useContext } from 'react';
-import { AuthContext } from '../../context/AuthContext'
+import { useParams } from 'react-router-dom';
+import { useAuth } from '../../context/AuthContext'
 import { GetRules, RegisterForEvent } from '../../utils/API_Calls';
 import { Alert, Snackbar } from "@mui/material"
 import { useState, useEffect } from "react"
@@ -10,11 +9,10 @@ import Loader from '../Loader';
 
 const RulesPage = () => {
 
-    const location = useLocation();
-    const eventName = location.state?.from;
-    const navigate = useNavigate()
+    let { eventName } = useParams();
 
-    const { profile } = useContext(AuthContext);
+    const { data } = useAuth();
+
     const [msg, setMsg] = useState("")
     const [open, setOpen] = useState(false)
     const [loader, setLoader] = useState(true)
@@ -26,22 +24,20 @@ const RulesPage = () => {
     }
 
     useEffect(() => {
-        if (!eventName) {
-            navigate('/events')
-        }
+        window.scrollTo(0, 0)
         const fetchRules = async () => {
             const res = await GetRules(eventName);
             setRulesData(res);
         }
         fetchRules();
         setLoader(false);
-    }, [eventName, navigate])
+    }, [eventName])
 
 
     const handleRegister = async () => {
 
         const newData = {
-            _id: profile._id,
+            _id: data?.profile._id,
             eventName: eventName
         }
         const msg = await RegisterForEvent(newData);
@@ -70,10 +66,13 @@ const RulesPage = () => {
                             display: 'flex',
                             justifyContent: "center",
                             alignItems: "center",
-                            minHeight: "100vh",
-                            fontSize:"2rem"
+                            minHeight: "80vh",
+                            fontSize: "1.25rem",
+                            fontFamily: '"Merriweather", serif',
+                            padding: "0 2rem"
                         }}>
-                            No Data Found!
+                            Registration not open yet,
+                            please try after sometime...
                         </div>
                     )
             }

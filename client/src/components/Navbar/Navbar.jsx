@@ -1,10 +1,10 @@
-import React, { useContext, useState } from 'react';
+import { useLayoutEffect, useState } from 'react';
 import './navbar.css'
 import logo from './logo-white.png';
 import { useNavigate, NavLink } from 'react-router-dom';
 import { Avatar, Button } from '@mui/material';
-import { AuthContext } from './../../context/AuthContext';
-import { Logout, Start_Login } from '../../utils/API_Calls';
+import { useAuth } from './../../context/AuthContext';
+import { Start_Login } from '../../utils/API_Calls';
 
 const Navbar = () => {
 
@@ -16,6 +16,22 @@ const Navbar = () => {
             return (!menuState)
         })
     }
+    const handleLogin = () => {
+        Start_Login()
+    }
+
+    const { data, LogoutUser } = useAuth();
+
+    useLayoutEffect(() => {
+        if (data?.user) {
+            navigate('/profile');
+        }
+    }, [data?.user, navigate])
+
+    const handleLogout = async () => {
+        await LogoutUser();
+        navigate('/');
+    }
 
     const scrollToTop = () => {
         window.scrollTo({
@@ -24,21 +40,6 @@ const Navbar = () => {
         });
         handleMenu();
     };
-
-    const { user, dispatch } = useContext(AuthContext);
-
-    const handleLogin = () => {
-        Start_Login()
-    }
-
-    const handleLogout = async () => {
-        try {
-            await Logout(dispatch);
-            navigate('/')
-        } catch (error) {
-            console.log(error);
-        }
-    }
 
     return (
         <>
@@ -65,11 +66,11 @@ const Navbar = () => {
                 <div className="nav-icon-wrapper">
                 </div>
                 {
-                    user !== null ? (
+                    data  ? (
                         <>
                             <Avatar
-                                alt={user?.fullName}
-                                src={user?.profilePic}
+                                alt={data?.user?.fullName || data?.profile?.fullName}
+                                src={data?.user?.profilePic || data?.profile?.profilePic}
                                 sx={{ mr: 1, width: 35, height: 35 }}
                             />
                             <Button sx={{ mr: 2 }} onClick={handleLogout}>Logout</Button>
