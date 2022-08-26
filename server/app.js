@@ -62,12 +62,6 @@ mongoose.connection.on("error", (err) => {
     console.log("err connecting db");
 });
 
-app.use('/', (req, res) => {
-    res.json({
-        message: "Hello Friend"
-    });
-})
-
 // Importing routes
 app.use("/", require("./routes/index"));
 app.use("/auth", require("./routes/userAuthRoutes"));
