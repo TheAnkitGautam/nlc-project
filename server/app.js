@@ -62,21 +62,6 @@ mongoose.connection.on("error", (err) => {
     console.log("err connecting db");
 });
 
-function isSecure(req) {
-    if (req.headers['x-forwarded-proto']) {
-        return req.headers['x-forwarded-proto'] === 'https';
-    }
-    return req.secure;
-};
-
-app.use((req, res, next) => {
-    if (!isSecure(req)) {
-        res.redirect(301, `https://${req.headers.host}${req.url}`);
-    } else {
-        next();
-    }
-});
-
 // Importing routes
 app.use("/", require("./routes/index"));
 app.use("/auth", require("./routes/userAuthRoutes"));
