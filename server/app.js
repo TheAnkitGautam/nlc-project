@@ -10,9 +10,8 @@ require('./config/passport-setup');
 const mongoStore = require('connect-mongo');
 
 // Enabling cross origin requests
-var whitelist = ['http://example1.com', 'http://example2.com']
 const corsOptions = {
-    origin: 'http://localhost:3000',
+    origin: ["http://localhost:3000", "https://example.com/"],
     credentials: true,
     optionsSuccessStatus: 200
 }
