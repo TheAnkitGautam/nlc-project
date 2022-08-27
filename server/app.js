@@ -11,7 +11,7 @@ const mongoStore = require('connect-mongo');
 
 // Enabling cross origin requests
 const corsOptions = {
-    origin: ["http://localhost:3000", "https://example.com/"],
+    origin: '*',
     credentials: true,
     optionsSuccessStatus: 200
 }
