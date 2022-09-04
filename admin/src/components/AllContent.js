@@ -24,6 +24,7 @@ const AllContent = () => {
                             <TableCell>Title</TableCell>
                             <TableCell>Category</TableCell>
                             <TableCell>Link</TableCell>
+                            <TableCell>Action</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -37,7 +38,7 @@ const AllContent = () => {
                                                     <Link href={post.instaUrl} target="_blank" underline="none">
                                                         <CardMedia
                                                             component="img"
-                                                            sx={{ width: 90 }}
+                                                            sx={{ width: '40px', height:'40px' }}
                                                             image={post.imgUrl}
                                                             alt="Live from space album cover"
                                                         />
@@ -47,6 +48,11 @@ const AllContent = () => {
                                                 <TableCell>{doc.category}</TableCell>
                                                 <TableCell>
                                                     <Link href={post.instaUrl} target="_blank" underline="none">View</Link>
+                                                </TableCell>
+                                                <TableCell>
+                                                    <Button variant="contained" color="error">
+                                                        Delete
+                                                    </Button>
                                                 </TableCell>
                                             </TableRow>
                                         )
@@ -62,4 +68,4 @@ const AllContent = () => {
     )
 }
 
-export default AllContent
+export default AllContent;
