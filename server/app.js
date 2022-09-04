@@ -11,7 +11,7 @@ const mongoStore = require('connect-mongo');
 
 // Enabling cross origin requests
 const corsOptions = {
-    origin: 'http://localhost:3000',
+    origin: ['http://localhost:3000', 'http://localhost:4000'],
     credentials: true,
     optionsSuccessStatus: 200
 }
@@ -29,7 +29,6 @@ app.use(expressSession({
     secret: process.env.COOKIE_KEY,
     resave: false,
     saveUninitialized: false,
-    // httpOnly: true,
     cookie: {
         maxAge: 60 * 60 * 1000,
     },

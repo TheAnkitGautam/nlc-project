@@ -66,7 +66,7 @@ const Navbar = () => {
                 <div className="nav-icon-wrapper">
                 </div>
                 {
-                    data  ? (
+                    data ? (
                         <>
                             <Avatar
                                 alt={data?.user?.fullName || data?.profile?.fullName}
@@ -79,8 +79,7 @@ const Navbar = () => {
                         :
                         (
                             <Button sx={{
-                                mr: 2,
-                                "&:hover": { background: '#1565c0', color: 'white' }
+                                mr: 2
                             }}
                                 disableElevation
                                 variant='outlined'

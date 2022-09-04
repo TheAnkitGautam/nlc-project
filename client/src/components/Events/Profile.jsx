@@ -113,7 +113,7 @@ export default function Profile() {
                     <img src={eventPoster} alt="" className={styles.eventImg} />
                 </div>
                 <Box sx={{ my: 10 }}>
-                    <h2 className={styles.title}><span>----------</span> Upcoming Events <span>----------</span></h2>
+                    <h2 className={styles.title}><span>----------</span> Create Account <span>----------</span></h2>
                     <Container sx={{ display: 'flex', justifyContent: "center" }} component={Paper} maxWidth="sm">
                         <StyledBox sx={{ height: '100%', width: '68%', padding: '2rem 0' }}>
                             <Box sx={{ display: 'flex', justifyContent: "center" }}>

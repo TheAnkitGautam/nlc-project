@@ -1,6 +1,6 @@
 import CSS from './Rules.module.css';
 import Rule from './Rule';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext'
 import { GetRules, RegisterForEvent } from '../../utils/API_Calls';
 import { Alert, Snackbar } from "@mui/material"
@@ -10,7 +10,7 @@ import Loader from '../Loader';
 const RulesPage = () => {
 
     let { eventName } = useParams();
-
+    const navigate = useNavigate();
     const { data } = useAuth();
 
     const [msg, setMsg] = useState("")
@@ -43,6 +43,9 @@ const RulesPage = () => {
         const msg = await RegisterForEvent(newData);
         setMsg(msg);
         setOpen(true)
+        setTimeout(() => {
+            navigate(`/events`)
+        }, 2000)
     }
 
     return (

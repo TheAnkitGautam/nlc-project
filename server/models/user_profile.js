@@ -21,6 +21,10 @@ const userProfileSchema = new mongoose.Schema({
         type: Array,
         default: []
     },
+    submissions: {
+        type: Array,
+        default: []
+    },
     gender: {
         type: String
     },
