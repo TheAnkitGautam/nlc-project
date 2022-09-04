@@ -16,7 +16,7 @@ const ManageContent = () => {
         <>
             <TabContext value={selectedTab}>
                 <Box sx={{ m: 1 }} component={Paper} square>
-                    <TabList onChange={handleChange}>
+                    <TabList onChange={handleChange} sx={{height:'60px'}}>
                         <Tab icon={<AppsIcon />} iconPosition="start" label="All Content" value="1"></Tab>
                         <Tab icon={<AddCircleOutlineIcon />} iconPosition="start" label="Add New" value="2" />
                     </TabList>
@@ -35,4 +35,4 @@ const ManageContent = () => {
     )
 }
 
-export default ManageContent
+export default ManageContent;
