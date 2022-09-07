@@ -8,9 +8,9 @@ import SubscriberPage from "./Pages/SubscriberPage";
 
 
 function App() {
-  
+
   const { user } = useAuth()
-  
+
   return (
     // <Box sx={{ backgroundColor: "#F4F5FA", height: "100vh" }}>
     //   <BrowserRouter>
@@ -33,6 +33,7 @@ function App() {
     //   </BrowserRouter>
     // </Box>
     <>
+      <ManageContent />
       <Sidebar />
     </>
   );

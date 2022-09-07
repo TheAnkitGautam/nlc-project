@@ -12,6 +12,7 @@ const ManageContent = () => {
     const handleChange = (event, newValue) => {
         setSelectedTab(newValue);
     };
+    
     return (
         <>
             <TabContext value={selectedTab}>
