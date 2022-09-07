@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .messagetitle {
   font-size: 2.5rem;
   font-weight: 700;
@@ -88,4 +89,95 @@
     padding: 1.75rem 0 0 1rem;
     margin: 0 0.5rem;
   }
+=======
+.messagetitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #282828;
+  font-family: 'Merriweather', sans-serif;
+  text-align: center;
+  margin: 2rem 0 4rem 0;
+}
+
+.messagetitle span {
+  color: #db5d4d;
+}
+
+.messagewrapper {
+  display: grid;
+  place-items: center;
+  margin: 2rem 0;
+  grid-template-columns: 2fr 4fr auto;
+  gap: 5rem;
+  font-family: "Roboto", sans-serif;
+}
+
+.messageimage {
+  width: 250px;
+  border-radius: 50%;
+}
+
+.name {
+  font-size: 1.2rem;
+  margin: 10px auto 4px auto;
+  font-family: 'Merriweather', sans-serif;
+}
+
+.post {
+  font-size: 0.9rem;
+  margin: 0 5px;
+  color: #db5d4d;
+}
+
+.messagecontent {
+  font-size: 1.15rem;
+  line-height: 1.5rem;
+  color: #333;
+}
+
+@media screen and (max-width: 1300px) {
+  .messagewrapper {
+    gap: 4rem;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .messagewrapper {
+    gap: 4rem;
+    margin: 2rem 9rem;
+  }
+
+  .name {
+    font-size: 1rem;
+  }
+
+  .post {
+    font-size: 0.8rem;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .messagewrapper {
+    margin: 2rem 2rem;
+  }
+
+  .messagecontent {
+    text-align: justify;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .messagewrapper {
+    grid-template-columns: 1fr;
+    place-items: center;
+    gap: 1rem;
+    margin: 2rem;
+  }
+
+  .messagetitle {
+    font-size: 2rem;
+    padding: 1.75rem 0 0 1rem;
+    margin: 0 0.5rem;
+  }
+>>>>>>> 83abdb41f583fa44adc1c2fc29f853ed52b448fc
 }
