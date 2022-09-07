@@ -32,16 +32,10 @@ function App() {
         ) : (
           <Routes>
             <Route path="/" element={<LoginPage />} />
-            <Route path="/hello" element={<ManageContent />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         )}
       </BrowserRouter>
-      {/* <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<ManageContent/>}/>
-        </Routes>
-      </BrowserRouter> */}
     </Box>
   );
 }
