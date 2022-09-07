@@ -130,7 +130,6 @@ const AddNewContent = () => {
         <TextField
           fullWidth
           select
-          labelId="demo-simple-select-label"
           id="select-category"
           value={formval.category}
           name="category"
