@@ -6,9 +6,8 @@ import LoginPage from "./Pages/LoginPage";
 import ManageContent from "./Pages/ManageContent";
 import SubscriberPage from "./Pages/SubscriberPage";
 
-
 function App() {
-  const { user } = useAuth()
+  const { user } = useAuth();
   return (
     <Box sx={{ backgroundColor: "#F4F5FA", height: "100vh" }}>
       <BrowserRouter>
@@ -16,19 +15,33 @@ function App() {
           <>
             <Sidebar />
             <Routes>
-              <Route path="/" element={user ? <ManageContent /> : <Navigate to="/login" replace />} />
-              <Route path="/subscribers" element={user ? <SubscriberPage /> : <Navigate to="/login" replace />} />
+              <Route
+                path="/"
+                element={
+                  user ? <ManageContent /> : <Navigate to="/login" replace />
+                }
+              />
+              <Route
+                path="/subscribers"
+                element={
+                  user ? <SubscriberPage /> : <Navigate to="/login" replace />
+                }
+              />
             </Routes>
           </>
-        )
-          : (
-            <Routes>
-              <Route path="/" element={<LoginPage />} />
-              <Route path="*" element={<Navigate to="/" replace />} />
-            </Routes>
-          )
-        }
+        ) : (
+          <Routes>
+            <Route path="/" element={<LoginPage />} />
+            <Route path="/hello" element={<ManageContent />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+        )}
       </BrowserRouter>
+      {/* <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<ManageContent/>}/>
+        </Routes>
+      </BrowserRouter> */}
     </Box>
   );
 }
