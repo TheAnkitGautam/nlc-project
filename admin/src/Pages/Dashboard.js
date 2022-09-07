@@ -1,10 +1,8 @@
-import Sidebar from "../components/Sidebar/Sidebar"
-import ManageContent from "./ManageContent"
+import Sidebar from "../components/Sidebar/Sidebar";
+import ManageContent from "./ManageContent";
 
 const Dashboard = () => {
-    return (
-        <ManageContent />
-    )
-}
+  return <ManageContent />;
+};
 
-export default Dashboard
+export default Dashboard;
