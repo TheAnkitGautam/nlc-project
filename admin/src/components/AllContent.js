@@ -17,7 +17,6 @@ const AllContent = () => {
     }, [])
 
     const handleDelete = () => {
-        console.log(postId);
         setOpenDialog(false);
 
         // API CODE
@@ -61,8 +60,10 @@ const AllContent = () => {
                                                 <TableCell>
                                                     <Button
                                                         data-post-id={post._id}
-                                                        onClick={(e) => { setPostId(e.target.getAttribute('data-post-id')) 
-                                                        setOpenDialog(true) }}
+                                                        onClick={(e) => {
+                                                            setPostId(e.target.getAttribute('data-post-id'))
+                                                            setOpenDialog(true)
+                                                        }}
                                                         variant="contained" color="error">
                                                         Delete
                                                     </Button>

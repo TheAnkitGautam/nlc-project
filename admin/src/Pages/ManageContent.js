@@ -23,7 +23,7 @@ const ManageContent = () => {
                     </TabList>
                 </Box>
 
-                <Box sx={{ m: 1 }} component={Paper} square>
+                <Box sx={{ m: 1, minHeight:"100vh"}} component={Paper} square>
                     <TabPanel value="1">
                         <AllContent />
                     </TabPanel>
