@@ -1,31 +1,69 @@
 import { Typography, Paper, TextField } from "@mui/material";
 import { Box, Container } from "@mui/system";
 import Button from "@mui/material/Button";
-import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
 import { useState } from "react";
 import TitleIcon from "@mui/icons-material/Title";
 import RecentActorsIcon from "@mui/icons-material/RecentActors";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import CategoryIcon from "@mui/icons-material/Category";
 
+const Validate = (formValues) => {
+  const errors = {};
+
+  if (!formValues.title) {
+      errors.title = "Title is required"
+  }
+
+  if (!formValues.thumbnailUrl) {
+    errors.thumbnailUrl = "Thumbnail URL is required"
+  }
+
+  if (!formValues.instaUrl) {
+    errors.instaUrl = "Instagram URL is required"
+  }
+
+  if(!formValues.category){
+    errors.category = "Select a category"
+  }
+
+  return errors;
+}
+
+
 const AddNewContent = () => {
-  const [title, setTitle] = useState("");
-  const [thumbnailurl, setThumbnailurl] = useState("");
-  const [instaurl, setInstaurl] = useState("");
-  const [category, setCategory] = useState("");
+  const [errors, setErrors] = useState({});
+  const [formval,setFormval]=useState({
+    title:'',
+    thumbnailUrl:'',
+    instaUrl:'',
+    category:''
+  });
 
   const handleClear = () => {
-    setInstaurl("");
-    setThumbnailurl("");
-    setTitle("");
-    setCategory("");
+    setFormval({
+      title:'',
+      thumbnailUrl:'',
+      instaUrl:'',
+      category:''
+    })
   };
 
   const handleChange = (e) => {
-    setCategory(e.target.value);
+    setFormval({
+      ...formval,
+      [e.target.name]:e.target.value
+    })
   };
+
+  const handleSubmit = () =>{
+    const errors = Validate(formval);
+    setErrors(errors);
+
+    if (Object.keys(errors).length === 0) {
+      console.log(formval);
+    }
+  }
 
   return (
     <Container
@@ -48,39 +86,43 @@ const AddNewContent = () => {
       <Box sx={{ display: "flex", alignItems: "center", px: 2, pt: 2 }}>
         <TitleIcon sx={{ mr: 2 }} />
         <TextField
-          name="Title"
+          name="title"
           variant="outlined"
           size="small"
           label="Title"
-          value={title}
+          value={formval.title}
           sx={{ width: "350px" }}
-          onChange={(event) => {
-            setTitle(event.target.value);
-          }}
+          onChange={handleChange}
+          error={Boolean(errors.title)}
+          helperText={errors.title}
         />
       </Box>
       <Box sx={{ display: "flex", alignItems: "center", px: 2, pt: 2 }}>
         <RecentActorsIcon sx={{ mr: 2 }} />
         <TextField
-          name="Thumbnail URL"
+          name="thumbnailUrl"
           variant="outlined"
           size="small"
           sx={{ width: "350px" }}
           label="Thumbnail URL"
-          value={thumbnailurl}
-          onChange={(event) => setThumbnailurl(event.target.value)}
+          value={formval.thumbnailUrl}
+          onChange={handleChange}
+          error={Boolean(errors.thumbnailUrl)}
+          helperText={errors.thumbnailUrl}
         />
       </Box>
       <Box sx={{ display: "flex", alignItems: "center", px: 2, pt: 2 }}>
         <InstagramIcon sx={{ mr: 2 }} />
         <TextField
-          name="Instagram URL"
+          name="instaUrl"
           variant="outlined"
           size="small"
           sx={{ width: "350px" }}
           label="Instagram URL"
-          value={instaurl}
-          onChange={(event) => setInstaurl(event.target.value)}
+          value={formval.instaUrl}
+          onChange={handleChange}
+          error={Boolean(errors.instaUrl)}
+          helperText={errors.instaUrl}
         />
       </Box>
       <Box sx={{ display: "flex", alignItems: "center", px: 2, pt: 2 }}>
@@ -90,19 +132,21 @@ const AddNewContent = () => {
           select
           labelId="demo-simple-select-label"
           id="select-category"
-          value={category}
+          value={formval.category}
           name="category"
           label="Category"
           onChange={handleChange}
           size="small"
           sx={{ width: "350px" }}
+          error={Boolean(errors.category)}
+          helperText={errors.category}
         >
           <MenuItem value={"3rd Angle"}>3rd Angle</MenuItem>
           <MenuItem value={"Fabula Forum"}>Fabula Forum</MenuItem>
         </TextField>
       </Box>
       <Box sx={{ float: "left", px: 2, pt: 3 }}>
-        <Button variant="contained" color="success">
+        <Button variant="contained" color="success" onClick={handleSubmit}>
           Submit
         </Button>
         <Button
