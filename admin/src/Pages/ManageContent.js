@@ -12,18 +12,18 @@ const ManageContent = () => {
     const handleChange = (event, newValue) => {
         setSelectedTab(newValue);
     };
-    
+
     return (
         <>
             <TabContext value={selectedTab}>
                 <Box sx={{ m: 1 }} component={Paper} square>
-                    <TabList onChange={handleChange} sx={{height:'60px'}}>
+                    <TabList onChange={handleChange} sx={{ height: '60px' }}>
                         <Tab icon={<AppsIcon />} iconPosition="start" label="All Content" value="1"></Tab>
                         <Tab icon={<AddCircleOutlineIcon />} iconPosition="start" label="Add New" value="2" />
                     </TabList>
                 </Box>
 
-                <Box sx={{ m: 1, minHeight:"100vh"}} component={Paper} square>
+                <Box sx={{ m: 1, minHeight: "100vh" }} component={Paper} square>
                     <TabPanel value="1">
                         <AllContent />
                     </TabPanel>
