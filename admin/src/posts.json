@@ -1,0 +1,170 @@
+[{
+  "_id": {
+    "$oid": "62de31df3d80381e1116c30e"
+  },
+  "category": "Fabula Forum",
+  "postList": [
+    {
+      "title": "Fighting bias with bias",
+      "imgUrl": "https://i.postimg.cc/WbB7KQ7R/post-Img-628b1c8a10021a81a2f1.jpg",
+      "instaUrl": "https://www.instagram.com/p/CccjMLAPBly",
+      "_id": {
+        "$oid": "62de31df3d80381e1116c30f"
+      },
+      "createdAt": {
+        "$date": {
+          "$numberLong": "1658728927544"
+        }
+      }
+    },
+    {
+      "title": "Fighting bias with bias",
+      "imgUrl": "https://i.postimg.cc/WbB7KQ7R/post-Img-628b1c8a10021a81a2f1.jpg",
+      "instaUrl": "https://www.instagram.com/p/CccjMLAPBly",
+      "_id": {
+        "$oid": "62de31ec3d80381e1116c313"
+      },
+      "createdAt": {
+        "$date": {
+          "$numberLong": "1658728940554"
+        }
+      }
+    },
+    {
+      "title": "Fighting bias with bias",
+      "imgUrl": "https://i.postimg.cc/WbB7KQ7R/post-Img-628b1c8a10021a81a2f1.jpg",
+      "instaUrl": "https://www.instagram.com/p/CccjMLAPBly",
+      "_id": {
+        "$oid": "62de31ed3d80381e1116c317"
+      },
+      "createdAt": {
+        "$date": {
+          "$numberLong": "1658728941473"
+        }
+      }
+    },
+    {
+      "title": "Fighting bias with bias",
+      "imgUrl": "https://i.postimg.cc/WbB7KQ7R/post-Img-628b1c8a10021a81a2f1.jpg",
+      "instaUrl": "https://www.instagram.com/p/CccjMLAPBly",
+      "_id": {
+        "$oid": "62de31ee3d80381e1116c31b"
+      },
+      "createdAt": {
+        "$date": {
+          "$numberLong": "1658728942337"
+        }
+      }
+    },
+    {
+      "title": "Fighting bias with bias",
+      "imgUrl": "https://i.postimg.cc/WbB7KQ7R/post-Img-628b1c8a10021a81a2f1.jpg",
+      "instaUrl": "https://www.instagram.com/p/CccjMLAPBly",
+      "_id": {
+        "$oid": "62de3249aa82d64d2e50f5f6"
+      },
+      "createdAt": {
+        "$date": {
+          "$numberLong": "1658729033141"
+        }
+      }
+    },
+    {
+      "title": "Hello World",
+      "imgUrl": "https://i.postimg.cc/WbB7KQ7R/post-Img-628b1c8a10021a81a2f1.jpg",
+      "instaUrl": "https://www.instagram.com/p/CccjMLAPBly",
+      "_id": {
+        "$oid": "62de3270225a5b1ea7dabb35"
+      },
+      "createdAt": {
+        "$date": {
+          "$numberLong": "1658729072225"
+        }
+      }
+    }
+  ],
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1658728927545"
+    }
+  },
+  "__v": 5
+},{
+  "_id": {
+    "$oid": "62de3291225a5b1ea7dabb39"
+  },
+  "category": "3rd Angle",
+  "postList": [
+    {
+      "title": "Fighting bias with bias",
+      "imgUrl": "https://i.postimg.cc/WbB7KQ7R/post-Img-628b1c8a10021a81a2f1.jpg",
+      "instaUrl": "https://www.instagram.com/p/CccjMLAPBly",
+      "_id": {
+        "$oid": "62de3291225a5b1ea7dabb3a"
+      },
+      "createdAt": {
+        "$date": {
+          "$numberLong": "1658729105610"
+        }
+      }
+    },
+    {
+      "title": "Fighting bias with bias",
+      "imgUrl": "https://i.postimg.cc/WbB7KQ7R/post-Img-628b1c8a10021a81a2f1.jpg",
+      "instaUrl": "https://www.instagram.com/p/CccjMLAPBly",
+      "_id": {
+        "$oid": "62de3293225a5b1ea7dabb3e"
+      },
+      "createdAt": {
+        "$date": {
+          "$numberLong": "1658729107787"
+        }
+      }
+    },
+    {
+      "title": "Fighting bias with bias",
+      "imgUrl": "https://i.postimg.cc/WbB7KQ7R/post-Img-628b1c8a10021a81a2f1.jpg",
+      "instaUrl": "https://www.instagram.com/p/CccjMLAPBly",
+      "_id": {
+        "$oid": "62de3294225a5b1ea7dabb42"
+      },
+      "createdAt": {
+        "$date": {
+          "$numberLong": "1658729108767"
+        }
+      }
+    },
+    {
+      "title": "Fighting bias with bias",
+      "imgUrl": "https://i.postimg.cc/WbB7KQ7R/post-Img-628b1c8a10021a81a2f1.jpg",
+      "instaUrl": "https://www.instagram.com/p/CccjMLAPBly",
+      "_id": {
+        "$oid": "62de3295225a5b1ea7dabb46"
+      },
+      "createdAt": {
+        "$date": {
+          "$numberLong": "1658729109639"
+        }
+      }
+    },
+    {
+      "title": "Fighting bias with bias",
+      "imgUrl": "https://i.postimg.cc/WbB7KQ7R/post-Img-628b1c8a10021a81a2f1.jpg",
+      "instaUrl": "https://www.instagram.com/p/CccjMLAPBly",
+      "_id": {
+        "$oid": "62de3296225a5b1ea7dabb4a"
+      },
+      "createdAt": {
+        "$date": {
+          "$numberLong": "1658729110482"
+        }
+      }
+    }
+  ],
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1658729105610"
+    }
+  },
+  "__v": 4
+}]

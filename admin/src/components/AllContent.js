@@ -1,6 +1,7 @@
 import { Box, Button, CardMedia, Dialog, DialogTitle, DialogActions, Link, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material"
 import { useEffect, useState } from "react"
 import { GetAllContent } from "../utils/API_CALLS"
+import posts from './../posts.json'
 
 const AllContent = () => {
 
@@ -37,7 +38,7 @@ const AllContent = () => {
                     </TableHead>
                     <TableBody>
                         {
-                            content?.map((doc) => {
+                            posts?.map((doc) => {
                                 return (
                                     doc.postList.map((post) => {
                                         return (
