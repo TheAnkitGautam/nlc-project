@@ -47,7 +47,7 @@ router.get('/subscribers-list', ensureAdminAuth, async (req, res) => {
     }
 })
 
-router.post('/add-post', async (req, res) => {
+router.post('/add-post', ensureAdminAuth, async (req, res) => {
     try {
         const findCategory = await PostModel.findOne({ category: req.body.category });
         if (findCategory) {
@@ -75,7 +75,7 @@ router.post('/add-post', async (req, res) => {
     }
 })
 
-router.post('/delete-post', async (req, res) => {
+router.post('/delete-post', ensureAdminAuth, async (req, res) => {
     const { postId } = req.body;
     try {
         const post = await PostModel.findOne({ "postList._id": postId });
