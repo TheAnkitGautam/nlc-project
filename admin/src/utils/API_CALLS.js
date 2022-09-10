@@ -23,3 +23,25 @@ export const GetUser = async () => {
     const { data } = await axios.get(API_BASE_URL + "/admin/login/success", config)
     return data;
 }
+
+export const DeletePost = async (postId) => {
+    let config = {
+        headers: {
+            Authorization: auth_token
+        }
+    }
+    const { data } = await axios.post(API_BASE_URL + "/admin/delete-post", { postId }, config);
+    return data;
+}
+
+export const AddPost = async (formval) => {
+    let config = {
+        headers: {
+            Authorization: auth_token
+        }
+    }
+    const { title, category, imgUrl, instaUrl } = formval;
+
+    const { data } = await axios.post(API_BASE_URL + "/admin/add-post", { title, category, imgUrl, instaUrl }, config);
+    return data;
+}

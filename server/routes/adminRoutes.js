@@ -20,7 +20,7 @@ router.post('/login', async (req, res) => {
         if (passwordDoMatch) {
             const token = jwt.sign({ _id: savedUser._id }, process.env.JWT_SECRET);
             return res.status(200).json({
-                type:'success',
+                type: 'success',
                 msg: "Login successful",
                 token,
             });
@@ -47,26 +47,45 @@ router.get('/subscribers-list', ensureAdminAuth, async (req, res) => {
     }
 })
 
-router.post('/add-post', ensureAdminAuth, async (req, res) => {
-    const { category, title, imgUrl, instaUrl } = req.body;
+router.post('/add-post', async (req, res) => {
     try {
-        const existingPost = await PostModel.findOne({ category });
-        if (existingPost) {
-            existingPost.postList.push({ title, imgUrl, instaUrl });
-            await existingPost.save();
-            return res.status(200).json({ msg: "Post added successfully" });
+        const findCategory = await PostModel.findOne({ category: req.body.category });
+        if (findCategory) {
+            findCategory.postList.push({
+                title: req.body.title,
+                imgUrl: req.body.imgUrl,
+                instaUrl: req.body.instaUrl,
+            });
+            await findCategory.save();
+            return res.status(200).json({ type: "success", msg: "Post added successfully" });
         } else {
             const newPost = new PostModel({
-                category,
-                postList: [{ title, imgUrl, instaUrl }]
+                category: req.body.category,
+                postList: [{
+                    title: req.body.title,
+                    imgUrl: req.body.imgUrl,
+                    instaUrl: req.body.instaUrl,
+                }]
             });
             await newPost.save();
-            return res.status(200).json({ msg: "Post added successfully" });
+            return res.status(200).json({ type: "success", msg: "Post added successfully" });
         }
+    } catch (err) {
+        res.status(500).json(err);
+    }
+})
+
+router.post('/delete-post', async (req, res) => {
+    const { postId } = req.body;
+    try {
+        const post = await PostModel.findOne({ "postList._id": postId });
+        post.postList.pull(postId);
+        await post.save();
+        return res.status(200).json({ msg: "Post deleted successfully" });
     } catch (err) {
         res.status(500).json(err)
     }
-})
+});
 
 router.get('/get-content', async (req, res) => {
     try {

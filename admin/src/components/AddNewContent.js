@@ -7,23 +7,24 @@ import TitleIcon from "@mui/icons-material/Title";
 import RecentActorsIcon from "@mui/icons-material/RecentActors";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import CategoryIcon from "@mui/icons-material/Category";
+import { AddPost } from "../utils/API_CALLS";
 
 const Validate = (formValues) => {
   const errors = {};
 
   if (!formValues.title) {
-      errors.title = "Title is required"
+    errors.title = "Title is required"
   }
 
-  if (!formValues.thumbnailUrl) {
-    errors.thumbnailUrl = "Thumbnail URL is required"
+  if (!formValues.imgUrl) {
+    errors.imgUrl = "Thumbnail URL is required"
   }
 
   if (!formValues.instaUrl) {
     errors.instaUrl = "Instagram URL is required"
   }
 
-  if(!formValues.category){
+  if (!formValues.category) {
     errors.category = "Select a category"
   }
 
@@ -33,35 +34,35 @@ const Validate = (formValues) => {
 
 const AddNewContent = () => {
   const [errors, setErrors] = useState({});
-  const [formval,setFormval]=useState({
-    title:'',
-    thumbnailUrl:'',
-    instaUrl:'',
-    category:''
+  const [formval, setFormval] = useState({
+    title: '',
+    imgUrl: '',
+    instaUrl: '',
+    category: ''
   });
 
   const handleClear = () => {
     setFormval({
-      title:'',
-      thumbnailUrl:'',
-      instaUrl:'',
-      category:''
+      title: '',
+      imgUrl: '',
+      instaUrl: '',
+      category: ''
     })
   };
 
   const handleChange = (e) => {
     setFormval({
       ...formval,
-      [e.target.name]:e.target.value
+      [e.target.name]: e.target.value
     })
   };
 
-  const handleSubmit = () =>{
+  const handleSubmit = () => {
     const errors = Validate(formval);
     setErrors(errors);
 
     if (Object.keys(errors).length === 0) {
-      console.log(formval);
+      AddPost(formval);
     }
   }
 
@@ -100,15 +101,15 @@ const AddNewContent = () => {
       <Box sx={{ display: "flex", alignItems: "center", px: 2, pt: 2 }}>
         <RecentActorsIcon sx={{ mr: 2 }} />
         <TextField
-          name="thumbnailUrl"
+          name="imgUrl"
           variant="outlined"
           size="small"
           sx={{ width: "350px" }}
           label="Thumbnail URL"
-          value={formval.thumbnailUrl}
+          value={formval.imgUrl}
           onChange={handleChange}
-          error={Boolean(errors.thumbnailUrl)}
-          helperText={errors.thumbnailUrl}
+          error={Boolean(errors.imgUrl)}
+          helperText={errors.imgUrl}
         />
       </Box>
       <Box sx={{ display: "flex", alignItems: "center", px: 2, pt: 2 }}>

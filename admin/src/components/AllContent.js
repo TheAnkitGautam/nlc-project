@@ -1,6 +1,6 @@
 import { Box, Button, CardMedia, Dialog, DialogTitle, DialogActions, Link, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material"
 import { useEffect, useState } from "react"
-import { GetAllContent } from "../utils/API_CALLS"
+import { GetAllContent, DeletePost } from "../utils/API_CALLS"
 
 const AllContent = () => {
 
@@ -20,6 +20,10 @@ const AllContent = () => {
         setOpenDialog(false);
 
         // API CODE
+        DeletePost(postId);
+        window.location.reload();
+
+        setPostId("");
     }
 
     return (
