@@ -70,7 +70,7 @@ const AddNewContent = () => {
     <Container
       elevation={4}
       component={Paper}
-      sx={{ width: "500px", pt: 5, pb: 10 }}
+      sx={{ width: "500px", pt: 5, pb: 10, marginTop:'50px' }}
     >
       <Box
         sx={{
