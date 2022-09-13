@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import eventPoster from "../components/Events/eventPoster.jpg";
 import CSS from "../components/Events/public_corner.module.css";
-import logo from "../components/Clubs/D-Zire.png";
 import { Upcoming_events_list } from "../components/Events/Events_list";
 import { Link } from 'react-router-dom'
 import { Button, Typography } from "@mui/material";
@@ -35,30 +34,30 @@ const EventsPage = () => {
       </div>
       <div className={CSS.noticeBox}>
         <h2 className={CSS.title}>
-          <span>----------</span> Upcoming Events <span>----------</span>
+          <span>-------</span> Upcoming Events <span>-------</span>
         </h2>
         {
           !data &&
-          <div className={CSS.buttonContainer}>
+          <div style={{ display: 'flex', justifyContent: 'center' }} className={CSS.buttonContainer}>
             <Typography variant="body1" sx={{ mr: 2 }} color={'error'}>You can only register for events after Login!</Typography>
-            <Button size="small" variant="outlined" color="primary" onClick={handleLogin} >Login Here</Button>
+            <Button size="small" variant="outlined" color="primary" onClick={handleLogin}>Login Here</Button>
           </div>
         }
-        <div style={!data?.profile ? { pointerEvents: "none", opacity: "0.3" } : {}} className={CSS.eventContainer}>
+        <div style={!data?.profile ? { pointerEvents: "none", opacity:"0.7" } : {}} className={CSS.eventContainer}>
           {
             Upcoming_events_list.map((Event, index) => {
               return (
                 <div className={CSS.eventbox} key={index}>
                   <div className={CSS.eventDesc}>
                     <div className={CSS.eventTitleBanner}>
-                      <img className={CSS.eventLogo} src={logo} alt="" />
+                      {/* <img className={CSS.eventLogo} src={logo} alt="" /> */}
                       <div className={CSS.eventTitle}>{Event.name}</div>
                     </div>
-                    <Button variant="contained" disabled={notExists}>
+                    <button className={CSS.registrationBtn} disabled={notExists}>
                       <Link to={`/event/${Event.name}`}>
                         Register
                       </Link>
-                    </Button>
+                    </button>
                   </div>
                   <div className={CSS.eventDate}>
                     <div className={CSS.eventStart}>

@@ -43,12 +43,12 @@ const Footer = () => {
                             <h6 className='icon-text'>instagram</h6>
                         </div>
                         <div className="sm-icon">
-                            <a href="https://www.instagram.com/nita_lit_club/"
+                            <a href="https://www.facebook.com/nitalitclub/"
                                 rel="noreferrer" target="_blank"><i className="foot-icon fab fa-facebook" /></a>
                             <h6 className='icon-text'>facebook</h6>
                         </div>
                         <div className="sm-icon">
-                            <a href="https://www.instagram.com/nita_lit_club/"
+                            <a href="https://www.linkedin.com/company/nita-literary-club-1/"
                                 rel="noreferrer" target="_blank"><i className="foot-icon fab fa-linkedin" />
                             </a>
                             <h6 className='icon-text'>linkedin</h6>
