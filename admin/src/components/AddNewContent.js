@@ -13,48 +13,47 @@ const Validate = (formValues) => {
   const errors = {};
 
   if (!formValues.title) {
-    errors.title = "Title is required"
+    errors.title = "Title is required";
   }
 
   if (!formValues.imgUrl) {
-    errors.imgUrl = "Thumbnail URL is required"
+    errors.imgUrl = "Thumbnail URL is required";
   }
 
   if (!formValues.instaUrl) {
-    errors.instaUrl = "Instagram URL is required"
+    errors.instaUrl = "Instagram URL is required";
   }
 
   if (!formValues.category) {
-    errors.category = "Select a category"
+    errors.category = "Select a category";
   }
 
   return errors;
-}
-
+};
 
 const AddNewContent = () => {
   const [errors, setErrors] = useState({});
   const [formval, setFormval] = useState({
-    title: '',
-    imgUrl: '',
-    instaUrl: '',
-    category: ''
+    title: "",
+    imgUrl: "",
+    instaUrl: "",
+    category: "",
   });
 
   const handleClear = () => {
     setFormval({
-      title: '',
-      imgUrl: '',
-      instaUrl: '',
-      category: ''
-    })
+      title: "",
+      imgUrl: "",
+      instaUrl: "",
+      category: "",
+    });
   };
 
   const handleChange = (e) => {
     setFormval({
       ...formval,
-      [e.target.name]: e.target.value
-    })
+      [e.target.name]: e.target.value,
+    });
   };
 
   const handleSubmit = () => {
@@ -64,13 +63,13 @@ const AddNewContent = () => {
     if (Object.keys(errors).length === 0) {
       AddPost(formval);
     }
-  }
+  };
 
   return (
     <Container
       elevation={4}
       component={Paper}
-      sx={{ width: "500px", pt: 5, pb: 10, marginTop:'50px' }}
+      sx={{ width: "500px", pt: 5, pb: 10, marginTop: "50px" }}
     >
       <Box
         sx={{
@@ -151,6 +150,7 @@ const AddNewContent = () => {
         </Button>
         <Button
           variant="outlined"
+          color="error"
           sx={{ marginLeft: "20px" }}
           onClick={handleClear}
         >
