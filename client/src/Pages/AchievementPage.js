@@ -1,26 +1,24 @@
 import React from "react";
 import '../components/Achievements/Achievement.css';
-import { Achievement_Set } from "../components/Achievements/AchievementSet";
+import { AchievementsData } from "../components/Achievements/AchievementSet";
+import pattern from '../components/Achievements/pattern6.png'
 
 const AchievementPage = () => {
   return (
     <div className="achievementPage pageLoadAnim">
       <h1 className="team-heading"><span className='meet-word'>Our </span>Achievements</h1>
-      <div className="achievementWrapper">
+      <div className="achievement-container">
         {
-          Achievement_Set.map((Achievement) => {
+          AchievementsData.map((val, ind) => {
             return (
-              <div key={Achievement.index} className="achievementCard">
-                <a href={Achievement.linkUrl} target="_blank" rel="noreferrer">
-                  <div className="achievementCardFace achievementCardFront">
-                    <img src={Achievement.frontImg} alt="" />
-                  </div>
-                  <div className="achievementCardFace achievementCardBack">
-                    <img src={Achievement.backImg} alt="" />
-                  </div>
-                </a>
+              <div className="img-box">
+                <div className="img-frame">
+                  <img className="img-top" src={val.hoverImg} alt="Achievement Front" />
+                  <img src={val.coverImg} alt="Achievement Back" />
+                </div>
+                <img className="pattern" src={pattern} alt="Pattern" />
               </div>
-            )
+            );
           })
         }
       </div>

@@ -21,11 +21,12 @@ const Content_section = () => {
         {
           content.length !== 0 ?
             content.map((doc, index) => {
-              return <Carousal key={index} category={doc.category} postList={doc.postList} />
+              return doc.postList.length !== 0 &&
+                <Carousal key={index} category={doc.category} postList={doc.postList} />
             })
             : (
               <div className={CSS.contentError}>
-                Error Fetching Content......
+                Content not found !!
               </div>
 
             )

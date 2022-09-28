@@ -7,7 +7,7 @@ const Hero = () => {
                 <section className="hero">
                     <div className="about">
                         <h2 className="about-title"><span>Who</span> are we?</h2>
-                        <p className="about-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,</p>
+                        <p className="about-text">The Literary Club of NIT Agartala aims to develop analytical and creative thinking skills. It's main objective is to develop the literary skills of the students. It aims to enhance listening, reading, speaking, and writing skills of students and develop soft skills such as effective communication, leadership skills, and interpersonal communication skills.</p>
                     </div>
                     <div className="about-icons container">
                         <div className='icon-item'>

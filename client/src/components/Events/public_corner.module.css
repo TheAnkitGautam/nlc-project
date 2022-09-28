@@ -59,12 +59,9 @@
   margin: 1rem auto;
   padding: 20px 10px;
   font-family: "Roboto", sans-serif;
-  background: #db5e4d20;
-  background: #FDFCE5;
-  background-image: url(./Graffiti1.png);
-  /* background-size: cover; */
-  border-top: 2.25px solid rgba(100, 100, 111, 0.2);
-  border-bottom: 2.25px solid rgba(100, 100, 111, 0.2);
+  background: snow;
+  border-top: 1.5px solid rgba(100, 100, 111, 0.2);
+  border-bottom: 1.5px solid rgba(100, 100, 111, 0.2);
 }
 
 .eventbox:hover {
@@ -85,25 +82,24 @@
 }
 
 .eventTitle {
-  font-size: 1.47rem;
-  padding: 10px;
+  font-size: 1.25rem;
+  padding: 10px 0;
   width: 330px;
-
-  /* text-align: center; */
+  font-weight: 500;
 }
 
 .registrationBtn,
 .completionBtn {
-  border: 1.6px solid #db5d4d;
-  border-radius: 3px;
-  padding: 5.5px;
+  border: 1px solid #db5d4d;
+  padding: 6px 8px;
+  font-size: 1.2rem;
   width: fit-content;
   cursor: pointer;
-  margin: 10px 5px;
-  color: #db5d4d;
-  margin-left: 20px;
+  margin: 8px 0;
+  color: #fff;
   text-align: center;
-  background: #fff;
+  background: #db5d4d;
+  transition: all 0.3s ease-in-out;
 }
 
 .completionBtn {
@@ -114,8 +110,8 @@
 }
 
 .registrationBtn:hover {
-  background: #db5d4d;
-  color: snow;
+  background: #fff;
+  color: #db5d4d;
 }
 
 .eventDate {
@@ -124,6 +120,9 @@
 
 .eventStart {
   margin: 18.5px auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 
 .dateTitle {
@@ -137,13 +136,12 @@
   min-width: 100px;
   display: flex;
   flex-direction: column;
-  padding-left: 15px;
-  font-size: 17px;
+  font-size: 14px;
+  margin-left: 5px;
 }
 
 .noticeBox {
   margin: 4rem auto;
-  /* min-height: 100vh; */
 }
 
 @media screen and (max-width: 1250px) {
@@ -158,6 +156,10 @@
   .eventTitle {
     font-size: 1.4rem;
     width: 300px;
+  }
+
+  .startDate {
+    margin: 0 0 0 5px;
   }
 }
 
@@ -214,12 +216,22 @@
   .dateTitle,
   .startDate {
     font-size: 15px;
+    margin-top: 0;
   }
 }
 
 @media screen and (max-width: 750px) {
   .eventTitle {
     width: 310px;
+  }
+
+  .eventDate {
+    margin: 5px auto;
+  }
+
+  .startDate {
+    padding-left: 10px;
+    margin-top: 0;
   }
 }
 
@@ -233,8 +245,8 @@
   }
 
   .eventTitle {
-    font-size: 1.25rem;
-    width: 350px;
+    font-size: 1.15rem;
+    text-align: center;
   }
 
   .eventDesc {
@@ -242,17 +254,9 @@
     place-items: center;
   }
 
-  .eventDate {
-    margin: 5px auto;
-  }
-
-  .startDate {
-    padding-left: 10px;
-  }
-
   .dateTitle,
   .startDate {
-    font-size: 13px;
+    font-size: 14px;
   }
 
   .registrationBtn,
@@ -280,6 +284,13 @@
   .eventTitle {
     font-size: 1.15rem;
     width: 325px;
+    text-align: center;
+    margin: 0 0 0.5rem 0;
+  }
+
+  .registrationBtn {
+    margin: 0.5rem 0 1rem 0;
+    padding: 7px 10px;
   }
 }
 
@@ -347,19 +358,5 @@
   .dateTitle,
   .startDate {
     font-size: 12px;
-  }
-}
-
-@media (max-width: 700px) {
-  .noticeBox {
-    margin: 2rem auto;
-  }
-
-  .title span {
-    display: none;
-  }
-
-  .title {
-    font-size: 1.25rem;
   }
 }

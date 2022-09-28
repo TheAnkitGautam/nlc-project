@@ -9,6 +9,8 @@ const settings = {
   slidesToShow: 3,
   slidesToScroll: 3,
   className: "react__slick__slider__parent",
+  infinite: false,
+  centerMode: false,
   responsive: [
     {
       breakpoint: 1050,
