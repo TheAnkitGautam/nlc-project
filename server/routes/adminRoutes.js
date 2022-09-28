@@ -48,8 +48,7 @@ router.get('/subscribers-list', ensureAdminAuth, async (req, res) => {
     }
 })
 
-router.get('/user-profiles', async (req, res) => {
-    console.log("user-profiles");
+router.get('/user-profiles', ensureAdminAuth, async (req, res) => {
     try {
         const profiles = await UserProfileModel.find({});
         return res.status(200).json(profiles);

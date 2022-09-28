@@ -60,6 +60,7 @@ export default function PaticipantPage() {
         || profile.email.toLowerCase().includes(searchVal.toLowerCase())
         || profile.whatsappNumber.toLowerCase().includes(searchVal.toLowerCase())
         || profile.instituteName.toLowerCase().includes(searchVal.toLowerCase())
+        || profile.gender.toLowerCase().includes(searchVal.toLowerCase())
     });
   }
 
@@ -133,15 +134,19 @@ export default function PaticipantPage() {
               </TableRow>
             </TableHead>
             <TableBody>
-              {handleSearch(handleEventFilter(profiles))?.map((profile) => {
+              {handleSearch(handleEventFilter(profiles))?.map((profile, index) => {
                 return (
                   <ExpandableTableRow
-                    // key={index}
+                    key={index}
                     expandComponent={
                       <TableCell colSpan="5">
                         <p>
                           <h4 style={{ display: "inline" }}>Email: </h4>
                           {profile.email}
+                        </p>
+                        <p>
+                          <h4 style={{ display: "inline" }}>Gender: </h4>
+                          {profile.gender}
                         </p>
                         <p>
                           <h4 style={{ display: "inline" }}>Instagram URL: </h4>
@@ -180,8 +185,8 @@ export default function PaticipantPage() {
                     <TableCell>
                       {
                         profile.eventList
-                          .map((event) => {
-                            return <Chip color="primary" sx={{ ml: 1 }} label={event} />
+                          .map((event, index) => {
+                            return <Chip key={index} color="primary" sx={{ ml: 1 }} label={event} />
                           })
                       }
                     </TableCell>
