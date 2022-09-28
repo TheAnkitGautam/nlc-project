@@ -80,8 +80,12 @@ router.post('/delete-post', ensureAdminAuth, async (req, res) => {
     try {
         const post = await PostModel.findOne({ "postList._id": postId });
         post.postList.pull(postId);
-        await post.save();
-        return res.status(200).json({ msg: "Post deleted successfully" });
+        if (post.postList.length === 0) {
+            await post.remove();
+        } else {
+            await post.save();
+            return res.status(200).json({ msg: "Post deleted successfully" });
+        }
     } catch (err) {
         res.status(500).json(err)
     }

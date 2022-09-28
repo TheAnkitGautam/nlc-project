@@ -14,15 +14,14 @@ const AllContent = () => {
             setContent(data)
         }
         fetchData()
-    }, [])
+    }, [postId])
 
     const handleDelete = () => {
         setOpenDialog(false);
 
         // API CODE
         DeletePost(postId);
-        window.location.reload();
-
+        setContent(content.filter((item) => item._id !== postId));
         setPostId("");
     }
 

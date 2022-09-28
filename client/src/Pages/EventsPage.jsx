@@ -15,6 +15,7 @@ const EventsPage = () => {
   const handleLogin = () => {
     Start_Login()
   }
+  console.log(data);
 
   useEffect(() => {
     if (data?.profile !== null && data?.user !== null) {
@@ -43,14 +44,13 @@ const EventsPage = () => {
             <Button size="small" variant="outlined" color="primary" onClick={handleLogin}>Login Here</Button>
           </div>
         }
-        <div style={!data?.profile ? { pointerEvents: "none", opacity:"0.7" } : {}} className={CSS.eventContainer}>
+        <div style={!data?.profile ? { pointerEvents: "none", opacity: "0.7" } : {}} className={CSS.eventContainer}>
           {
             Upcoming_events_list.map((Event, index) => {
               return (
                 <div className={CSS.eventbox} key={index}>
                   <div className={CSS.eventDesc}>
                     <div className={CSS.eventTitleBanner}>
-                      {/* <img className={CSS.eventLogo} src={logo} alt="" /> */}
                       <div className={CSS.eventTitle}>{Event.name}</div>
                     </div>
                     <button className={CSS.registrationBtn} disabled={notExists}>

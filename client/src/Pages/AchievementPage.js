@@ -11,7 +11,7 @@ const AchievementPage = () => {
         {
           AchievementsData.map((val, ind) => {
             return (
-              <div className="img-box">
+              <div key={ind} className="img-box">
                 <div className="img-frame">
                   <img className="img-top" src={val.hoverImg} alt="Achievement Front" />
                   <img src={val.coverImg} alt="Achievement Back" />
