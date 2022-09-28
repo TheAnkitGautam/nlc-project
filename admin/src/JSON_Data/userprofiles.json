@@ -1,0 +1,54 @@
+[
+  {
+    "_id": {
+      "$oid": "6312dc5fc9da7196e3072d39"
+    },
+    "googleId": "102983944407668488555",
+    "fullName": "Ankit Gautam",
+    "email": "a53gau@gmail.com",
+    "profilePic": "https://lh3.googleusercontent.com/a/AItbvmkxDoXqFgn0-AOPMVUf5MiTn8pt2z5flzkjkisapA=s96-c",
+    "eventList": ["Debate Competition", "Singing", "Poetry"],
+    "submissions": [],
+    "gender": "male",
+    "whatsappNumber": "8273577091",
+    "instaUrl": "https://www.instagram.com/",
+    "instituteName": "NIT Agartala",
+    "createdAt": {
+      "$date": {
+        "$numberLong": "1662180447587"
+      }
+    },
+    "updatedAt": {
+      "$date": {
+        "$numberLong": "1662180623179"
+      }
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "63205b52111785bc5acf7bd9"
+    },
+    "googleId": "104709769251973551038",
+    "fullName": "Mani Teja",
+    "email": "katammaniteja@gmail.com",
+    "profilePic": "https://lh3.googleusercontent.com/a/AItbvmllyT4NNgunI9WfX-drzWff-os8g0tXPe637V4EqQ=s96-c",
+    "eventList": [],
+    "submissions": [],
+    "gender": "male",
+    "whatsappNumber": "8273577091",
+    "instaUrl": "fsfs",
+    "instituteName": "fsfsfs",
+    "createdAt": {
+      "$date": {
+        "$numberLong": "1663064914498"
+      }
+    },
+    "updatedAt": {
+      "$date": {
+        "$numberLong": "1663064914498"
+      }
+    },
+    "__v": 0
+  }
+]
