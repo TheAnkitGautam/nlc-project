@@ -21,6 +21,7 @@ const LoginPage = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [msg, setMsg] = useState("");
   const [open, setOpen] = useState(false);
+  const [loginBtnState, setLoginBtnState] = useState(false)
 
   const handleClose = () => {
     setOpen(false);
@@ -42,6 +43,7 @@ const LoginPage = () => {
   const { _signInUser } = useAuth();
 
   const handleLogin = async () => {
+    setLoginBtnState(true)
     const response = await Login(values.username, values.password);
     _signInUser(response.token, response.user);
     if (response.type === "success") {
@@ -49,6 +51,7 @@ const LoginPage = () => {
     }
     setMsg({ type: response.type, text: response.msg });
     setOpen(true);
+    setLoginBtnState(false)
   };
 
   return (
@@ -141,6 +144,7 @@ const LoginPage = () => {
             sx={{ mb: 2 }}
             color="primary"
             fullWidth
+            disabled={loginBtnState}
           >
             Login
           </Button>

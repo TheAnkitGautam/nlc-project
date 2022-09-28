@@ -3,7 +3,7 @@ import IconButton from "@mui/material/IconButton";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 
-import { TableCell, TableRow } from "@mui/material";
+import { TableCell, TableRow, Tooltip } from "@mui/material";
 
 export const ExpandableTableRow = ({
   children,
@@ -14,10 +14,12 @@ export const ExpandableTableRow = ({
 
   return (
     <>
-      <TableRow {...otherProps}>
+      <TableRow sx={{ cursor: 'pointer' }} onClick={() => setIsExpanded(!isExpanded)} {...otherProps}>
         <TableCell padding="checkbox">
-          <IconButton onClick={() => setIsExpanded(!isExpanded)}>
-            {isExpanded ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
+          <IconButton >
+            <Tooltip title={isExpanded ? "view less" : "view more"} placement="bottom">
+              {isExpanded ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
+            </Tooltip>
           </IconButton>
         </TableCell>
         {children}

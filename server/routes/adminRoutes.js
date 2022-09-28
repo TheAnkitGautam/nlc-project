@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const ensureAdminAuth = require('../middlewares/ensureAdminAuth');
 const AdminModel = require('../models/admin');
+const UserProfileModel = require('../models/user_profile');
 const SubscriberModel = require('../models/subscriber');
 const PostModel = require('../models/post');
 const bcrypt = require("bcrypt");
@@ -42,6 +43,16 @@ router.get('/subscribers-list', ensureAdminAuth, async (req, res) => {
     try {
         const subscribersList = await SubscriberModel.find({});
         return res.status(200).json(subscribersList);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+})
+
+router.get('/user-profiles', async (req, res) => {
+    console.log("user-profiles");
+    try {
+        const profiles = await UserProfileModel.find({});
+        return res.status(200).json(profiles);
     } catch (err) {
         res.status(500).json(err);
     }

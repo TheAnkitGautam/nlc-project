@@ -20,6 +20,11 @@ function ResponsiveDrawer({ children }) {
     setMobileOpen(!mobileOpen);
   };
 
+  const handleLogout = () => {
+    sessionStorage.removeItem("token");
+    window.location.href = "/";
+  }
+
   const drawer = (
     <div style={{ paddingTop: "10px" }}>
       <List>
@@ -53,16 +58,14 @@ function ResponsiveDrawer({ children }) {
             </ListItemButton>
           </ListItem>
         </Link>
-        <Link to="/logout">
-          <ListItem key="Logout" disablePadding style={{ marginTop: "70vh" }}>
-            <ListItemButton>
-              <ListItemIcon>
-                <LogoutIcon />
-              </ListItemIcon>
-              <ListItemText primary="Logout" />
-            </ListItemButton>
-          </ListItem>
-        </Link>
+        <ListItem key="Logout" disablePadding style={{ marginTop: "70vh" }}>
+          <ListItemButton onClick={handleLogout} sx={{ color: 'red' }}>
+            <ListItemIcon>
+              <LogoutIcon sx={{ color: 'red' }} />
+            </ListItemIcon>
+            <ListItemText primary="Logout" />
+          </ListItemButton>
+        </ListItem>
       </List>
     </div>
   );

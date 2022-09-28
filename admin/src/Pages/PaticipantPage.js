@@ -1,16 +1,15 @@
-import React from "react";
+import { useEffect } from "react"
+import moment from 'moment'
 import TextField from "@mui/material/TextField";
-import { Paper } from "@mui/material";
+import { Chip, Paper } from "@mui/material";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import Stack from "@mui/material/Stack";
-import CheckIcon from "@mui/icons-material/Check";
 import ClearIcon from "@mui/icons-material/Clear";
 import DownloadIcon from "@mui/icons-material/Download";
 import { useState } from "react";
-import userprofiles from "../JSON_Data/userprofiles.json";
 import { ExpandableTableRow } from "./ExpandableTableRow";
 import {
   Box,
@@ -22,17 +21,51 @@ import {
   TableHead,
   TableRow,
 } from "@mui/material";
+import { GetUserProfiles } from "../utils/API_CALLS";
+import Loader from "../components/Loader";
 
 export default function PaticipantPage() {
-  const [event, setEvent] = useState("");
-  const [searchval, setSearchval] = useState("");
+  const [eventVal, setEventVal] = useState("");
+  const [searchVal, setSearchVal] = useState("");
+  const [profiles, setProfiles] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchProfiles = async () => {
+      const profiles = await GetUserProfiles();
+      setProfiles(profiles.filter(profile => profile.eventList.length !== 0));
+    }
+    fetchProfiles();
+    setLoading(false);
+  }, []);
+
   const handleChange = (event) => {
-    setEvent(event.target.value);
+    setEventVal(event.target.value);
   };
 
+  const handleEventFilter = (profiles) => {
+    if (eventVal === "") {
+      return profiles;
+    } else {
+      return profiles.filter((profile) => profile.eventList.includes(eventVal));
+    }
+  }
+
+  const handleSearch = (profiles = []) => {
+    if (searchVal === "") {
+      return profiles;
+    }
+    return profiles.filter((profile) => {
+      return profile.fullName.toLowerCase().includes(searchVal.toLowerCase())
+        || profile.email.toLowerCase().includes(searchVal.toLowerCase())
+        || profile.whatsappNumber.toLowerCase().includes(searchVal.toLowerCase())
+        || profile.instituteName.toLowerCase().includes(searchVal.toLowerCase())
+    });
+  }
+
   const handleClear = () => {
-    setEvent("");
-    setSearchval("");
+    setEventVal("");
+    setSearchVal("");
   };
 
   return (
@@ -48,13 +81,12 @@ export default function PaticipantPage() {
           <Select
             labelId="demo-simple-select-label"
             id="demo-simple-select"
-            value={event}
+            value={eventVal}
             label="Event"
             onChange={handleChange}
           >
-            <MenuItem value={"Ten"}>Ten</MenuItem>
-            <MenuItem value={"Twenty"}>Twenty</MenuItem>
-            <MenuItem value={"Thirty"}>Thirty</MenuItem>
+            <MenuItem value={"Debate Competition"}>Debate Competition</MenuItem>
+            <MenuItem value={"Poetry"}>Poetry</MenuItem>
           </Select>
         </FormControl>
         <TextField
@@ -62,20 +94,12 @@ export default function PaticipantPage() {
           sx={{ width: "30%" }}
           label="Search Bar"
           variant="outlined"
-          value={searchval}
+          value={searchVal}
           onChange={(event) => {
-            setSearchval(event.target.value);
+            setSearchVal(event.target.value);
           }}
         />
         <Stack direction="row" spacing={2} sx={{ display: "inline", ml: 2 }}>
-          <Button
-            variant="contained"
-            color="success"
-            size="large"
-            startIcon={<CheckIcon />}
-          >
-            Apply
-          </Button>
           <Button
             variant="outlined"
             color="error"
@@ -93,10 +117,11 @@ export default function PaticipantPage() {
           size="large"
           startIcon={<DownloadIcon />}
         >
-          Download CSV
+          Download Excel
         </Button>
       </Box>
       <Box sx={{ m: 1 }} component={Paper} square>
+        {loading && <Loader />}
         <TableContainer sx={{ maxHeight: "80vh", overflowY: "scroll" }}>
           <Table stickyHeader>
             <TableHead sx={{ background: "#" }}>
@@ -104,14 +129,14 @@ export default function PaticipantPage() {
                 <TableCell padding="checkbox" />
                 <TableCell style={{ width: "25%" }}>Email</TableCell>
                 <TableCell style={{ width: "25%" }}>Name</TableCell>
-                <TableCell>Events Registered</TableCell>
+                <TableCell>Registered for</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
-              {userprofiles?.map((profile, index) => {
+              {handleSearch(handleEventFilter(profiles))?.map((profile) => {
                 return (
                   <ExpandableTableRow
-                    key={index}
+                    // key={index}
                     expandComponent={
                       <TableCell colSpan="5">
                         <p>
@@ -122,9 +147,9 @@ export default function PaticipantPage() {
                           <h4 style={{ display: "inline" }}>Instagram URL: </h4>
                           <a
                             href={profile.instaUrl}
-                            target="__blank"
-                            rel="noreferer"
-                            style={{ color: "gray" }}
+                            target="_blank"
+                            rel="noreferrer"
+                            style={{ color: "#0000FF" }}
                           >
                             {profile.instaUrl}
                           </a>
@@ -141,12 +166,25 @@ export default function PaticipantPage() {
                           </h4>
                           {profile.instituteName}
                         </p>
+                        <p>
+                          <h4 style={{ display: "inline" }}>
+                            Date of Registration:{"  "}
+                          </h4>
+                          {moment(profile.updatedAt).format('DD MMM YY, hh:mm a')}
+                        </p>
                       </TableCell>
                     }
                   >
                     <TableCell>{profile.email}</TableCell>
                     <TableCell>{profile.fullName}</TableCell>
-                    <TableCell>{profile.eventList.join(", ")}</TableCell>
+                    <TableCell>
+                      {
+                        profile.eventList
+                          .map((event) => {
+                            return <Chip color="primary" sx={{ ml: 1 }} label={event} />
+                          })
+                      }
+                    </TableCell>
                   </ExpandableTableRow>
                 );
               })}

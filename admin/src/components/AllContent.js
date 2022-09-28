@@ -1,12 +1,14 @@
 import { Box, Button, CardMedia, Dialog, DialogTitle, DialogActions, Link, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material"
 import { useEffect, useState } from "react"
 import { GetAllContent, DeletePost } from "../utils/API_CALLS"
+import Loader from "./Loader"
 
 const AllContent = () => {
 
     const [content, setContent] = useState()
     const [openDialog, setOpenDialog] = useState(false);
     const [postId, setPostId] = useState("");
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -14,19 +16,21 @@ const AllContent = () => {
             setContent(data)
         }
         fetchData()
+        setLoading(false)
     }, [postId])
 
     const handleDelete = () => {
         setOpenDialog(false);
-
-        // API CODE
+        setLoading(true);
         DeletePost(postId);
         setContent(content.filter((item) => item._id !== postId));
         setPostId("");
+        setLoading(false);
     }
 
     return (
         <Box>
+            {loading && <Loader />}
             <TableContainer sx={{ maxHeight: '80vh', overflowY: 'scroll', }}>
                 <Table stickyHeader>
                     <TableHead sx={{ background: "#" }}>

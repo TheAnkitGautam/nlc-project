@@ -9,6 +9,17 @@ export const GetAllContent = async () => {
     return res;
 }
 
+export const GetUserProfiles = async () => {
+    let config = {
+        headers: {
+            Authorization: auth_token
+        }
+    }
+    const { data } = await axios.get(API_BASE_URL + '/admin/user-profiles', config)
+    console.log(data);
+    return data;
+}
+
 export const Login = async (username, password) => {
     const { data } = await axios.post(API_BASE_URL + '/admin/login', { username, password })
     return data;
