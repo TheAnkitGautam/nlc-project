@@ -1,5 +1,5 @@
-import { useEffect } from "react"
-import moment from 'moment'
+import { useEffect } from "react";
+import moment from "moment";
 import TextField from "@mui/material/TextField";
 import { Chip, Paper } from "@mui/material";
 import InputLabel from "@mui/material/InputLabel";
@@ -11,6 +11,7 @@ import ClearIcon from "@mui/icons-material/Clear";
 import DownloadIcon from "@mui/icons-material/Download";
 import { useState } from "react";
 import { ExpandableTableRow } from "./ExpandableTableRow";
+import { CSVLink } from "react-csv";
 import {
   Box,
   Button,
@@ -30,11 +31,20 @@ export default function PaticipantPage() {
   const [profiles, setProfiles] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  // Headers for the csv file
+  const headers = [
+    { label: "fullName", key: "fullName" },
+    { label: "email", key: "email" },
+    { label: "eventList", key: "eventList" },
+    { label: "whatsappNumber", key: "whatsappNumber" },
+    { label: "instituteName", key: "instituteName" },
+  ];
+
   useEffect(() => {
     const fetchProfiles = async () => {
       const profiles = await GetUserProfiles();
-      setProfiles(profiles.filter(profile => profile.eventList.length !== 0));
-    }
+      setProfiles(profiles.filter((profile) => profile.eventList.length !== 0));
+    };
     fetchProfiles();
     setLoading(false);
   }, []);
@@ -49,19 +59,23 @@ export default function PaticipantPage() {
     } else {
       return profiles.filter((profile) => profile.eventList.includes(eventVal));
     }
-  }
+  };
 
   const handleSearch = (profiles = []) => {
     if (searchVal === "") {
-      return profiles;
+      return profiles.filter((profile) => profile.eventList.length);
     }
     return profiles.filter((profile) => {
-      return profile.fullName.toLowerCase().includes(searchVal.toLowerCase())
-        || profile.email.toLowerCase().includes(searchVal.toLowerCase())
-        || profile.whatsappNumber.toLowerCase().includes(searchVal.toLowerCase())
-        || profile.instituteName.toLowerCase().includes(searchVal.toLowerCase())
+      return (
+        profile.fullName.toLowerCase().includes(searchVal.toLowerCase()) ||
+        profile.email.toLowerCase().includes(searchVal.toLowerCase()) ||
+        profile.whatsappNumber
+          .toLowerCase()
+          .includes(searchVal.toLowerCase()) ||
+        profile.instituteName.toLowerCase().includes(searchVal.toLowerCase())
+      );
     });
-  }
+  };
 
   const handleClear = () => {
     setEventVal("");
@@ -87,6 +101,7 @@ export default function PaticipantPage() {
           >
             <MenuItem value={"Debate Competition"}>Debate Competition</MenuItem>
             <MenuItem value={"Poetry"}>Poetry</MenuItem>
+            <MenuItem value={"Singing"}>Singing</MenuItem>
           </Select>
         </FormControl>
         <TextField
@@ -117,7 +132,14 @@ export default function PaticipantPage() {
           size="large"
           startIcon={<DownloadIcon />}
         >
-          Download Excel
+          <CSVLink
+            headers={headers}
+            data={handleSearch(handleEventFilter(profiles))}
+            filename="Participants"
+            style={{ textDecoration: "none", color: "#fff" }}
+          >
+            Export Data
+          </CSVLink>
         </Button>
       </Box>
       <Box sx={{ m: 1 }} component={Paper} square>
@@ -133,61 +155,73 @@ export default function PaticipantPage() {
               </TableRow>
             </TableHead>
             <TableBody>
-              {handleSearch(handleEventFilter(profiles))?.map((profile) => {
-                return (
-                  <ExpandableTableRow
-                    // key={index}
-                    expandComponent={
-                      <TableCell colSpan="5">
-                        <p>
-                          <h4 style={{ display: "inline" }}>Email: </h4>
-                          {profile.email}
-                        </p>
-                        <p>
-                          <h4 style={{ display: "inline" }}>Instagram URL: </h4>
-                          <a
-                            href={profile.instaUrl}
-                            target="_blank"
-                            rel="noreferrer"
-                            style={{ color: "#0000FF" }}
-                          >
-                            {profile.instaUrl}
-                          </a>
-                        </p>
-                        <p>
-                          <h4 style={{ display: "inline" }}>
-                            Whatsapp Number:{" "}
-                          </h4>
-                          {profile.whatsappNumber}
-                        </p>
-                        <p>
-                          <h4 style={{ display: "inline" }}>
-                            Institute Name:{" "}
-                          </h4>
-                          {profile.instituteName}
-                        </p>
-                        <p>
-                          <h4 style={{ display: "inline" }}>
-                            Date of Registration:{"  "}
-                          </h4>
-                          {moment(profile.updatedAt).format('DD MMM YY, hh:mm a')}
-                        </p>
-                      </TableCell>
-                    }
-                  >
-                    <TableCell>{profile.email}</TableCell>
-                    <TableCell>{profile.fullName}</TableCell>
-                    <TableCell>
-                      {
-                        profile.eventList
-                          .map((event) => {
-                            return <Chip color="primary" sx={{ ml: 1 }} label={event} />
-                          })
+              {handleSearch(handleEventFilter(profiles))?.map(
+                (profile, index) => {
+                  return (
+                    <ExpandableTableRow
+                      key={index}
+                      expandComponent={
+                        <TableCell colSpan="5">
+                          <p>
+                            <h4 style={{ display: "inline" }}>Email: </h4>
+                            {profile.email}
+                          </p>
+                          <p>
+                            <h4 style={{ display: "inline" }}>
+                              Instagram URL:{" "}
+                            </h4>
+                            <a
+                              href={profile.instaUrl}
+                              target="_blank"
+                              rel="noreferrer"
+                              style={{ color: "#0000FF" }}
+                            >
+                              {profile.instaUrl}
+                            </a>
+                          </p>
+                          <p>
+                            <h4 style={{ display: "inline" }}>
+                              Whatsapp Number:{" "}
+                            </h4>
+                            {profile.whatsappNumber}
+                          </p>
+                          <p>
+                            <h4 style={{ display: "inline" }}>
+                              Institute Name:{" "}
+                            </h4>
+                            {profile.instituteName}
+                          </p>
+                          <p>
+                            <h4 style={{ display: "inline" }}>
+                              Date of Registration:{"  "}
+                            </h4>
+                            {moment(profile.updatedAt).format(
+                              "DD MMM YY, hh:mm a"
+                            )}
+                          </p>
+                        </TableCell>
                       }
-                    </TableCell>
-                  </ExpandableTableRow>
-                );
-              })}
+                    >
+                      <TableCell>{profile.email}</TableCell>
+                      <TableCell>{profile.fullName}</TableCell>
+                      <TableCell>
+                        {profile.eventList.map((event) => {
+                          return (
+                            <Chip
+                              sx={{
+                                ml: 1,
+                                color: "white",
+                                backgroundColor: "#5186ba",
+                              }}
+                              label={event}
+                            />
+                          );
+                        })}
+                      </TableCell>
+                    </ExpandableTableRow>
+                  );
+                }
+              )}
             </TableBody>
           </Table>
         </TableContainer>
