@@ -1,42 +1,17 @@
-import { Box } from '@mui/material'
-import { useState } from 'react';
-import ReactQuill from 'react-quill';
-import 'react-quill/dist/quill.snow.css';
+import React, { useState, useRef } from "react";
+import JoditEditor from "jodit-react";
 
 const AddBlog = () => {
-  const [editorState, setEditorState] = useState('');
-
-  const config = {
-    toolbar: [
-      [{ 'font': [] }],
-      [{ 'header': [1, 2, 3, 4, false] }],
-      ['bold', 'italic', 'underline', 'strike', 'blockquote'],
-      [{ 'list': 'ordered' }, { 'list': 'bullet' }, { 'indent': '-1' }, { 'indent': '+1' }],
-      ['image'],
-    ]
-  }
-
-  const formats = [
-    'header',
-    'bold', 'italic', 'underline', 'strike', 'blockquote',
-    'list', 'bullet', 'indent',
-    'link',
-  ]
+  const editor = useRef(null);
+  const [content, setContent] = useState("");
 
   return (
-    <Box sx={{ zIndex: 999 }}>
-      <ReactQuill
-        style={{ height: '200px', width: '70%' }}
-        placeholder={'Write something...'}
-        theme="snow"
-        value={editorState}
-        modules={config}
-        formats={formats}
-        onChange={(value) => setEditorState(value)}
-      />
-      {editorState}
-    </Box>
-  )
-}
+    <JoditEditor
+      ref={editor}
+      value={content}
+      onChange={(newContent) => setContent(newContent)}
+    />
+  );
+};
 
-export default AddBlog
+export default AddBlog;
