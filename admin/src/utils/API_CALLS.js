@@ -16,7 +16,6 @@ export const GetUserProfiles = async () => {
         }
     }
     const { data } = await axios.get(API_BASE_URL + '/admin/user-profiles', config)
-    console.log(data);
     return data;
 }
 
