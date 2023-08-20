@@ -3,13 +3,13 @@ import { Box, Paper, MenuItem, TextField, Avatar, Container, styled, Typography,
 import LoadingButton from '@mui/lab/LoadingButton';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined';
-import WhatsappOutlinedIcon from '@mui/icons-material/WhatsappOutlined';
+import WhatsappOutlinedIcon from '@mui/icons-material/WhatsApp';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import SchoolOutlinedIcon from '@mui/icons-material/SchoolOutlined';
 import eventPoster from './eventPoster.jpg';
 import { useEffect, useState } from 'react';
 import { Create_User_Profile } from '../../utils/API_Calls';
-import { useAuth } from '../../context/AuthContext';
+import { useAuth } from '../../Context/AuthContext';
 
 const StyledBox = styled(Box)(({ theme }) => ({
     [theme.breakpoints.down('sm')]: {

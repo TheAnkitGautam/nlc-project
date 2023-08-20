@@ -1,7 +1,7 @@
 import CSS from './Rules.module.css';
 import Rule from './Rule';
 import { useNavigate, useParams } from 'react-router-dom';
-import { useAuth } from '../../context/AuthContext'
+import { useAuth } from '../../Context/AuthContext'
 import { GetRules, RegisterForEvent } from '../../utils/API_Calls';
 import { Alert, Snackbar } from "@mui/material"
 import { useState, useEffect } from "react"

@@ -4,7 +4,7 @@ import CSS from "../components/Events/public_corner.module.css";
 import { Upcoming_events_list } from "../components/Events/Events_list";
 import { Link } from 'react-router-dom'
 import { Button, Typography } from "@mui/material";
-import { useAuth } from "../context/AuthContext";
+import { useAuth } from "../Context/AuthContext";
 import { Start_Login } from "../utils/API_Calls";
 
 const EventsPage = () => {

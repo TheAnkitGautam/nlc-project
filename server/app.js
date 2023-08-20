@@ -11,7 +11,7 @@ const mongoStore = require('connect-mongo');
 
 // Enabling cross origin requests
 const corsOptions = {
-    origin: ['http://localhost:3000', 'http://localhost:4000'],
+    origin: "*",
     credentials: true,
     optionsSuccessStatus: 200
 }
@@ -33,7 +33,7 @@ app.use(expressSession({
         maxAge: 60 * 60 * 1000,
     },
     store: mongoStore.create({
-        mongoUrl: process.env.LOCAL_MONGO_URI,
+        mongoUrl: process.env.MONGO_URI,
         collection: 'sessions',
         autoRemove: 'interval',
         autoRemoveInterval: 10
@@ -49,7 +49,7 @@ if (process.env.NODE_ENV === "dev") {
 }
 
 // Database Connection
-mongoose.connect(process.env.LOCAL_MONGO_URI, {
+mongoose.connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 })

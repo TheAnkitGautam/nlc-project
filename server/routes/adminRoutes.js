@@ -10,6 +10,7 @@ const jwt = require("jsonwebtoken");
 router.post('/login', async (req, res) => {
     try {
         const { username, password } = req.body;
+        // console.log(await bcrypt.hash(password, 10));
         const savedUser = await AdminModel.findOne({ username })
 
         if (!savedUser) {

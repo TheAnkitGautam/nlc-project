@@ -11,7 +11,7 @@ import NotFound from './Pages/NotFound/NotFound';
 import Profile from "./components/Events/Profile";
 import PreviousEvents from "./components/Events/PreviousEvents";
 import RulesPage from "./components/Events/RulesPage";
-import { useAuth } from "./context/AuthContext";
+import { useAuth } from "./Context/AuthContext";
 
 function App() {
 

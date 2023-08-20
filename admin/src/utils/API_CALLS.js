@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const API_BASE_URL = process.env.REACT_APP_API_URI
+// const API_BASE_URL = process.env.REACT_APP_API_URI
+const API_BASE_URL = "http://localhost:5000"
 const token = sessionStorage.getItem("token");
 const auth_token = token ? `Token ${token}` : "";
 
